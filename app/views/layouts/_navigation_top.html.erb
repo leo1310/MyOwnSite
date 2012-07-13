@@ -2,14 +2,18 @@
 		
            <div class="navbar-inner">
               
-					<ul class="nav nav-pills pull-right">									
+					<ul class="nav nav-pills pull-right">					
+						<li><%= link_to "Setting", "#"%></li>
+						<li><%= link_to "Message", "#"%></li>						
 						<li><%= link_to "About Us", about_path%></li>			
 						<li><%= link_to "Help", help_path%></li>							
-						<li><a href="#">Log out</a></li>
-						
+						<li><a href="#">Log out</a></li>						
 					</ul>
+
 					<ul class="nav nav-pills pull-left">
+						<li><a href="http://vk.com", title="G", alt="G"><%= image_tag("img/fluid-logo.png", :alt => "G") %></a></li>					
 						<li><%= link_to "Home", root_path%></li>
+						<li><%= link_to "Profile", "#"%></li>						
 					</ul>
 				
 			
