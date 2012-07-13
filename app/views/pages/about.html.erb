@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>About</title>
+	<%= csrf_meta_tags %>  
+	<%= stylesheet_link_tag 'about', :media=> 'all' %> 
+	<%= javascript_include_tag 'jquery-1.7.2.js' %>        
+</head>
+<body>
+<%= render 'layouts/navigation_top'%>
+<div id="content">	
+	<div id="main">
+		<h2>About Us</h2>
+		<p>We want tell about us...</p>
+	</div>
+
+	<div id="left_panel">
+		<h2>Sections</h2>
+    		<ul>
+      			<li><a id="about" href="aboutSite/">About Site</a>      			
+      			<li><a id="about" href="partners/">Our Partners</a>
+      			<li><a id="about" href="authors/">Authors</a>
+      			<li><a id="about" href="contacts/">Contacts</a>
+      			<li><a id="about" href="additionalInf/">Additional Information</a>
+    		</ul>
+	</div>
+	
+	<div id="right_panel">		
+		<h2>Advertisement</h2>
+		<h4>12.07.2012</h4>
+		<p>News1. More<a href="#"></a></p>
+		<h4>12.07.2012</h4>
+		<p>News2. More<a href="#"></a></p>
+		<h4>12.07.2012</h4>
+		<p>News3. More<a href="#"></a></p>
+		<h4>13.07.2012</h4>
+		<p>News1. More<a href="#"></a></p>
+		<h4>13.07.2012</h4>
+		<p>News2. More<a href="#"></a></p>
+		<h4>13.07.2012</h4>
+		<p>News3. More<a href="#"></a></p>
+		<h4>13.07.2012</h4>
+		<p>News4. More<a href="#"></a></p>
+
+	</div>	
+</div>
+
+<script>
+	$('a#about').on('click', function( e ){		
+		var href = $(this).attr('href');
+		$('div#main').load(href + ' .containers');		
+
+		e.preventDefault();
+		
+	});
+	$(document).ready( function (){
+		$('#main > .containers > .partner').find('#describe').each(function(){ $(this).hide() });		
+	});
+	/*(function() {	
+		$('#main > .containers > .partner').find('#describe').each(function(){ $(this).hide() });		
+		console.log($('#main > .containers > .partner'));
+
+		$('.partner').find('#con').each(function(){
+			$(this).bind('click', function(){					
+	  			if ( $(this).next('#describe').is(':visible') ) {
+					$(this).next('#describe').fadeOut(100,function(){$(this).hide()});			
+				}
+				else {
+					$(this).next('#describe').each(function(){$(this).hide()});
+					$(this).next('#describe').fadeIn(300,function(){$(this).show()});				
+				}
+	  	
+	  	});	  
+	});
+	  
+	})();*/
+</script>
+
+</body>
+</html>

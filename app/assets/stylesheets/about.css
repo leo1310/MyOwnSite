@@ -1,0 +1,213 @@
+html {
+  height:100%;
+  background:url(img/window-bg.png) #EEE;
+}
+
+/*   Body   */
+
+body{
+  padding:0;
+  margin:0 auto;
+  width: 1100px;  
+  /*border: 1px solid #333;*/
+  min-height:100%;
+  margin-top: 52px;   
+}
+
+body {
+  font:10pt Tahoma, Sans-Serif;  
+  color:black;   
+}
+
+h1 {
+  font-size:180%;
+  letter-spacing:1px;
+}
+
+/*   Main   */
+
+#main h2 {
+  font-size:130%;
+}
+
+#main h3 {
+  color: #8E959B;
+  margin-left: 15px;
+}
+
+#main h1 {  
+  margin-left: 25px; 
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: green;
+}
+
+#main {
+  float:left;
+  width:55%;
+  margin-left:20%;    
+}
+
+#main h2 {
+  color:#293499;
+  margin-left: 25px; 
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+#main p {
+	font-family: "Times New Roman";
+	font-size: 14px;
+	text-indent : 10px;
+	width: 90%;
+	margin-left:25px;
+}
+
+#main h2 {
+  margin-top:20px;
+  margin-bottom:10px;
+}
+
+#main ul{
+	list-style:none;
+}
+#main li a{
+	text-decoration:none;
+}
+
+/*#main .picture {
+  border-color:#45F;
+}
+
+
+#main .picture {
+  float:left; 
+  padding:5px; 
+  border-style:solid; border-width:1px;
+  margin:0 15px 15px 0;
+}*/
+
+/*   Left Panel   */
+#left_panel {	
+  float:left;
+  width:20%;
+  margin-left:-76%;  
+  background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
+  padding: 95px 0;
+  padding-left: 7px;
+  border-right: 2px solid #0989F8 ;  
+}
+
+#left_panel h2 {
+  display:none;
+}
+
+#left_panel ul {
+  list-style:none;
+  margin:50px 0;
+  padding:0;
+}
+
+#left_panel li a {  
+  background:#293499;
+  color:white;
+  border-color:white;
+}
+
+#left_panel li a:hover {
+  background:#D00;
+}
+
+#left_panel li a {  
+  display:block;
+  margin:5px 0; padding:2px 15px;
+  border-style:solid; border-width:1px 0;
+  text-decoration:none;
+}
+
+/*   Right Panel   */
+
+#right_panel {
+  float:right; 
+  width:25%;
+  margin-right:-4px;
+  border-left: 2px solid #0989F8 ;  
+
+}
+
+#right_panel h4 {
+  font-size:100%; 
+  font-weight:bold;
+}
+
+#right_panel h2 {
+  background:url(img/news-head-bg.png) #DDE6FF left top repeat-x;
+}
+
+#right_panel h2 {
+  margin:0;
+  padding:10px;
+}
+
+#right_panel h4 {
+ /* float:left; */
+  margin:0 5px;
+}
+
+#right_panel p {
+  margin-left: 5px;
+}
+
+#right_panel h2 {
+  margin:0 0 20px 0;
+  padding:10px;
+}
+
+#right_panel a {
+  color:#D00;
+}
+
+#right_panel a {
+  background:url(img/red-arrow.png) right center no-repeat;
+  padding-right:13px;
+}
+
+/*   Content   */
+#content {
+  overflow:hidden;   
+  width:100%;    
+}
+
+/*   IE   */
+* html body {
+  height:100%;
+}
+
+* html #left_panel li a {
+  height:1%;
+}
+
+* html #news h3 {
+  margin-left:2.5px;
+}
+
+* html #news a {
+  padding-left:1px;
+}
+
+/*   Other   */
+#left_panel,
+#right_panel {
+  font-size:80%;
+}
+
+#left_panel h2,
+#right_panel h2 {
+  font-size:125%;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+
+

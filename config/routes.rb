@@ -1,4 +1,15 @@
 MyOwnSite::Application.routes.draw do
+  
+  root :to => 'Pages#index'
+
+  match 'about' => 'Pages#about'
+  match 'help' => 'Pages#help'
+  match 'aboutSite' => 'Pages#about_site'
+  match 'partners' => 'Pages#partners'
+  match 'authors' => 'Pages#authors'
+  match 'contacts' => 'Pages#contacts'
+  match 'additionalInf' => 'Pages#additionalInf'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
