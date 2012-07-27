@@ -1,0 +1,33 @@
+html {
+  height:100%;
+  background:url(img/uzor.jpeg) #EEE;
+}
+
+body{
+	width:1200px;	
+	margin: auto;
+	min-height:1000px;
+	/*margin-top: 15px;*/
+	background: white;
+}
+
+#map li, #map3 li, #map2 li{	
+	display: block;
+	float: left;
+}
+
+#map{
+	margin-top:0;
+	padding: 1px 0; 	
+	margin-bottom: -6px;
+	float: left;	
+}
+#map3{
+	margin-top:500;
+	padding: 1px 0; 	
+	margin-bottom: -6px;
+	float: left;	
+}
+#map ul, #map3 ul, #map2 ul{
+	list-style: none;
+}

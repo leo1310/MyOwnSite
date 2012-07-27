@@ -4,23 +4,24 @@
   <title>MyOwnSite</title>
   <%= stylesheet_link_tag 'application', :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag 'user', :media=> 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
+	<% if user_signed_in?%>
+	    <%= render 'layouts/navigation_top'%>       
+	<%else%>
+  		<%= render 'layouts/navigation_index'%>
+  	<%end%>
 	<section>
 	    <div class="container">
     
         <div/>
-
     </section>
     <%= yield %>
 
-	<footer>
-		<div id="container2">
- 			<div id="content"></div>
-		</div>
-			<div id="footer">Copyright © 2012 Lviv LEO Corporation. All Rights Reserved. Информация для контактов: leo1021@mail.ru. Правила использования материалов сайта. </div>
+	<footer>		
+		<div class="container2">Copyright © 2012 Lviv LEO Corporation. All Rights Reserved. Информация для контактов: leo1021@mail.ru. Правила использования материалов сайта. </div>
 	</footer>
 </body>
 </html>

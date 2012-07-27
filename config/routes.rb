@@ -1,5 +1,11 @@
 MyOwnSite::Application.routes.draw do
-  
+
+  devise_for :users, :path => "useraut", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+  end
+
   root :to => 'Pages#index'
 
   match 'about' => 'Pages#about'
@@ -9,6 +15,8 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
   match 'additionalInf' => 'Pages#additionalInf'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

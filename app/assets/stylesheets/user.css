@@ -1,9 +1,6 @@
-#footer{
-	position: fixed;	
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 50px;
+.container2{
+	position: static;	
+	height: 50px;	
 	background: #6A092E;
 	color: white;
 	text-align:center;
@@ -11,7 +8,10 @@
 	border-top-right-radius: 30px;
 	font-family: "Times New Roman";
 	font-size: 14px;
-}
+
+	margin-top: 950px;
+	padding: 1px 0;
+ }
 
 #help, #chapter{
 	margin-top: 50px;

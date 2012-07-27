@@ -1,0 +1,62 @@
+html {
+  height:1000px;
+  background:url(img/uzor.jpeg) #EEE;
+}
+
+body{
+	width:1100px;	
+	margin: auto;
+	min-height:1000px;
+	margin-top: 15px;
+	background: white;
+}
+
+#signin, #signup, #content{
+	float: left;
+	margin-top: 62px;
+	font-family: "Times New Roman";
+	font-size: 14px;	
+}
+#signin h2, #signup h2{
+	color: #4959F0;
+}
+
+#remember_me label{ 
+	max-width: 150px;
+}
+#remember_me{
+	display: inline;
+}
+
+#panel_login{
+	margin-left: 860px;		
+}
+
+#title{	
+	float: left;	
+	width: 1100px;
+	text-align:center;
+	height: 50px;
+	background: red;
+}
+#title h1{
+	margin-top:7px;
+	font-size: 30px;
+}
+
+#baner, #baner2, #baner3{
+	width: 280px;
+	height: 300px;
+	overflow: scroll;
+	padding: 1px 0; 
+	margin-top:-14px;
+	margin-bottom: -6px;
+	float: left;	
+}
+#baner ul, #baner2 ul, #baner3 ul{
+	width: 10000px;
+	list-style: none;
+}
+#baner li, #baner2 li, #baner3 li{
+	float: left;
+}

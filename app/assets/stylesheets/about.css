@@ -1,5 +1,5 @@
 html {
-  height:100%;
+  height:1000px;
   background:url(img/window-bg.png) #EEE;
 }
 
@@ -10,8 +10,9 @@ body{
   margin:0 auto;
   width: 1100px;  
   /*border: 1px solid #333;*/
-  min-height:100%;
-  margin-top: 52px;   
+  min-height:1000px;  
+  background: white; 
+  
 }
 
 body {
@@ -137,7 +138,7 @@ h1 {
 }
 
 #right_panel h4 {
-  font-size:100%; 
+  font-size:130%; 
   font-weight:bold;
 }
 
@@ -157,6 +158,7 @@ h1 {
 
 #right_panel p {
   margin-left: 5px;
+  font-size: 120%;
 }
 
 #right_panel h2 {
