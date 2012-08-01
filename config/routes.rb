@@ -4,6 +4,7 @@ MyOwnSite::Application.routes.draw do
 
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
+    match "/logout" => "devise/sessions#destroy"  
   end
 
   root :to => 'Pages#index'
@@ -15,6 +16,9 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
   match 'additionalInf' => 'Pages#additionalInf'
+  match 'profile' => 'Pages#profile'
+
+  match 'africa' =>'Maps#africa'
 
 
 

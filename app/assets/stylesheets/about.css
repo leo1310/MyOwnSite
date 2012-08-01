@@ -6,13 +6,9 @@ html {
 /*   Body   */
 
 body{
-  padding:0;
-  margin:0 auto;
-  width: 1100px;  
-  /*border: 1px solid #333;*/
-  min-height:1000px;  
-  background: white; 
-  
+  width:1100px; 
+  margin: auto;
+  height:1000px;
 }
 
 body {
@@ -46,16 +42,15 @@ h1 {
 #main {
   float:left;
   width:55%;
-  margin-left:20%;    
+  margin-left:20%;   
 }
 
 #main h2 {
   color:#293499;
   margin-left: 25px; 
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
-
 
 #main p {
 	font-family: "Times New Roman";
@@ -63,11 +58,6 @@ h1 {
 	text-indent : 10px;
 	width: 90%;
 	margin-left:25px;
-}
-
-#main h2 {
-  margin-top:20px;
-  margin-bottom:10px;
 }
 
 #main ul{
@@ -93,11 +83,11 @@ h1 {
 #left_panel {	
   float:left;
   width:20%;
-  margin-left:-76%;  
+  margin-left:-75%;  
   background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
-  padding: 95px 0;
-  padding-left: 7px;
-  border-right: 2px solid #0989F8 ;  
+  padding: 95px 0;  
+  border-right: 2px solid #0989F8;   
+  margin-top: 0;
 }
 
 #left_panel h2 {
@@ -133,8 +123,7 @@ h1 {
   float:right; 
   width:25%;
   margin-right:-4px;
-  border-left: 2px solid #0989F8 ;  
-
+  border-left: 2px solid #0989F8;  
 }
 
 #right_panel h4 {
@@ -167,18 +156,19 @@ h1 {
 }
 
 #right_panel a {
-  color:#D00;
+  color:#D00;  
 }
 
 #right_panel a {
   background:url(img/red-arrow.png) right center no-repeat;
-  padding-right:13px;
+  padding-right:13px;    
 }
 
 /*   Content   */
 #content {
   overflow:hidden;   
-  width:100%;    
+  width:100%; 
+  margin-top: 0px;
 }
 
 /*   IE   */
@@ -201,7 +191,7 @@ h1 {
 /*   Other   */
 #left_panel,
 #right_panel {
-  font-size:80%;
+  font-size:80%;    
 }
 
 #left_panel h2,
@@ -210,6 +200,21 @@ h1 {
   font-weight:bold;
   text-transform:uppercase;
 }
+
+#footer{
+  position: static;
+  height: 50px; 
+  background: #6A092E;
+  color: white;
+  text-align:center;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  font-family: "Times New Roman";
+  font-size: 14px;
+
+  margin-top: 450px;  
+ }
+
 
 
 

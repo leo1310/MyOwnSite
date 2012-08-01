@@ -1,14 +1,11 @@
 html {
-  height:100%;
+  height:1000px;
   background:url(img/uzor.jpeg) #EEE;
 }
 
 body{
 	width:1200px;	
-	margin: auto;
-	min-height:1000px;
-	/*margin-top: 15px;*/
-	background: white;
+	margin: auto;	
 }
 
 #map li, #map3 li, #map2 li{	
@@ -22,12 +19,15 @@ body{
 	margin-bottom: -6px;
 	float: left;	
 }
-#map3{
-	margin-top:500;
-	padding: 1px 0; 	
-	margin-bottom: -6px;
-	float: left;	
-}
 #map ul, #map3 ul, #map2 ul{
 	list-style: none;
+	margin-left: 0px;
 }
+#content{
+	float: left;	
+	font-family: "Times New Roman";
+	margin-top: -24px;
+	font-size: 14px;	
+	width:1200px;
+}
+

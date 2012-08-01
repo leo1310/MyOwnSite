@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>MyOwnSite</title>
-  <%= stylesheet_link_tag 'application', :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= stylesheet_link_tag 'user', :media=> 'all' %>
+  <%= stylesheet_link_tag 'bootstrap_and_overrides'%>
+  <%= javascript_include_tag 'jquery-1.7.2' %>  
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,14 +13,11 @@
   		<%= render 'layouts/navigation_index'%>
   	<%end%>
 	<section>
-	    <div class="container">
+	  
+      <%= yield %>  
     
-        <div/>
-    </section>
-    <%= yield %>
+  	</section>   
+	<%= render 'layouts/footer'%>
 
-	<footer>		
-		<div class="container2">Copyright © 2012 Lviv LEO Corporation. All Rights Reserved. Информация для контактов: leo1021@mail.ru. Правила использования материалов сайта. </div>
-	</footer>
 </body>
 </html>

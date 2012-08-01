@@ -7,14 +7,12 @@ body{
 	width:1100px;	
 	margin: auto;
 	min-height:1000px;
-	margin-top: 15px;
-	background: white;
 }
 
-#signin, #signup, #content{
-	float: left;
-	margin-top: 62px;
+#signin, #signup{
+	float: left;	
 	font-family: "Times New Roman";
+	margin-top: -24px;
 	font-size: 14px;	
 }
 #signin h2, #signup h2{
@@ -30,6 +28,11 @@ body{
 
 #panel_login{
 	margin-left: 860px;		
+}
+.tab-pane h2{
+	font-size: 20px;
+	color: green;
+	font-family: "Times New Roman";
 }
 
 #title{	
@@ -48,15 +51,25 @@ body{
 	width: 280px;
 	height: 300px;
 	overflow: scroll;
-	padding: 1px 0; 
-	margin-top:-14px;
-	margin-bottom: -6px;
-	float: left;	
+	padding: 1px 0; 	
+	margin-bottom: -2px;
+	float: left;
+
 }
 #baner ul, #baner2 ul, #baner3 ul{
 	width: 10000px;
 	list-style: none;
+	margin-left: 0px;
 }
 #baner li, #baner2 li, #baner3 li{
 	float: left;
+}
+
+#signup{
+	margin-left: 50px;
+	margin-top: 10px;
+}
+#signup h1{
+	font-size: 30px;
+	color: blue;
 }

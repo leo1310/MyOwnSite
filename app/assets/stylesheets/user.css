@@ -1,5 +1,5 @@
-.container2{
-	position: static;	
+#footer{
+	position: static;
 	height: 50px;	
 	background: #6A092E;
 	color: white;
@@ -10,7 +10,7 @@
 	font-size: 14px;
 
 	margin-top: 950px;
-	padding: 1px 0;
+	
  }
 
 #help, #chapter{

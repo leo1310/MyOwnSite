@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'log', :media=> 'all' %>
+<div class="tabbable tabs-left" style="margin-top: 60px"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">My Page</a></li>
+        <li><a href="#tab2" data-toggle="tab">About me</a></li>        
+        <li><a href="#tab3" data-toggle="tab">Foto</a></li>
+        <li><a href="#tab4" data-toggle="tab">Friends</a></li>
+        <li><a href="#tab5" data-toggle="tab">Messages</a></li>
+        <li><a href="#tab6" data-toggle="tab">Settings</a></li>
+        <li><a href="#tab7" data-toggle="tab">Towns</a></li>        
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <h2>Welcome <%=@user.name%> <%=@user.last_name%> to your personal page</h2>
+        </div>
+        <div class="tab-pane" id="tab2">
+            <p>I'm in Section 2</p>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <p>I'm in Section 3</p>
+        </div>
+        <div class="tab-pane" id="tab4">
+            <p>I'm in Section 4</p>
+        </div>
+        <div class="tab-pane" id="tab5">
+            <p>I'm in Section 5</p>
+        </div>
+        <div class="tab-pane" id="tab6">
+            <p>I'm in Section 6</p>
+        </div>        
+        <div class="tab-pane" id="tab7">
+            <p>I'm in Section 6</p>
+        </div>        
+    </div>
+</div>

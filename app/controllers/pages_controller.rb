@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
-	def about
-		@zones = ActiveSupport::TimeZone.all.map(&:name)
-
+	def index
+		@user = User.find(current_user.id)		
 	end
+	def profile
+		@user = User.find(current_user.id)		
+	end
+	
 end

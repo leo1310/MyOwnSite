@@ -1,0 +1,17 @@
+<title>Map Africa</title>
+<%= stylesheet_link_tag 'map', :media => "all" %>
+<%= javascript_include_tag 'map/africa' %>
+<%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?key=AIzaSyBeXFFgiHLl77awSoWCpcIfnvUhRgWFcCg&sensor=true&language=uk' %>
+
+<body onload="initialize()">
+
+	<div id="map_canvas" ></div>
+	<div class="panel">
+		<select>
+			<option value="aljir">Алжир</option>
+			<option value="djibyti">Джібуті</option>
+		</select>
+	</div>
+
+</body>
+</html>
