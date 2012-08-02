@@ -18,7 +18,12 @@ MyOwnSite::Application.routes.draw do
   match 'additionalInf' => 'Pages#additionalInf'
   match 'profile' => 'Pages#profile'
 
-  match 'africa' =>'Maps#africa'
+  match 'africa' =>'Maps#africa' 
+  match 'europa' =>'Maps#europa'
+  
+  match 'africa_country' => 'Maps#add_description_africa_country'      
+  match 'africa_capital' => 'Maps#add_description_africa_capital'      
+       
 
 
 

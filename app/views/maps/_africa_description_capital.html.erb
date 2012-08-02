@@ -1,0 +1,4 @@
+<% unless @capital.blank?%>
+	<input type ="hidden" data-zoom=<%=@capital.zoom%> data-coordinateX=<%=@capital.X_coordinate%> data-coordinateY=<%=@capital.Y_coordinate%> id="capital_data" data-name=<%=@capital.name%>>
+	<%=@capital.description%>
+<%end%>

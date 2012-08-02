@@ -15,6 +15,21 @@ body{
 .panel select{
 	margin-left: 15px;
 }
+
+.panel p{
+	margin-left: 15px;
+}
+
+#description{
+	margin-left: 15px;	
+	font-size:1em;
+	font-family: "Times New Roman"; 
+	padding:5px 5px 5px 0px; 	
+	background: #eee;	
+	border:1px solid #d6d6d6; 
+	width: 90%
+}
+
 #map_canvas{	
 	width: 80%;	
 	min-height:950px;
@@ -34,7 +49,7 @@ body{
 	font-family: "Times New Roman";
 	font-size: 14px;
 
-	/*margin-top: 450px;*/
-	
+	/*margin-top: 450px;*/	
 }
+
 
