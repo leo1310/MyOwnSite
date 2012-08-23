@@ -1,10 +1,11 @@
 <title>Map Africa</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <%= stylesheet_link_tag 'map', :media => "all" %>
-<%= javascript_include_tag 'map/africa' %>
+<%= javascript_include_tag 'map/maps' %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyBeXFFgiHLl77awSoWCpcIfnvUhRgWFcCg&sensor=true&language=uk"%>
 
 <body >
+	<input type ="hidden" data-zoom=<%=@part_of_the_world.zoom%> data-coordinateX=<%=@part_of_the_world.X_coordinate%> data-coordinateY=<%=@part_of_the_world.Y_coordinate%> id="part_of_the_world_data" data-name=<%=@part_of_the_world.title%>>
 
 	<div id="map_canvas" ></div>
 	<div class="panel">

@@ -11,17 +11,11 @@ body{
 	width: 20%;	
 	min-height:950px;
 	border-right: 2px solid #0989F8;	
-}
-.panel select{
 	margin-left: 15px;
 }
 
-.panel p{
-	margin-left: 15px;
-}
 
-#description{
-	margin-left: 15px;	
+#description{		
 	font-size:1em;
 	font-family: "Times New Roman"; 
 	padding:5px 5px 5px 0px; 	
@@ -50,6 +44,11 @@ body{
 	font-size: 14px;
 
 	/*margin-top: 450px;*/	
+}
+
+#info{
+	margin-left: 15px;
+	
 }
 
 

@@ -15,7 +15,7 @@ before_filter :authenticate_user!
 		@capital = Capital.find(params[:id])
 	end
 
-	def europa
+	def europa		
 		@part_of_the_world = PartOfTheWorld.find(2)
 		@countries = @part_of_the_world.countries
 		@capitals = @part_of_the_world.capitals
