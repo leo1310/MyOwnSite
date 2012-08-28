@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'user', :media=> 'all' %>
+<%= stylesheet_link_tag 'index', :media => "all" %>
+<%= javascript_include_tag 'input' %>
+<%= render 'layouts/message'%>
+
+<div class="input">
+	<h3>Ваші вхідні повідомлення</h3>
+	<h4>У вас нових повідомлень: <%= @read_status_count%></h4>
+	<table class="brep-table" cellpadding="0" cellspacing="0">
+		<thead class="tbl-header">
+    		<tr class="gray">
+      			<th class="tbl-item-rate">
+        			<div> # п/п</div>
+        		</th>
+      			<th>
+        			<div> Від кого </div>
+    			</th>
+      			<th>
+        			<div> Кому </div>
+        		</th>
+      			<th>
+        			<div> Заголовок </div>
+        		</th>
+      			<th>
+        			<div> Дата </div>
+        		</th>      			
+    		</tr>
+    	</thead>
+    	<% @messages.each do |message|%>
+    	<thead>
+    		<% if message.read_message.eql?("not_read")%>
+	    		<tr style="font-weight:bold">
+	    			<%= render 'table_thead', :message => message%>
+	    		</tr>
+    		<%else%>
+	    		<tr>
+	    			<%= render 'table_thead', :message => message%>
+	    		</tr>
+	    	<%end%>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td colspan = "5" align="left">
+    				<b>Від кого:</b>
+    				<%= message.who_send_mail %></br>
+    				<b>Заголовок:</b>
+    				<%= message.subject %></br>
+    				<b>Текст повідомлення:</b></br>
+    				<%= message.description %>
+    			</td>
+    		</tr>
+    	</tbody>
+    	<% @index += 1 %>
+    	<%end%>
+	</table>             
+
+</div>

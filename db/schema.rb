@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120802130805) do
+ActiveRecord::Schema.define(:version => 20120828142238) do
 
   create_table "capitals", :force => true do |t|
     t.integer  "part_of_the_world_id"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20120802130805) do
     t.string   "X_coordinate"
     t.string   "Y_coordinate"
     t.integer  "zoom"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "who_send_mail"
+    t.string   "who_get_mail"
+    t.string   "subject"
+    t.text     "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+    t.string   "read_message"
   end
 
   create_table "part_of_the_worlds", :force => true do |t|
@@ -62,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120802130805) do
     t.string   "name"
     t.string   "last_name"
     t.string   "phone"
+    t.string   "nik_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

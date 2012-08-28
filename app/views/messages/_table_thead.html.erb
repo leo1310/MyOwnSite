@@ -1,0 +1,23 @@
+<td class="tbl-item-rate">
+    				<div><%= @index %></div>
+				</td>
+				<td>
+					<div>
+						<%= message.who_send_mail %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.who_get_mail %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.subject %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
+					</div>
+				</td>

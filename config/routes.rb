@@ -16,13 +16,18 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
   match 'additionalInf' => 'Pages#additionalInf'
-  match 'profile' => 'Pages#profile'
+  match 'profile' => 'Pages#profile' 
 
   match 'africa' =>'Maps#africa' 
   match 'europa' =>'Maps#europa'
   
   match 'africa_country' => 'Maps#add_description_africa_country'      
   match 'africa_capital' => 'Maps#add_description_africa_capital'      
+
+  resources :messages
+  match '/send', :to=> 'messages#send_m'
+  match '/input', :to=> 'messages#input'
+  match '/sent', :to=> 'messages#sent'
        
 
 

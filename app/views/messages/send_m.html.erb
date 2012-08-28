@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag 'user', :media=> 'all' %>
+<%= stylesheet_link_tag 'index', :media => "all" %>
+<%= javascript_include_tag 'send' %>
+<%= render 'layouts/message'%>
+
+<div class="send">
+	<h3>Надіслати нове повідомлення</h3>
+	<%= form_for Message.new, :url => {:controller=>"messages", :action => "create", :id=> current_user.id} do |f|  %> 
+    
+    <table>
+    	<tr>
+    		<td class="mail">
+    			Від кого:
+    		</td>
+    		<td class="mail" >
+    			<%= f.text_field :who_send_mail, :value => @user.nik_name, :id=>"nik_name"  %>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="mail">
+    			Кому:
+    		</td>
+    		<td class="mail">
+    			<%= f.text_field :who_get_mail%>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="mail">
+    			Заголовок:
+    		</td>
+    		<td class="mail">
+    			<%= f.text_field :subject%>
+    		</td>    		
+    	</tr>
+    	<%= f.text_field :read_message, :type=>"hidden", :value=>"not_read"%>
+    </table>       
+    </br>
+    Текст повідомлення:
+    <div>
+    	<%= f.text_area :description%>
+	</div>
+    
+    
+    <%= f.submit "Надіслати"%> 
+<%end%>
+</div>

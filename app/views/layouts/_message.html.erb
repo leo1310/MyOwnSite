@@ -1,0 +1,30 @@
+<header>
+	<div class="container" >
+	<ul class="nav nav-tabs">
+		<% if @tab_index == 1 %>
+			<li class="active" ><%= link_to "Надіслати", send_path %></li>
+		<%else%>
+			<li ><%= link_to "Надіслати", send_path %></li>
+		<%end%>
+		
+		<% if @tab_index == 2 %>
+	    	<li class="active" ><%= link_to "Вхідні", input_path %></li>
+	    <%else%>
+	    	<li ><%= link_to "Вхідні", input_path %></li>
+	    <%end%>
+
+	    <% if @tab_index == 3 %>
+	    	<li class="active" ><%= link_to "Надіслані", sent_path %></li>
+	    <%else%>
+	    	<li ><%= link_to "Надіслані", sent_path %></li>
+	    <%end%>
+	</ul>	
+	</div>
+    <% flash.each do |key, value| %>
+       	<div class="alert alert-<%= key %>"><%= value %>
+
+       	</div>
+    <% end %>    
+
+   
+</header>
