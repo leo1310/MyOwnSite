@@ -1,11 +1,18 @@
-<%= stylesheet_link_tag 'user', :media=> 'all' %>
+<%= stylesheet_link_tag 'message', :media=> 'all' %>
 <%= stylesheet_link_tag 'index', :media => "all" %>
 <%= javascript_include_tag 'input' %>
 <%= render 'layouts/message'%>
 
 <div class="input">
 	<h3>Ваші вхідні повідомлення</h3>
-	<h4>У вас нових повідомлень: <%= @read_status_count%></h4>
+	<h4>У вас нових повідомлень: <%= @read_status_count%></h4>	
+    <div class="digg_pagination">
+		<div class="page_info">
+			<%= page_entries_info @messages%>    		
+		</div>		
+		<%= will_paginate @messages%>
+	</div>
+
 	<table class="brep-table" cellpadding="0" cellspacing="0">
 		<thead class="tbl-header">
     		<tr class="gray">
@@ -29,7 +36,7 @@
     	<% @messages.each do |message|%>
     	<thead>
     		<% if message.read_message.eql?("not_read")%>
-	    		<tr style="font-weight:bold">
+	    		<tr class="bold" >
 	    			<%= render 'table_thead', :message => message%>
 	    		</tr>
     		<%else%>

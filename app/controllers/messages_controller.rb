@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 before_filter :authenticate_user!
 
+
 	def send_m
 		@tab_index = 1
 		@user = User.find(current_user.id)
@@ -10,16 +11,22 @@ before_filter :authenticate_user!
 		@index = 1
 		@tab_index = 2
 		@user = User.find(current_user.id)
-
-		@read_status = @user.messages.where(:read_message => 'not_read', :who_get_mail => ''+@user.nik_name)
-		@read_status_count = @read_status.count
+		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail(@user.nik_name)		
 		
-		@messages = Message.find_all_by_who_get_mail(@user.nik_name)	
-		
+		@messages_count = Message.find_all_by_who_get_mail(@user.nik_name)		
+		@read_status_count = 0
+		@messages_count.each do |message|
+			if message.read_message.eql?('not_read')
+				@read_status_count += 1
+			end
+		end		
 	end	
 
 	def sent
 		@tab_index = 3
+		@index = 1
+		@user = User.find(current_user.id)
+		@messages = @user.messages.paginate(:page => params[:page], :per_page => 25)
 	end
 
 	def create
@@ -34,6 +41,13 @@ before_filter :authenticate_user!
 		end
 
 		redirect_to :controller => "messages", :action => "send_m"
-	end	
+	end
+
+	def message_status
+		@message = Message.find(params[:id])
+		@message.read_message = "read"
+		@message.save
+		render :text => ""
+	end
 	
 end

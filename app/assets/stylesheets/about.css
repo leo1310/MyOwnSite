@@ -21,10 +21,16 @@ h1 {
   letter-spacing:1px;
 }
 
+#containers{
+  margin-left: -500px;
+}
+
 /*   Main   */
 
 #main h2 {
   font-size:130%;
+  color:#293499;
+  margin-left: 25px; 
 }
 
 #main h3 {
@@ -33,23 +39,16 @@ h1 {
 }
 
 #main h1 {  
-  margin-left: 25px; 
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-left: 20px; 
+  margin-top: 0px;
+  margin-bottom: 2px;
   color: green;
 }
 
-#main {
-  float:left;
-  width:55%;
-  margin-left:20%;   
-}
-
-#main h2 {
-  color:#293499;
-  margin-left: 25px; 
-  margin-top: 20px;
-  margin-bottom: 15px;
+#main {  
+  width:100%;
+  margin-left:-50%;
+  margin-left: -250px;   
 }
 
 #main p {
@@ -58,6 +57,7 @@ h1 {
 	text-indent : 10px;
 	width: 90%;
 	margin-left:25px;
+  margin-top:-10px;
 }
 
 #main ul{
@@ -80,14 +80,13 @@ h1 {
 }*/
 
 /*   Left Panel   */
-#left_panel {	
-  float:left;
-  width:20%;
-  margin-left:-75%;  
+#left_panel {	  
+  width:100%;
+  margin-left:-109%;
   background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
   padding: 95px 0;  
   border-right: 2px solid #0989F8;   
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 #left_panel h2 {
@@ -119,11 +118,10 @@ h1 {
 
 /*   Right Panel   */
 
-#right_panel {
-  float:right; 
-  width:25%;
-  margin-right:-4px;
-  border-left: 2px solid #0989F8;  
+#right_panel {  
+  width:100%;  
+  border-left: 2px solid #0989F8;    
+  margin-left:172%;
 }
 
 #right_panel h4 {
@@ -141,7 +139,7 @@ h1 {
 }
 
 #right_panel h4 {
- /* float:left; */
+  float:left; 
   margin:0 5px;
 }
 
@@ -165,14 +163,13 @@ h1 {
 }
 
 /*   Content   */
-#content {
+/*#content {
   overflow:hidden;   
-  width:100%; 
-  margin-top: 0px;
+  width:100%;   
 }
 
 /*   IE   */
-* html body {
+/** html body {
   height:100%;
 }
 
@@ -212,9 +209,26 @@ h1 {
   font-family: "Times New Roman";
   font-size: 14px;
 
-  margin-top: 450px;  
+  margin-top:480px;  
  }
 
+#main, #main .containers {
+  width: 650px;
+  
+}
+#main .containers h1{
+    margin-left: 25px; 
+    margin-top: 15px;
+    margin-bottom: 15px; 
+    color: green;   
+  }
+  .containers p{
+    font-family: "Times New Roman";
+    font-size: 14px;
+    text-indent : 10px;
+    width: 50%;
+    margin-left:25px;
+  }
 
 
 

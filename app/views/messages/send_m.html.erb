@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'user', :media=> 'all' %>
+<%= stylesheet_link_tag 'message', :media=> 'all' %>
 <%= stylesheet_link_tag 'index', :media => "all" %>
 <%= javascript_include_tag 'send' %>
 <%= render 'layouts/message'%>
@@ -35,12 +35,15 @@
     	<%= f.text_field :read_message, :type=>"hidden", :value=>"not_read"%>
     </table>       
     </br>
-    Текст повідомлення:
-    <div>
-    	<%= f.text_area :description%>
-	</div>
-    
-    
+    <div class="text_description">
+        Текст повідомлення:
+        <div>
+    	   <%= f.text_area :description%>
+	   </div>
     <%= f.submit "Надіслати"%> 
+    </div>
+    
+    
+    
 <%end%>
 </div>

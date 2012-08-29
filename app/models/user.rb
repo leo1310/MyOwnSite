@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   validates :phone, :numericality => true
   validates :nik_name, :uniqueness => true
 
-  has_many :messages
+  has_many :messages, :order => 'created_at DESC'
 end

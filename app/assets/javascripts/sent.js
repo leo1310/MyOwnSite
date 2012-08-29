@@ -3,16 +3,7 @@ function buildTable(table_, multicollapsible_) {
 
 	$(table_).find('> thead:not(".tbl-header")').each(function(){
 		$(this).bind('click',function(){
-			if (!multicollapsible_ ) {				
-				//$(table_).find('> tbody').each(function(){$(this).hide()});
-
-				var check_class = $(this).find('tr').attr('class');				
-				if (check_class === 'bold'){
-					$(this).find('tr').removeClass('bold');
-					var message_id = $(this).find('input').val();
-					$.ajax({ url: "/messages/message_status",   type: "GET",   data: {id : message_id}});
-				}
-							 				
+			if (!multicollapsible_ ) {							 				
 				
 			}			
 			if ( $(this).next('tbody').is(':visible') ) {

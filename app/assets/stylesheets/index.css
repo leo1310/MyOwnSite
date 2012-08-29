@@ -33,14 +33,20 @@ body{
 }
 
 .send{
-	margin-left:100px;
-	
+	margin-left:100px;	
+}
+.text_description{
+	margin-left: 20px;
 }
 
 .input{
 	margin-left:100px;
 	margin-right:100px;
 	
+}
+.sent{
+	margin-left:100px;
+	margin-right:100px;	
 }
 
 td.mail{
@@ -57,7 +63,12 @@ max-height: 400px;
 min-height: 400px;		
 }
 
-
+#forgot_password h2{
+	color: blue;
+}
+#forgot_password{
+	margin-left: 100px;	
+}
 
 
 #pageWrap {width:960px; margin:50px auto}
@@ -85,10 +96,8 @@ tbody, tfoot {text-align:center}
 tbody td {padding:5px}
 tfoot td {padding:5px; font-size:0.6875em; color:#666}
 
-tr.gray {background-color:#eee;}
-tr.white {background-color: white;}
-tr.gray_bold td > div{background-color:#eee; font-weight:bold;}
-tr.white_bold td > div{font-weight:bold;}
+tr.bold td > div{ font-weight:bold;}
+
 
 /*Zebra for table admin_leads*/
 tr.alt{background-color: #eee;}

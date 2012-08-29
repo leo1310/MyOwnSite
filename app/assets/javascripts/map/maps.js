@@ -46,7 +46,7 @@ function add_description_africa_country(){
             X_coordinat = $("#country_data").attr("data-coordinateX"),
             Y_coordinat = $("#country_data").attr("data-coordinateY"),
             name_country = $("#country_data").attr("data-name");            
-            addMarker(new google.maps.LatLng(Y_coordinat, X_coordinat), name_capital, zoom);
+            addMarker(new google.maps.LatLng(Y_coordinat, X_coordinat), name_country, zoom);
       }, 1000);
           
     }

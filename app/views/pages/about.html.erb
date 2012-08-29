@@ -1,42 +1,50 @@
 <%= stylesheet_link_tag 'about', :media=> 'all' %>
 
-<div id="content">	
-	<div id="main">
-		<h2>About Us</h2>
-		<p>We want tell about us...</p>
+<div id="containers">	
+	<div class="row">
+		<div class="span3">
+			<div id="left_panel">
+				<h2>Sections</h2>
+    			<ul>
+      				<li><a id="about" href="aboutSite/">About Site</a>      			
+      				<li><a id="about" href="partners/">Our Partners</a>
+      				<li><a id="about" href="authors/">Authors</a>
+      				<li><a id="about" href="contacts/">Contacts</a>
+      				<li><a id="about" href="additionalInf/">Additional Information</a>
+    			</ul>
+			</div>
+		</div>
+		<div class="span6">
+			<div id="main">
+				<h2>About Us</h2>
+				<p>We want tell about us...</p>
 		
-	</div>
+			</div>
+		</div>
+		<div class="span3">
+			<div id="right_panel">		
+				<h2>Advertisement</h2>
+				<h4>12.07.2012</h4>
+				<p>News1. More<a href="#"></a></p></br>
+				<h4>12.07.2012</h4>
+				<p>News2. More<a href="#"></a></p></br>
+				<h4>12.07.2012</h4>
+				<p>News3. More<a href="#"></a></p></br>
+				<h4>13.07.2012</h4>
+				<p>News1. More<a href="#"></a></p></br>
+				<h4>13.07.2012</h4>
+				<p>News2. More<a href="#"></a></p></br>
+				<h4>13.07.2012</h4>
+				<p>News3. More<a href="#"></a></p></br>
+				<h4>13.07.2012</h4>
+				<p>News4. More<a href="#"></a></p></br>
 
-	<div id="left_panel">
-		<h2>Sections</h2>
-    		<ul>
-      			<li><a id="about" href="aboutSite/">About Site</a>      			
-      			<li><a id="about" href="partners/">Our Partners</a>
-      			<li><a id="about" href="authors/">Authors</a>
-      			<li><a id="about" href="contacts/">Contacts</a>
-      			<li><a id="about" href="additionalInf/">Additional Information</a>
-    		</ul>
+			</div>	
+		</div>
 	</div>
-	
-	<div id="right_panel">		
-		<h2>Advertisement</h2>
-		<h4>12.07.2012</h4>
-		<p>News1. More<a href="#"></a></p></br>
-		<h4>12.07.2012</h4>
-		<p>News2. More<a href="#"></a></p></br>
-		<h4>12.07.2012</h4>
-		<p>News3. More<a href="#"></a></p></br>
-		<h4>13.07.2012</h4>
-		<p>News1. More<a href="#"></a></p></br>
-		<h4>13.07.2012</h4>
-		<p>News2. More<a href="#"></a></p></br>
-		<h4>13.07.2012</h4>
-		<p>News3. More<a href="#"></a></p></br>
-		<h4>13.07.2012</h4>
-		<p>News4. More<a href="#"></a></p></br>
-
-	</div>	
 </div>
+	
+
 
 <script>
 	$('a#about').on('click', function( e ){		

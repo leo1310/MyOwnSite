@@ -73,3 +73,18 @@ body{
 	font-size: 30px;
 	color: blue;
 }
+
+#footer{
+	position: static;
+	height: 50px;	
+	background: #6A092E;
+	color: white;
+	text-align:center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	font-family: "Times New Roman";
+	font-size: 14px;
+
+	margin-top: 600px;
+	
+ }

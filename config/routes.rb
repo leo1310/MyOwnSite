@@ -15,8 +15,7 @@ MyOwnSite::Application.routes.draw do
   match 'partners' => 'Pages#partners'
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
-  match 'additionalInf' => 'Pages#additionalInf'
-  match 'profile' => 'Pages#profile' 
+  match 'additionalInf' => 'Pages#additionalInf'   
 
   match 'africa' =>'Maps#africa' 
   match 'europa' =>'Maps#europa'
@@ -24,11 +23,26 @@ MyOwnSite::Application.routes.draw do
   match 'africa_country' => 'Maps#add_description_africa_country'      
   match 'africa_capital' => 'Maps#add_description_africa_capital'      
 
-  resources :messages
+  resources :messages do
+    collection do
+      get 'message_status'
+    end
+  end
   match '/send', :to=> 'messages#send_m'
   match '/input', :to=> 'messages#input'
-  match '/sent', :to=> 'messages#sent'
-       
+  match '/sent', :to=> 'messages#sent'  
+  
+
+  match 'about_me',  :to=> 'profiles#about_me'
+  match 'my_page', :to=> 'profiles#my_page'
+  match 'foto', :to=> 'profiles#foto'
+  match 'friends', :to=> 'profiles#friends'
+  match 'messages_friends', :to=> 'profiles#messages_friends'
+  match 'my_settings', :to=> 'profiles#my_settings'
+  match 'towns', :to=> 'profiles#towns'
+  match 'messages_inbox', :to=> 'profiles#messages_inbox'
+  match 'messages_sent', :to=> 'profiles#messages_sent'
+  match 'messages_spam', :to=> 'profiles#messages_spam'
 
 
 
