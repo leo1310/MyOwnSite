@@ -1,0 +1,18 @@
+#admin_toolbar{
+ 	margin-top: -30px;
+ 	/*border: 2px solid #EAEAEA; 	*/
+ }
+body {
+  background: #EEE;
+  margin-left: 20px;
+
+}
+#admin_toolbar_top{
+	background: #343434;
+	margin-left: -20px;
+	
+}
+#admin_toolbar_top h3{
+	color: white;
+	margin-left: 20px;
+}

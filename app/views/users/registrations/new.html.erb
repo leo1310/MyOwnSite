@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'user', :media=> 'all' %>
+<%= render "layouts/navigation_index" %>
 
 <div id="signup">
 	<h1>Sign up</h1>
@@ -32,4 +33,6 @@
 	<% end %>
 <%= render :partial => "devise/shared/links" %>
 </div>
+<%= render "layouts/footer" %>
+
 

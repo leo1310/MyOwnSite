@@ -1,5 +1,6 @@
 class MapsController < ApplicationController
 before_filter :authenticate_user!
+layout 'page'
 
 	def africa
 		@part_of_the_world = PartOfTheWorld.find(1)

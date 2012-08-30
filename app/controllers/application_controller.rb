@@ -1,5 +1,4 @@
-class ApplicationController < ActionController::Base
-  before_filter :authenticate_user!
+class ApplicationController < ActionController::Base 
 
   protect_from_forgery
 end

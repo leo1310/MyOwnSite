@@ -1,12 +1,18 @@
 MyOwnSite::Application.routes.draw do
 
-  devise_for :users, :path => "useraut", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+  #devise_for :admins
 
+  devise_for :users, :path => "useraut", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+  devise_for :admins, :path => 'admin', :controllers => { :sessions => "admin/sessions" }
+  
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
     match "/logout" => "devise/sessions#destroy"  
+  end        
+  devise_scope :admin do
+    match "/logout" => "admin/sessions#destroy"  
   end
-
+  
   root :to => 'Pages#index'
 
   match 'about' => 'Pages#about'
@@ -44,6 +50,33 @@ MyOwnSite::Application.routes.draw do
   match 'messages_sent', :to=> 'profiles#messages_sent'
   match 'messages_spam', :to=> 'profiles#messages_spam'
 
+  namespace :admin do
+    match '/' => 'dashboard#index', :as => 'root'
+
+    resources :users do
+      member do
+
+      end
+    end    
+
+    resources :messages do
+      member do
+        
+      end
+    end    
+
+    resources :settings do
+      member do
+        
+      end
+    end    
+
+    resources :add_places do
+      member do
+        
+      end
+    end    
+  end
 
 
   # The priority is based upon order of creation:

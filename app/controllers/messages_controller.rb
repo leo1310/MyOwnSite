@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 before_filter :authenticate_user!
+layout 'page'
 
 
 	def send_m

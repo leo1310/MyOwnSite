@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+	before_filter :authenticate_user!
+	layout 'page'
+	
 	def about_me
 		@tab_index = 2
 	end

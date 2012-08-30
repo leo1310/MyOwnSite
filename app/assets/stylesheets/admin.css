@@ -1,0 +1,55 @@
+html {
+  height:1000px;
+  background: #EEE;
+}
+
+body{
+	/*width:1100px;	*/
+	
+	margin: auto 20px;	
+	margin-top: 25px;
+	padding: 50px 0;
+}
+
+#admin_login{
+	width: 490px;
+	margin: 0 auto;
+	border: 10px solid blue;
+	background: #D4E8F2;	
+}
+
+#admin_login h3{
+	margin: 0 0 40px 0 !important;
+	padding: 0 20px !important;
+	background: #093F08;
+	color: white;
+	line-height: 2.5em !important;
+	border-bottom: 2px solid #570A1F;
+	font-size: 2em !important;
+}
+
+form label{
+	display: block;
+	color: #333;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 20px 0 5px 0;
+	padding: 0;
+}
+
+.admin_login{
+	margin: 20px 40px;
+}
+
+input[type=text]{
+	border: 2px inset;
+}
+
+.submit{
+	margin-top: 0;
+	padding: 10px 0;
+	background: none;
+	border-top: 2px solid #570A1F !important;
+	margin: 20px 40px;
+}
+ 
