@@ -1,11 +1,10 @@
-<%= stylesheet_link_tag 'message', :media=> 'all' %>
-<%= stylesheet_link_tag 'index', :media => "all" %>
-<%= javascript_include_tag 'send' %>
-<%= render 'layouts/message'%>
+<%= render 'layouts/admin'%>
+<%= render 'admin_messages'%>
+<%= javascript_include_tag 'admin/messages/send_m' %>
 
 <div class="send">
-	<h3>Надіслати нове повідомлення</h3>
-	<%= form_for Message.new, :url => {:controller=>"messages", :action => "create", :id=> current_user.id} do |f|  %> 
+	<h3>Нове повідомлення</h3>
+	<%= form_for Message.new, :url => {:controller=>"messages", :action => "create", :id=> current_admin.id} do |f|  %> 
     
     <table>
     	<tr>
@@ -13,7 +12,7 @@
     			Від кого:
     		</td>
     		<td class="mail" >
-    			<%= f.text_field :who_send_mail, :value => @user.nik_name, :id=>"nik_name"  %>
+    			<%= f.text_field :who_send_mail, :value => @admin.nik_name, :id=>"nik_name"  %>
     		</td>
     	</tr>
     	<tr>

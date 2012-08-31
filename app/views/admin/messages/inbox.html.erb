@@ -1,18 +1,18 @@
-<%= stylesheet_link_tag 'message', :media=> 'all' %>
-<%= stylesheet_link_tag 'index', :media => "all" %>
-<%= javascript_include_tag 'input' %>
-<%= render 'layouts/message'%>
+<%= render 'layouts/admin'%>
+<%= render 'admin_messages'%>
+<%= javascript_include_tag 'admin/messages/inbox' %>
 
-<div class="input">
-	<h3>Ваші вхідні повідомлення</h3>
-	<h4>У вас нових повідомлень: <%= @read_status_count%></h4>	
-    <div class="digg_pagination">
+<div class="inbox">
+	<h3>Ваші вхідні повідомлення</h3>	
+	<h4>У вас нових повідомлень: <%= @read_status_count%></h4>
+	
+	<div class="digg_pagination">
 		<div class="page_info">
 			<%= page_entries_info @messages%>    		
 		</div>		
 		<%= will_paginate @messages%>
 	</div>
-
+	
 	<table class="brep-table" cellpadding="0" cellspacing="0">
 		<thead class="tbl-header">
     		<tr class="gray">
@@ -46,16 +46,16 @@
 	    	<%end%>
     	</thead>
     	<tbody>
-    		<tr>
-    			<td colspan = "5" align="left">
+    		<tr >
+    			<td colspan = "5" align="left" >
     				<div class="text_message">
-                        <b>Від кого:</b>
-        				<%= message.who_send_mail %></br>
-        				<b>Заголовок:</b>
-        				<%= message.subject %></br>
-        				<b>Текст повідомлення:</b></br>
-        				<%= message.description %>
-                    </div>
+	    				<b>Від кого:</b>
+	    				<%= message.who_send_mail %></br>
+	    				<b>Заголовок:</b>
+	    				<%= message.subject %></br>
+	    				<b>Текст повідомлення:</b></br>
+	    				<%= message.description %>
+    				</div>
     			</td>
     		</tr>
     	</tbody>

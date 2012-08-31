@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'admin_content'%>
+
 <div id="admin_toolbar_top">
 </br>
 <h3>Title of Site</h3>
@@ -7,11 +8,36 @@
 </div>
 <div id="admin_toolbar">
 	<div class="btn-group ">
-		<button class="btn"><%= link_to "Статистика", admin_root_path%></button>
-	    <button class="btn"><%= link_to "Користувачі", admin_users_path%></button>
-	    <button class="btn"><%= link_to "Повідомлення", admin_messages_path%></button>
-	    <button class="btn"><%= link_to "Додати місцевість", admin_add_places_path%></button>
-	    <button class="btn"><%= link_to "Налаштунки", admin_settings_path%></button>    
+		<%if @tab_index_menu == 1%>
+			<button class="btn active"><%= link_to "Статистика", admin_root_path%></button>
+		<%else%>
+			<button class="btn"><%= link_to "Статистика", admin_root_path%></button>
+		<%end%>
+		
+		<%if @tab_index_menu == 2%>
+	    	<button class="btn active"><%= link_to "Користувачі", admin_users_path%></button>
+	    <%else%>
+	    	<button class="btn"><%= link_to "Користувачі", admin_users_path%></button>
+		<%end%>
+	    
+	    <%if @tab_index_menu == 3%>
+	    	<button class="btn active"><%= link_to "Повідомлення", inbox_admin_messages_path%></button>
+	    <%else%>
+	    	<button class="btn"><%= link_to "Повідомлення", inbox_admin_messages_path%></button>
+		<%end%>
+	    
+	    <%if @tab_index_menu == 4%>
+	    	<button class="btn active"><%= link_to "Додати місцевість", admin_add_places_path%></button>
+	    <%else%>
+	    	<button class="btn"><%= link_to "Додати місцевість", admin_add_places_path%></button>
+		<%end%>
+	    
+	    <%if @tab_index_menu == 5%>
+	    	<button class="btn active"><%= link_to "Налаштунки", admin_settings_path%></button>    
+	    <%else%>
+	    	<button class="btn"><%= link_to "Налаштунки", admin_settings_path%></button>    
+	    <%end%>
+	    
 	    <button class="btn"><%= link_to "Вийти", logout_path, :method => "delete" %></button>
 	</div>
 </div>

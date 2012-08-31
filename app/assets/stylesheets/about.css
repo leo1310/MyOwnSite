@@ -21,6 +21,11 @@ h1 {
   letter-spacing:1px;
 }
 
+.nav-pills li a{
+  font-size:14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+
 #containers{
   margin-left: -500px;
 }
@@ -82,7 +87,7 @@ h1 {
 /*   Left Panel   */
 #left_panel {	  
   width:100%;
-  margin-left:-109%;
+  margin-left:-112%;
   background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
   padding: 95px 0;  
   border-right: 2px solid #0989F8;   
@@ -121,7 +126,8 @@ h1 {
 #right_panel {  
   width:100%;  
   border-left: 2px solid #0989F8;    
-  margin-left:172%;
+  margin-left:169%;
+  margin-top: -13px;
 }
 
 #right_panel h4 {

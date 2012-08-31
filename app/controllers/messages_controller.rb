@@ -1,16 +1,18 @@
 class MessagesController < ApplicationController
 before_filter :authenticate_user!
+before_filter :load_index
 layout 'page'
 
 
 	def send_m
-		@tab_index = 1
+		@tab_index_messages = 1
 		@user = User.find(current_user.id)
 	end	
 
 	def input
 		@index = 1
-		@tab_index = 2
+		@tab_index_messages = 2
+		
 		@user = User.find(current_user.id)
 		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail(@user.nik_name)		
 		
@@ -20,11 +22,13 @@ layout 'page'
 			if message.read_message.eql?('not_read')
 				@read_status_count += 1
 			end
-		end		
+		end
+		
+		@admins = Admin.all		
 	end	
 
 	def sent
-		@tab_index = 3
+		@tab_index_messages = 3
 		@index = 1
 		@user = User.find(current_user.id)
 		@messages = @user.messages.paginate(:page => params[:page], :per_page => 25)
@@ -33,7 +37,8 @@ layout 'page'
 	def create
 		@user = User.find(params[:id])					
 		@user_recipient = User.find_by_nik_name(params[:message][:who_get_mail])		
-		unless @user_recipient.blank?
+		@admin = Admin.find_by_nik_name(params[:message][:who_get_mail])		
+		unless @user_recipient.blank? and @admin.blank?
 			@user.messages.create(params[:message])
 			@user.save
 			flash[:success] = "Your message sent to the recipient"
@@ -49,6 +54,10 @@ layout 'page'
 		@message.read_message = "read"
 		@message.save
 		render :text => ""
+	end
+
+	def load_index
+		@tab_index_main_menu = 4		
 	end
 	
 end

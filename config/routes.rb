@@ -54,16 +54,19 @@ MyOwnSite::Application.routes.draw do
     match '/' => 'dashboard#index', :as => 'root'
 
     resources :users do
-      member do
-
+      member do        
       end
     end    
 
-    resources :messages do
-      member do
-        
+    resource :messages do      
+      member do  
+        get 'inbox'       
+        get 'sent'       
+        get 'send_m'       
       end
     end    
+    
+
 
     resources :settings do
       member do
