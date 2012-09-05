@@ -32,8 +32,11 @@ MyOwnSite::Application.routes.draw do
   resources :messages do
     collection do
       get 'message_status'
+      get 'delete_message'
+      get 'delete_messages'
     end
   end
+
   match '/send', :to=> 'messages#send_m'
   match '/input', :to=> 'messages#input'
   match '/sent', :to=> 'messages#sent'  
@@ -49,7 +52,9 @@ MyOwnSite::Application.routes.draw do
   match 'messages_inbox', :to=> 'profiles#messages_inbox'
   match 'messages_sent', :to=> 'profiles#messages_sent'
   match 'messages_spam', :to=> 'profiles#messages_spam'
+  match 'update_avatar', :to=> 'profiles#update_avatar'
 
+  
   namespace :admin do
     match '/' => 'dashboard#index', :as => 'root'
 

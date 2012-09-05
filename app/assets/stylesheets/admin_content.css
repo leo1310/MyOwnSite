@@ -40,10 +40,30 @@ max-height: 200px;
 min-height: 200px;		
 }
 
+.inbox{
+	background: white;
+	width: 555px;
+	padding: 30px;
+	border-radius: 5px;
+	border: 1px solid #1E1EA7;			
+}
+.sent{
+	background: white;
+	width: 530px;
+	padding: 30px;	
+	border-radius: 5px;
+	border: 1px solid #1E1EA7;			
+}
+.send{
+	background: white;
+	width: 389px;
+	padding: 30px;	
+	border-radius: 5px;
+	border: 1px solid #1E1EA7;			
+}
 
-/*#pageWrap {width:960px; margin:50px auto}*/
 
-.brep-table {width:70%; border-spacing:1px; border-collapse:compact; border:1px solid #99c2d6; table-layout:fixed}
+.brep-table { border-spacing:1px; border-collapse:compact; border:1px solid #99c2d6; table-layout:fixed}
 
 thead.tbl-header th > div {padding:8px; min-height:14px}
 
@@ -61,33 +81,7 @@ td.tbl-item-rate span.appt-rate {color: green; font-size: 12px; font-weight:bold
 td.tbl-item-rate span.bad-rate {color:red; font-size: 12px; font-weight:bold;}
 td.tbl-item-rate span.no-rate {color:black; font-size: 12px; font-weight:bold;}
 
-thead {cursor:pointer}
-/*tbody, tfoot {text-align:center}
-tbody td {padding:5px}
-tfoot td {padding:5px; font-size:0.6875em; color:#666}*/
-
-
-/*ul.tbl-item-actions li.appt-rate a {color: green; font-size: 12px; font-weight:bold;}
-ul.tbl-item-actions li.bad-rate a {color:red; font-size: 12px; font-weight:bold;}
-ul.tbl-item-actions li.no-rate a {color:black; font-size: 12px; font-weight:bold;}
-
-.tbl-item-content tbody > tr > td > span.edit_coment{margin: 0px 0px 0px 25px; font-size: 14px; font-weight: bold;}
-.tbl-item-content tbody > tr > td > span.phone{font-size: 14px; font-weight: bold;}
-
-tr > td > h4.edit_coment{margin: -30px 0px 30px 30px;}
-.tbl-history-item:nth-child(odd){font-size:0.6875em; padding:5px 5px 5px 0px; cursor:pointer; background: #fff; margin: 0px 0px 0px 0px; border:1px solid #d6d6d6; width: 800px; }
-.tbl-history-item:nth-child(even){font-size:0.6875em; padding:5px 5px 5px 0px; cursor:pointer; background: #eee; margin: 0px 0px 0px 0px; border:1px solid #d6d6d6; width: 800px; }
-	/*.opened-history-item {background: #fff }*/
-	/*.tbl-history-item strong {padding:0 0px 0 0; color: black; font-family: "Times New Roman";}
-	.tbl-history-item p {display:none; padding:5px; color:#333; margin-left:20px;}
-	.tbl-history-item test {color:blue; font-family: 'Lucida Console', monospace;}
-	.tbl-history-item span {font-family: }
-
-.tbl-user-info {font-size:0.7875em; padding:0 0 10px 0}
-.tbl-user-info dt {float:left; width:100px; font-weight:bold; padding:0 0 4px 0; color:#333}
-.tbl-user-info dd {display:table; padding:0 0 4px 0; height:25px}
-
-.tbl-marg{margin-top:20px;}*/  
+thead {cursor:pointer}  
   
 .digg_pagination .page_info {
 	background: #2e6ab1;

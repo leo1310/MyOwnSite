@@ -1,0 +1,45 @@
+<input type="hidden" value = <%= message.id%> >
+<td class="tbl-item-rate">
+    				<div><%= check_box_tag "#"  %></div>
+				</td>
+				<td style="width: 100px">
+					<div >
+						<%if message.user_id.nil? %>						
+							<% unless @admins.empty?%>
+								<% @counter = 0 %>
+								<% @admins.each do |admin|%>
+									<%if admin.nik_name.eql?(message.who_send_mail)%>
+										<%= message.who_send_mail %>(Administrator)
+										<% @counter = 0 %>
+										<%break%>
+									<%else%>
+										<% @counter = 1 %>
+									<%end%>
+								<%end%>
+								<% if @counter == 1 %>
+									Error
+								<%end%>
+							<%else%>
+								Error
+							<%end%>
+						<%else%>
+							<%@user_avatar = User.find(message.user_id)%>
+							<%= image_tag @user_avatar.avatar.url, :size => "64x64"%>
+						<%end%>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>						
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.description %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= link_to "Видалити", :controller=>"messages", :action=>"delete_message", :id => message.id %>
+					</div>
+				</td>

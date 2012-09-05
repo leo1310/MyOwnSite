@@ -4,7 +4,11 @@
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
-            <h1>Foto</h1>
+            <%= form_for @user, :url => {:controller=>"profiles", :action => "update_avatar", :id => current_user.id } do |f| %>
+                <%= image_tag @user.avatar.url, :size => "200x200" %></br>
+                <%= f.file_field :avatar %></br>
+                <%= f.submit("Upload") %>
+            <% end %>
         </div>        
 	</div>
 </div>

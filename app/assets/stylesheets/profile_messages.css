@@ -1,0 +1,50 @@
+.brep-table {
+	width:77%; 
+	border-spacing:1px; 
+	border-collapse:compact; 
+	border:1px solid #99c2d6; 
+	table-layout:fixed;
+	margin: auto;
+
+}
+
+thead.tbl-header th > div {padding:8px; min-height:14px;}
+thead tr{height: 70px;}
+
+thead th {font-size:0.9875em; border-bottom:1px solid #ccc; font-weight:bold;}
+thead td {font-size:0.9875em; border-bottom:1px solid #ccc}
+thead td > div {padding:7px; line-height:16px; w-idth:215.25px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+thead td > div img {vertical-align:middle; margin:0 3px 0 0}
+.tbl-item-rate {width:16px; text-align:center}
+.tbl-item-rate span {display:block; width:13px; height:12px; margin: 0px 12px }
+thead td.tbl-item-rate > div {height:14px; padding:7px 0}
+thead th, thead td {/*border-right:1px solid #ccc;*/ text-align:left; border-top:1px solid #ccc; border-bottom:0px;}
+thead th:last-child, thead td:last-child {border-right:0}
+
+td.tbl-item-rate span.appt-rate {color: green; font-size: 12px; font-weight:bold;}
+td.tbl-item-rate span.bad-rate {color:red; font-size: 12px; font-weight:bold;}
+td.tbl-item-rate span.no-rate {color:black; font-size: 12px; font-weight:bold;}
+
+thead {cursor:pointer; }
+
+tr.bold{
+	background: #E2E2E2;
+}
+
+.digg_pagination .page_info {
+	background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 25em;
+    margin-bottom: 0.5em;
+    margin-left: 112px;
+    text-align: left; 
+}
+.digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; 
+}
+
+
+

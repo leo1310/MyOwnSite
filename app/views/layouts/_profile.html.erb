@@ -24,10 +24,18 @@
             <li><%= link_to "Друзі", friends_path, "data-toggle"=>"tab" %></li>
         <%end%>
         
-        <% if @tab_index_profile_menu == 5%>
-            <li class="active"><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
+        <% if @tab_index_profile_menu == 5%>            
+            <% if @new_message > 0%>
+                <li class="active"><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
+            <%else%>            
+                <li class="active"><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
+            <%end%>
         <%else%>
-            <li><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
+            <% if @new_message > 0%>
+                <li><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
+            <%else%>            
+                <li><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
+            <%end%>
         <%end%>
 
         <% if @tab_index_profile_menu == 6%>

@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
 
 	def foto
 		@tab_index_profile_menu = 3
+		@user = User.find(current_user.id)
 	end
 
 	def friends
@@ -30,6 +31,11 @@ class ProfilesController < ApplicationController
 	def messages_inbox
 		@tab_index_profile_message_menu = 1
 		@tab_index_profile_menu = 5
+
+		@admins = Admin.all		
+		@user = User.find(current_user.id)
+		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
+		
 	end
 
 	def messages_sent
@@ -44,5 +50,27 @@ class ProfilesController < ApplicationController
 
 	def load_index
 		@tab_index_main_menu = 2		
+
+		@user = User.find(current_user.id)
+		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
+		@new_message = 0
+		@messages_count.each do |message|
+			if message.read_message.eql?('not_read')
+				@new_message += 1
+			end
+		end	
+		
+	end
+
+	def update_avatar
+		@user = User.find(current_user.id)
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is update!"
+        	redirect_to :controller => "profiles", :action => "foto"
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :controller => "profiles", :action => "foto"
+    	end
+		
 	end
 end

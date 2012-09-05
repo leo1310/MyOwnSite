@@ -14,9 +14,9 @@ layout 'page'
 		@tab_index_messages = 2
 		
 		@user = User.find(current_user.id)
-		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail(@user.nik_name)		
+		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
 		
-		@messages_count = Message.find_all_by_who_get_mail(@user.nik_name)		
+		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
 		@read_status_count = 0
 		@messages_count.each do |message|
 			if message.read_message.eql?('not_read')
@@ -31,7 +31,7 @@ layout 'page'
 		@tab_index_messages = 3
 		@index = 1
 		@user = User.find(current_user.id)
-		@messages = @user.messages.paginate(:page => params[:page], :per_page => 25)
+		@messages = @user.messages.paginate(:page => params[:page], :per_page => 25).find_all_by_deleted_sender('true')
 	end
 
 	def create
@@ -58,6 +58,25 @@ layout 'page'
 
 	def load_index
 		@tab_index_main_menu = 4		
+	end
+
+	def delete_message
+		@user = User.find(current_user.id)
+		@message = @user.messages.find(params[:id])
+		@message.deleted_geter = "false"
+		@message.save
+
+		redirect_to :controller=>"profiles", :action=>"messages_inbox"
+					
+	end
+
+	def delete_messages
+		@user = User.find(current_user.id)
+		#@message = @user.messages.find(params[:id])
+		#@message.destroy
+
+		redirect_to :controller=>"profiles", :action=>"messages_inbox"
+					
 	end
 	
 end
