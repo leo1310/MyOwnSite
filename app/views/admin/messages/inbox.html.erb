@@ -31,6 +31,9 @@
       			<th>
         			<div> Дата </div>
         		</th>      			
+                <th>
+                    <div> Видалити </div>
+                </th>               
     		</tr>
     	</thead>
     	<% @messages.each do |message|%>
@@ -47,7 +50,7 @@
     	</thead>
     	<tbody>
     		<tr >
-    			<td colspan = "5" align="left" >
+    			<td colspan = "6" align="left" >
     				<div class="text_message">
 	    				<b>Від кого:</b>
 	    				<%= message.who_send_mail %></br>

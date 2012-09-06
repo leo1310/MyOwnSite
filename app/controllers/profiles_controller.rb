@@ -42,6 +42,20 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_message_menu = 2
 		@tab_index_profile_menu = 5
 	end
+	def send_message_in_profile
+		@user = User.find(params[:id])					
+		@user_recipient = User.find_by_nik_name(params[:message][:who_get_mail])		
+		@admin = Admin.find_by_nik_name(params[:message][:who_get_mail])		
+		unless @user_recipient.blank? and @admin.blank?
+			@user.messages.create(params[:message])
+			@user.save
+			flash[:success] = "Your message sent to the recipient"
+		else
+			flash[:error] = "Error sending"
+		end
+
+		redirect_to :controller => "profiles", :action => "messages_inbox"
+	end
 
 	def messages_spam
 		@tab_index_profile_message_menu = 3
@@ -58,8 +72,7 @@ class ProfilesController < ApplicationController
 			if message.read_message.eql?('not_read')
 				@new_message += 1
 			end
-		end	
-		
+		end			
 	end
 
 	def update_avatar

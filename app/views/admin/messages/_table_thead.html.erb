@@ -38,3 +38,8 @@
 						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
 					</div>
 				</td>
+				<td>
+					<div>
+						<%= link_to "Видалити", :controller=>"admin/messages", :action=>"delete_inbox_message", :id => message.id %>
+					</div>
+				</td>

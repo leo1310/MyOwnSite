@@ -1,0 +1,16 @@
+<div id="admin_toolbar_information">
+	<div class="btn-group ">
+		<%if @tab_information_index == 1 %>
+			<button class="btn active"><%= link_to "Фото", foto_admin_my_informations_path%></button>
+		<%else%>
+			<button class="btn"><%= link_to "Фото", foto_admin_my_informations_path%></button>
+		<%end%>
+		
+		
+	</div>
+	<% flash.each do |key, value| %>
+       	<div class="alert alert-<%= key %>"><%= value %>
+
+       	</div>
+    <% end %>  
+</div>

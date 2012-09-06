@@ -1,0 +1,9 @@
+<%= render 'layouts/admin'%>
+<%= render 'admin_information'%>
+
+<h1>My Avatar</h1>
+<%= form_for @admin, :url => {:controller=>"admin/my_informations", :action => "update_avatar", :id => current_user.id } do |f| %>
+    <%= image_tag @admin.avatar.url, :size => "200x200" %></br>
+    <%= f.file_field :avatar %></br>
+    <%= f.submit("Завантажити") %>
+<% end %>

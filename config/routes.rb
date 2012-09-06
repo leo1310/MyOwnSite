@@ -53,6 +53,7 @@ MyOwnSite::Application.routes.draw do
   match 'messages_sent', :to=> 'profiles#messages_sent'
   match 'messages_spam', :to=> 'profiles#messages_spam'
   match 'update_avatar', :to=> 'profiles#update_avatar'
+  match 'send_message_in_profile', :to=> 'profiles#send_message_in_profile'
 
   
   namespace :admin do
@@ -67,7 +68,9 @@ MyOwnSite::Application.routes.draw do
       member do  
         get 'inbox'       
         get 'sent'       
-        get 'send_m'       
+        get 'send_m'
+        get 'delete_inbox_message'       
+        get 'delete_sent_message'
       end
     end    
     
@@ -82,6 +85,13 @@ MyOwnSite::Application.routes.draw do
     resources :add_places do
       member do
         
+      end
+    end    
+
+    resource :my_informations do
+      member do
+        get 'foto'
+        put 'update_avatar'
       end
     end    
   end

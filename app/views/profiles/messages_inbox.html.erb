@@ -52,14 +52,44 @@
 				    	<tbody>
 				    		<tr>
 				    			<td colspan = "5" align="left">
-				    				<div class="text_message">
-				                        <b>Від кого:</b>
-				        				<%= message.who_send_mail %></br>
-				        				<b>Заголовок:</b>
-				        				<%= message.subject %></br>
-				        				<b>Текст повідомлення:</b></br>
-				        				<%= message.description %>
-				                    </div>
+				    				<div class="wrap" >
+					    				<div class="text_message_wraper">
+						    				<div class="text_message">
+						    					<div class="tab_mess">
+							                        <table style="border: 1px">
+							                        	<tr>
+							                        		<td ><%= image_tag current_user.avatar.url, :size => "64x64"%></td>
+							                        		<td style="min-width:30px"></td>
+							                        		<td class="size_description"><b>Nik Name: </b><%= message.who_send_mail %><div style="border-top: 1px solid #979797" ><b>Заголовок: </b><%= message.subject %></div></td>		
+							                        	</tr>
+							                        	<tr>
+							                        		<td colspan = "3" style="height:20px"></td>	                        		
+							                        	</tr>
+							                        	<tr>
+							                        		<td style="min-width:70px"></td>
+							                        		<td style="min-width:30px"></td>			                        
+							                        		<td class="size_description"><%= message.description %></td>		
+							                        	</tr>
+							                        	<tr>
+							                        		<td colspan = "3" style="height:20px"></td>	                        		
+							                        	</tr>					                        	
+							                        </table>					                        
+							        				
+							        				<%= form_for Message.new, :url => {:controller=>"profiles", :action => "send_message_in_profile", :id=> current_user.id} do |f|  %>
+							        				<div class="text_description">										        
+												        <div>
+														    <%= f.text_field :who_send_mail, :type=>"hidden", :value => @user.nik_name, :id=>"nik_name"  %>
+												        	<%= f.text_field :who_get_mail, :type=>"hidden", :value => message.who_send_mail%>
+												    	   <%= f.text_area :description%>
+												    	   <%= f.text_field :read_message, :type=>"hidden", :value=>"not_read"%>
+													    </div>
+												    	<%= f.submit "Надіслати"%> 
+												    </div> 
+							        				<%end%>
+							        			</div>
+						                    </div>
+					                	</div>
+				                	</div>
 				    			</td>
 				    		</tr>
 				    	</tbody>			    	

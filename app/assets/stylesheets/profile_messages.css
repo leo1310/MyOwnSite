@@ -46,5 +46,38 @@ tr.bold{
       padding: 0.1em 0.25em; 
 }
 
+.text_message_wraper{
+  border: 1px solid #979797;
+  width: 510px;
+  margin: 0 auto;
+  border-radius: 10px  
+}
+
+.wrap{ 
+  padding: 20px
+}
+
+.text_message{
+  width: 490px;
+  margin: 0 auto;
+  border: 10px solid #DADADA;
+  background: white;
+  border-radius: 10px  
+}
+
+textarea{
+max-width: 100%;   
+min-width:  100%;    
+max-height: 150px;    
+min-height: 150px;    
+}
+.tab_mess{
+  padding: 30px
+}
+
+td.size_description{
+  font-size: 12px;
+}
+
 
 

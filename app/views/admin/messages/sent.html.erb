@@ -25,7 +25,10 @@
         		</th>
       			<th>
         			<div> Дата </div>
-        		</th>      			
+        		</th> 
+                <th>
+                    <div> Видалити </div>
+                </th>     			
     		</tr>
     	</thead>
 
@@ -51,11 +54,16 @@
 						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
 					</div>
 				</td>
+                <td>
+                    <div>
+                        <%= link_to "Видалити", :controller=>"admin/messages", :action=>"delete_sent_message", :id => message.id %>
+                    </div>
+                </td>
 	    		</tr>    		
     	</thead>
     	<tbody>
     		<tr>
-    			<td colspan = "4" align="left">
+    			<td colspan = "5" align="left">
     				<div class="text_message">
                         <b>Від кого:</b>
         				<%= message.who_send_mail %></br>

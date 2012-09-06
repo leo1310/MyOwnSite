@@ -9,7 +9,7 @@ class Admin::MessagesController < ApplicationController
 		@index = 1
 		
 		@admin = Admin.find(current_admin.id)
-		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 20).find_all_by_who_get_mail(@admin.nik_name)	
+		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 20).find_all_by_who_get_mail_and_deleted_geter(@admin.nik_name, 'true')	
 
 
 		@messages_count = Message.find_all_by_who_get_mail(@admin.nik_name)		
@@ -28,7 +28,7 @@ class Admin::MessagesController < ApplicationController
 		@tab_message_index = 2
 		@index = 1
 		@admin = Admin.find(current_admin.id)
-		@messages = Message.paginate(:page => params[:page], :per_page => 20).find_all_by_who_send_mail(@admin.nik_name)
+		@messages = Message.paginate(:page => params[:page], :per_page => 20).find_all_by_who_send_mail_and_deleted_sender(@admin.nik_name, 'true')
 	end
 
 	def send_m
@@ -50,6 +50,22 @@ class Admin::MessagesController < ApplicationController
 
 		redirect_to :controller => "messages", :action => "send_m"
 
+	end
+
+	def delete_inbox_message	
+		@message = Message.find(params[:id])
+		@message.deleted_geter = "false"
+		@message.save
+
+		redirect_to :controller=>"admin/messages", :action=>"inbox"
+	end
+
+	def delete_sent_message	
+		@message = Message.find(params[:id])
+		@message.deleted_sender = "false"
+		@message.save
+
+		redirect_to :controller=>"admin/messages", :action=>"sent"
 	end
 
 end
