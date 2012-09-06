@@ -42,14 +42,14 @@ min-height: 200px;
 
 .inbox{
 	background: white;
-	width: 555px;
+	width: 800px;
 	padding: 30px;
 	border-radius: 5px;
 	border: 1px solid #1E1EA7;			
 }
 .sent{
 	background: white;
-	width: 530px;
+	width: 800px;
 	padding: 30px;	
 	border-radius: 5px;
 	border: 1px solid #1E1EA7;			

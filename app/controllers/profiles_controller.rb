@@ -41,7 +41,12 @@ class ProfilesController < ApplicationController
 	def messages_sent
 		@tab_index_profile_message_menu = 2
 		@tab_index_profile_menu = 5
+
+		@admins = Admin.all		
+		@user = User.find(current_user.id)		
+	    @messages = @user.messages.paginate(:page => params[:page], :per_page => 25).find_all_by_deleted_sender('true')
 	end
+
 	def send_message_in_profile
 		@user = User.find(params[:id])					
 		@user_recipient = User.find_by_nik_name(params[:message][:who_get_mail])		

@@ -34,6 +34,7 @@ MyOwnSite::Application.routes.draw do
       get 'message_status'
       get 'delete_message'
       get 'delete_messages'
+      get 'delete_message_sent'
     end
   end
 

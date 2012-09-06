@@ -36,9 +36,34 @@ layout 'page'
 
 	def create
 		@user = User.find(params[:id])					
-		@user_recipient = User.find_by_nik_name(params[:message][:who_get_mail])		
-		@admin = Admin.find_by_nik_name(params[:message][:who_get_mail])		
-		unless @user_recipient.blank? and @admin.blank?
+		@users = User.all
+		@admins = Admin.all
+		
+		@counter = 0
+		@counter2 = 0
+	
+		@users.each do |user|
+			if user.nik_name.eql?(params[:message][:who_get_mail])
+				@counter2 = 1
+				break
+			else
+				@counter2 = 0
+			end
+		end
+
+		
+		if @counter2 == 0			
+			@admins.each do |admin|
+				if admin.nik_name.eql?(params[:message][:who_get_mail])
+					@counter = 1
+					break
+				else
+					@counter = 0
+				end
+			end
+		end		
+
+		if @counter == 1 or @counter2 == 1
 			@user.messages.create(params[:message])
 			@user.save
 			flash[:success] = "Your message sent to the recipient"
@@ -66,9 +91,18 @@ layout 'page'
 		@message.deleted_geter = "false"
 		@message.save
 
-		redirect_to :controller=>"profiles", :action=>"messages_inbox"
-					
+		redirect_to :controller=>"profiles", :action=>"messages_inbox"					
 	end
+
+	def delete_message_sent
+		@user = User.find(current_user.id)
+		@message = @user.messages.find(params[:id])
+		@message.deleted_sender = "false"
+		@message.save
+
+		redirect_to :controller=>"profiles", :action=>"messages_sent"					
+	end
+
 
 	def delete_messages
 		@user = User.find(current_user.id)

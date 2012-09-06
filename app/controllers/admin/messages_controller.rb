@@ -38,11 +38,36 @@ class Admin::MessagesController < ApplicationController
 	end
 
 	def create
-		@admin = Admin.find(params[:id])					
-		@user_recipient = User.find_by_nik_name(params[:message][:who_get_mail])		
-		@admin = Admin.find_by_nik_name(params[:message][:who_get_mail])		
-		unless @user_recipient.blank? and @admin.blank?
-			Message.create(params[:message])			
+		@admin = Admin.find(params[:id])	
+		@users = User.all
+		@admins = Admin.all
+		
+		@counter = 0
+		@counter2 = 0
+	
+		@users.each do |user|
+			if user.nik_name.eql?(params[:message][:who_get_mail])
+				@counter2 = 1
+				break
+			else
+				@counter2 = 0
+			end
+		end
+
+		
+		if @counter2 == 0			
+			@admins.each do |admin|
+				if admin.nik_name.eql?(params[:message][:who_get_mail])
+					@counter = 1
+					break
+				else
+					@counter = 0
+				end
+			end
+		end		
+
+		if @counter == 1 or @counter2 == 1
+			Message.create(params[:message])	
 			flash[:success] = "Your message sent to the recipient"
 		else
 			flash[:error] = "Error sending"

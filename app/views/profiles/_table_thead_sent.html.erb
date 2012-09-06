@@ -1,0 +1,80 @@
+<input type="hidden" value = <%= message.id%> >
+<td class="tbl-item-rate">
+    				<div><%= check_box_tag "#"  %></div>
+				</td>
+				<td >
+					<div >
+						<%@user_avatar = User.find_by_nik_name(message.who_get_mail)%>
+						<%if @user_avatar.nil? %>						
+							<% unless @admins.empty?%>
+								<% @counter = 0 %>
+								<% @admins.each do |admin|%>
+									<%if admin.nik_name.eql?(message.who_get_mail)%>
+										<%= image_tag admin.avatar.url, :size => "64x64", :title=>admin.nik_name%>										
+										<% @counter = 0 %>
+										<%break%>
+									<%else%>
+										<% @counter = 1 %>
+									<%end%>
+								<%end%>
+								<% if @counter == 1 %>
+									Error
+								<%end%>
+							<%else%>
+								Error
+							<%end%>
+						<%else%>							
+							<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_get_mail%>
+						<%end%>
+					</div>
+				</td>
+				<td>
+					<div style="font-family: Times New Roman; color: #BABABA">
+						<%@user_title = User.find_by_nik_name(message.who_get_mail)%>
+						<%if @user_title.nil? %>
+							<% unless @admins.empty?%>
+								<% @counter = 0 %>
+								<div style="color: blue">
+									<% @admins.each do |admin|%>
+										<%if admin.nik_name.eql?(message.who_get_mail)%>											
+											<% if admin.first_name.nil? and admin.last_name.nil? %>
+												<%= admin.nik_name %>												
+											<% elsif admin.first_name.nil? %>				
+												<%= admin.last_name %>														
+											<% elsif  admin.last_name.nil?  %>				
+												<%= admin.first_name %>
+											<%else%>
+												<%= admin.first_name+" "+admin.last_name %>
+											<%end%>
+
+											<% @counter = 0 %>
+											<%break%>
+										<%else%>
+											<% @counter = 1 %>
+										<%end%>
+									<%end%>
+									<% if @counter == 1 %>
+										Error Name
+									<%end%>
+								</div>
+							<%else%>
+								Error Name
+							<%end%>
+						<%else%>
+							<div style="color: blue">							
+							<%= @user_title.name+" "+@user_title.last_name %>
+						</div>
+						<%end%>					
+						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= message.description %>
+					</div>
+				</td>
+				<td>
+					<div>
+						<%= link_to "Видалити", :controller=>"messages", :action=>"delete_message_sent", :id => message.id %>
+					</div>
+				</td>

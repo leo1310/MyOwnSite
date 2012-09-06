@@ -1,11 +1,117 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_messages', :media => "all" %>
+<%= javascript_include_tag 'profile/messages' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >           
         	<%= render 'messages_friends'%>            
-            <h1>Sent</h1> 
+            <div class="profiles_input_messages">
+				<h3>Ваші вихідні повідомлення</h3>
+			
+				<div class="digg_pagination">
+					<div class="page_info">
+						<%= page_entries_info @messages%>    		
+					</div>		
+					<%= will_paginate @messages%>
+				</div>
+				<table class="brep-table" cellpadding="0" cellspacing="0">
+					<thead class="tbl-header">
+			    		<tr class="gray">
+			      			<th class="tbl-item-rate">
+			        			<div> </div>
+			        		</th>
+			        		<th style="width: 100px">
+			        			<div> Аватар</div>
+			        		</th>
+			      			<th style="width: 230px">
+			        			<div> Дата </div>
+			    			</th>
+			      			<th style="width: 300px">
+			        			<div> Повідомлення </div>
+			        		</th>
+			      			<th style="width: 100px">
+			        			<div> Видалити </div>
+			        		</th>
+			      			
+			    		</tr>
+			    	</thead>
+			    	<% @messages.each do |message|%>
+				    	<thead>
+				    		<%= render 'table_thead_sent', :message => message%>				    		
+				    	</thead>
+				    	<tbody>
+				    		<tr>
+				    			<td colspan = "5" align="left">
+				    				<div class="wrap" >
+					    				<div class="text_message_wraper">
+						    				<div class="text_message">
+						    					<div class="tab_mess">
+							                        <table style="border: 1px">
+							                        	<tr>
+							                        		<td >
+							                        			<%@user_avatar = User.find_by_nik_name(message.who_get_mail)%>
+																<%if @user_avatar.nil? %>						
+																	<% unless @admins.empty?%>
+																		<% @counter = 0 %>
+																		<% @admins.each do |admin|%>
+																			<%if admin.nik_name.eql?(message.who_get_mail)%>
+																				<%= image_tag admin.avatar.url, :size => "64x64", :title=>admin.nik_name%>										
+																				<% @counter = 0 %>
+																				<%break%>
+																			<%else%>
+																				<% @counter = 1 %>
+																			<%end%>
+																		<%end%>
+																		<% if @counter == 1 %>
+																			Error
+																		<%end%>
+																	<%else%>
+																		Error
+																	<%end%>
+																<%else%>							
+																	<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_get_mail%>
+																<%end%>
+															</td>
+							                        		<td style="min-width:30px"></td>
+							                        		<td class="size_description"><b>Nik Name: </b><%= message.who_send_mail %><div style="border-top: 1px solid #979797" ><b>Заголовок: </b><%= message.subject %></div></td>		
+							                        	</tr>
+							                        	<tr>
+							                        		<td colspan = "3" style="height:20px"></td>	                        		
+							                        	</tr>
+							                        	<tr>
+							                        		<td style="min-width:70px"></td>
+							                        		<td style="min-width:30px"></td>			                        
+							                        		<td class="size_description"><%= message.description %></td>		
+							                        	</tr>
+							                        	<tr>
+							                        		<td colspan = "3" style="height:20px"></td>	                        		
+							                        	</tr>					                        	
+							                        </table>					                        
+							        				
+							        				<%= form_for Message.new, :url => {:controller=>"profiles", :action => "send_message_in_profile", :id=> current_user.id} do |f|  %>
+							        				<div class="text_description">										        
+												        <div>
+														    <%= f.text_field :who_send_mail, :type=>"hidden", :value => @user.nik_name, :id=>"nik_name"  %>
+												        	<%= f.text_field :who_get_mail, :type=>"hidden", :value => message.who_get_mail%>
+												    	   <%= f.text_area :description%>
+												    	   <%= f.text_field :read_message, :type=>"hidden", :value=>"not_read"%>
+													    </div>
+												    	<%= f.submit "Надіслати"%> 
+												    </div> 
+							        				<%end%>
+							        			</div>
+						                    </div>
+					                	</div>
+				                	</div>
+				    			</td>
+				    		</tr>
+				    	</tbody>			    	
+			    	<%end%>
+				</table>             
+
+			</div>
         </div>        
 	</div>
 </div>
