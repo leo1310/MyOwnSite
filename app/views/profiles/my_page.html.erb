@@ -4,7 +4,7 @@
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
-            <h1>My Page</h1>
+            <%= image_tag current_user.avatar.url, :size => "250x200"%>            
         </div>        
 	</div>
 </div>

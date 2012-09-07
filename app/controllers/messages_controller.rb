@@ -104,12 +104,35 @@ layout 'page'
 	end
 
 
-	def delete_messages
+	def delete_group_messages
 		@user = User.find(current_user.id)
-		#@message = @user.messages.find(params[:id])
-		#@message.destroy
+		@i = 0
+		while params[:arr] != nil do
+			
+			@message = @user.messages.find(params[:arr][@i])
+			@message.deleted_geter = "false"
+			@message.save
+			@i += 1
+			
+		end
 
 		redirect_to :controller=>"profiles", :action=>"messages_inbox"
+					
+	end
+
+	def delete_group_messages_sent
+		@user = User.find(current_user.id)
+		@i = 0
+		while params[:arr] != nil do
+			
+			@message = @user.messages.find(params[:arr][@i])
+			@message.deleted_sender = "false"
+			@message.save
+			@i += 1
+			puts "XXXXXXXXXXXXX"*3
+		end
+
+		redirect_to :controller=>"profiles", :action=>"messages_sent"
 					
 	end
 	

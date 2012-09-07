@@ -32,9 +32,10 @@ MyOwnSite::Application.routes.draw do
   resources :messages do
     collection do
       get 'message_status'
-      get 'delete_message'
-      get 'delete_messages'
+      get 'delete_message'      
       get 'delete_message_sent'
+      get 'delete_group_messages'
+      get 'delete_group_messages_sent'
     end
   end
 
