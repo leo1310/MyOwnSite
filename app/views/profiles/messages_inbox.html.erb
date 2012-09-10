@@ -16,6 +16,10 @@
 					</div>		
 					<%= will_paginate @messages%>
 				</div>
+				<div class="select_all_messages">
+					<input type="hidden" value=<%=@messages_count%> id="select_all">
+					<a href="#" id="select_all_messages">Виділити всі повідомлення</a>
+				</div>
 				<table class="brep-table" cellpadding="0" cellspacing="0">
 					<thead class="tbl-header">
 			    		<tr class="gray">

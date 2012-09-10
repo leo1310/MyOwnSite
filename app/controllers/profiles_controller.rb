@@ -35,6 +35,7 @@ class ProfilesController < ApplicationController
 		@admins = Admin.all		
 		@user = User.find(current_user.id)
 		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
+		@messages_count = @messages.count
 		
 	end
 
@@ -45,6 +46,7 @@ class ProfilesController < ApplicationController
 		@admins = Admin.all		
 		@user = User.find(current_user.id)		
 	    @messages = @user.messages.paginate(:page => params[:page], :per_page => 25).find_all_by_deleted_sender('true')
+	    @messages_count = @messages.count
 	end
 
 	def send_message_in_profile

@@ -109,7 +109,7 @@ layout 'page'
 		@i = 0
 		while params[:arr] != nil do
 			
-			@message = @user.messages.find(params[:arr][@i])
+			@message = Message.find(params[:arr][@i])
 			@message.deleted_geter = "false"
 			@message.save
 			@i += 1
