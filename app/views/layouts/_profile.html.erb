@@ -7,9 +7,9 @@
         <%end%>
         
         <% if @tab_index_profile_menu == 2%>
-            <li class="active"><%= link_to "Про мене", about_me_path, "data-toggle"=>"tab" %></li>
+            <li class="active"><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
         <%else%>
-            <li><%= link_to "Про мене", about_me_path, "data-toggle"=>"tab" %></li>
+            <li><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
         <%end%>
         
         <% if @tab_index_profile_menu == 3%>

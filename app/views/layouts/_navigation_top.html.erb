@@ -45,6 +45,12 @@
 						<%else%>
 							<li><%= link_to "Profile", my_page_path%></li>						
 						<%end%>
+						
+						<%if @tab_index_main_menu == 7%>		
+							<li class="active"><%= link_to "Search", search_path%></li>						
+						<%else%>
+							<li><%= link_to "Search", search_path%></li>						
+						<%end%>
 					</ul>					
 			</div>				
 				

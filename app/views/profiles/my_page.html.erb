@@ -1,10 +1,238 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_my_page', :media => "all" %>
+<%= javascript_include_tag 'profile/my_page' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
-            <%= image_tag current_user.avatar.url, :size => "250x200"%>            
+            <table>
+            	<tr>
+            		<td style="vertical-align: top">
+			            <div class="avatar" >
+			            	<%= image_tag current_user.avatar.url, :size => "300x200"%>
+			        	</div>
+			        </td>
+			        <td style="vertical-align: top" >
+			        	<div class="profile_content">
+				        	<div class="titlename">
+				        		<%= @user.name %> <%= @user.last_name%>			        		
+				        	</div>
+				        	<div class="sub" id="personal_info">
+				        		Особисті дані:
+				        	</div>
+				        	<table id="table_personal_info">
+				        		<% unless @user.birthday.blank? %>
+					        		<tr >
+					        			<td >
+					        				<div class="title_c">
+					        					День народження:
+					        				</div>
+					        			</td>
+					        			<td>
+					        				<div class="title_describe">				        					
+						        				<%= @user.birthday.day %> 
+						        				<%if @user.birthday.month.eql?(1)%>
+						        					Січня
+						        				<%elsif @user.birthday.month.eql?(2)%>
+						        					Лютого
+						        				<%elsif @user.birthday.month.eql?(3)%>
+						        					Березня
+						        				<%elsif @user.birthday.month.eql?(4)%>
+						        					Квітня
+						        				<%elsif @user.birthday.month.eql?(5)%>
+						        					Травня
+						        				<%elsif @user.birthday.month.eql?(6)%>
+						        					Червня
+						        				<%elsif @user.birthday.month.eql?(7)%>
+						        					Липня
+						        				<%elsif @user.birthday.month.eql?(8)%>
+						        					Серпня
+						        				<%elsif @user.birthday.month.eql?(9)%>
+						        					Вересня
+						        				<%elsif @user.birthday.month.eql?(10)%>
+						        					Жовтня
+						        				<%elsif @user.birthday.month.eql?(11)%>
+						        					Листопада
+						        				<%elsif @user.birthday.month.eql?(12)%>
+						        					Грудня
+						        				<%end%>
+						        				<%= @user.birthday.year %>						        			
+				        					</div>
+					        			</td>				        			
+					        		</tr>				        		
+				        		<%end%>
+				        		<% unless @user.nik_name.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Nik_name:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= @user.nik_name %>
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
+					        	<% unless @user.phone.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Телефон:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= number_to_phone(@user.phone, :area_code => :true) %>
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
+					        	<% unless @user.surname.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Повне Ім'я:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= @user.last_name%> <%= @user.name %> <%= @user.surname %>
+					        					
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
+					        	<% unless @user.marital_status.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Сімейний стан:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= @user.marital_status%>
+					        					
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
+				        	</table>
+				        	<div class="sub" id="contacts">
+				        		Мої контакти:
+				        	</div>
+				        	<table id="table_contacts">
+				        		<% unless @contact.nil? %>
+					        		<% unless @contact.skype_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					<%= image_tag "Skype.png", :title=>"Skype"%>
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.skype_c%>						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.icq_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					<%= image_tag "icq.png", :title=>"ICQ"%>
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.icq_c%>					        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.twitter_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					Twitter:
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.twitter_c%>
+						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.facebook_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					<%= image_tag "Facebook.png", :title=>"Facebook"%>
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.facebook_c%>					        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.google_plus_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					Google +:
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.google_plus_c%>					        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.vkontakte_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					Vkontakte:
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.vkontakte_c%>
+						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.email_c.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					E-mail:
+						        				</div>
+						        			</td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.email_c%>
+						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+					        	<%end%>
+				        	</table>
+			        	</div>
+			        </td>
+	        	</tr>
+        	</table>
         </div>        
 	</div>
 </div>

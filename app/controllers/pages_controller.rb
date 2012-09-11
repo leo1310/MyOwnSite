@@ -20,5 +20,9 @@ class PagesController < ApplicationController
 	def help
 		@tab_index_main_menu = 6		
 	end
+
+	def search
+		@tab_index_main_menu = 7		
+	end
 	
 end

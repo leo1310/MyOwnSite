@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120905081432) do
+ActiveRecord::Schema.define(:version => 20120911125749) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(:version => 20120905081432) do
     t.string   "X_coordinate"
     t.string   "Y_coordinate"
     t.integer  "zoom"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "skype_c"
+    t.string   "icq_c"
+    t.string   "twitter_c"
+    t.string   "facebook_c"
+    t.string   "google_plus_c"
+    t.string   "vkontakte_c"
+    t.string   "email_c"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "countries", :force => true do |t|
@@ -105,6 +118,9 @@ ActiveRecord::Schema.define(:version => 20120905081432) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "surname"
+    t.date     "birthday"
+    t.string   "marital_status"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,48 @@
+.titlename {
+	padding-left:40px;
+	padding-bottom:20px;
+	padding-top:5px;
+	font-size: 18px;
+	font-family: "Times New Roman";
+	font-style: italic;
+	width: 350px;
+	font-weight: bold;
+}
+
+.title_c{
+	margin-left: 40px; 
+	margin-right: 10px; 
+	margin-bottom: 10px; 
+	font-size: 14px;
+	font-family: "Times New Roman";
+	color: #293EF7;
+	border-bottom: 1px solid #293EF7;
+}
+
+.title_contact{
+	margin-left: 40px; 
+	margin-right: 10px; 
+	margin-bottom: 10px; 
+	font-size: 14px;
+	font-family: "Times New Roman";
+	color: #293EF7;
+}
+
+.title_describe{
+	font-family: "Times New Roman";	
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 10px; 
+}
+
+.profile_content{
+	border: 3px solid #F7C6F9;	
+	border-radius: 10px;
+}
+
+.sub{
+	margin-left: 40px; 
+	font-family: "Times New Roman";
+	color: red;
+	cursor:pointer;
+}

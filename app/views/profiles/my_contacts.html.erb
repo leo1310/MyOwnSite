@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
+
+<div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
+	<%= render 'layouts/profile'%>
+	<div class="tab-content">
+        <div class="tab-pane active" >
+            <%= render 'about_me'%> 
+            <div id="my_information">
+            	<h1>Мої Контакти</h1>
+            	<%= form_for @contact, :url => {:controller=>"profiles", :action => "update_my_contacts", :id=> current_user.id} do |f|  %>
+    				<div class="information">										        				        
+					        <table>
+						        <tr>
+						        	<td style="width: 100px">
+						        		Skype:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :user_id, :type=>"hidden", :value=>current_user.id %>
+										<%= f.text_field :skype_c %>
+									</td >
+								</tr>
+								<tr>
+									<td style="width: 100px">
+										Twitter:
+									</td>
+									<td>
+						        		<%= f.text_field :twitter_c %>		           
+						        	</td>
+						        </tr>
+						        <tr>
+						        	<td style="width: 100px">
+						        		Facebook:
+						        	</td>
+						        	<td>
+						        		<%= f.text_field :facebook_c %>
+						        	</td>
+						        </tr>
+						        <tr>
+									<td style="width: 100px">
+						    			Goole +:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :google_plus_c %>
+						    		</td>
+						    	</tr>
+						    	<tr>
+									<td style="width: 100px">
+						    			ICQ:
+						    		</td>
+						    		<td>						    			
+						    			<%= f.text_field :icq_c %>
+						    		</td>
+						    	</tr>
+						    	<tr>
+									<td style="width: 100px">
+						    			Vkontakte:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :vkontakte_c %>
+						    		</td>
+						    	</tr>
+						        <tr>
+						        	<td style="width: 100px">
+						        		E-mail:
+						        	</td>
+						        	<td>
+						    			<%= f.text_field :email_c%>
+						    		</td>
+								</tr>								
+					    	</table>
+					    	</br>					    
+				    	<%= f.submit "Зберегти"%> 
+				    </div> 
+    			<%end%>
+        	</div>
+
+        </div>        
+	</div>
+</div>

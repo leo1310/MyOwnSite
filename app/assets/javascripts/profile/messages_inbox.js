@@ -1,6 +1,22 @@
 var count_check = 0;
+function delete_group_messages(table_)
+{
+	$('#delete_selected_messages').on('click', function(){
+		var myMessages = new Array();
+		var index = 0;
+		$(table_).find(' #check_message').each(function(){							
+			if ( $(this).attr('checked') === 'checked'){
+				myMessages[index] = $(this).val();								
+				index += 1;							
+			}							
+		})
+		$.ajax({ url: "/messages/delete_group_messages",   type: "GET",   data: {arr : myMessages}});	
+	})
+}
+
 function buildTable(table_, multicollapsible_) {
 	$(table_).find('> tbody').each(function(){ $(this).hide() });
+	
 	$('#select_all_messages').on('click', function(){
 		$(table_).find(' #check_message').each(function(){												
 				
@@ -8,15 +24,18 @@ function buildTable(table_, multicollapsible_) {
 			var count_messages = $("#select_all").val()
 			count_check = count_messages;				
 		})
-		$("#cheked_message").remove();
-		if(count_check == 1 || count_check == 2 || count_check == 3 || count_check == 4 || count_check == 21 || count_check == 22 || count_check == 23 || count_check == 24){
-			$(".brep-table").before("<div style='margin-left: 115px' id='cheked_message'>Обрано "+ count_check +" повідомлення<a id='delete_selected_messages' style='float:right; margin-right: 100px' href='/messages/delete_group_messages'>Видалити обрані повідомлення</a></div>");	
+		if(count_check > 0){
+			$("#cheked_message").remove();
+			if(count_check == 1 || count_check == 2 || count_check == 3 || count_check == 4 || count_check == 21 || count_check == 22 || count_check == 23 || count_check == 24){
+				$(".brep-table").before("<div style='margin-left: 115px' id='cheked_message'>Обрано "+ count_check +" повідомлення<a id='delete_selected_messages' style='float:right; margin-right: 100px' href='/messages/delete_group_messages'>Видалити обрані повідомлення</a></div>");	
+			}
+			else{
+				$(".brep-table").before("<div style='margin-left: 115px' id='cheked_message'>Обрано "+ count_check +" повідомлень<a id='delete_selected_messages' style='float:right; margin-right: 100px' href='/messages/delete_group_messages'>Видалити обрані повідомлення</a></div>");	
+			}
+			delete_group_messages($('.brep-table'));
 		}
-		else{
-			$(".brep-table").before("<div style='margin-left: 115px' id='cheked_message'>Обрано "+ count_check +" повідомлень<a id='delete_selected_messages' style='float:right; margin-right: 100px' href='/messages/delete_group_messages'>Видалити обрані повідомлення</a></div>");	
-		}
-		
 	})
+
 	$(table_).find('> thead:not(".tbl-header")').each(function(){
 		$(this).bind('click',function(arg){
 			
@@ -45,17 +64,8 @@ function buildTable(table_, multicollapsible_) {
 					}
 						
 				}
-				$('#delete_selected_messages').on('click', function(){
-					var myMessages = new Array();
-					var index = 0;
-					$(table_).find(' #check_message').each(function(){							
-						if ( $(this).attr('checked') === 'checked'){
-							myMessages[index] = $(this).val();								
-							index += 1;							
-						}							
-					})
-					$.ajax({ url: "/messages/delete_group_messages",   type: "GET",   data: {arr : myMessages}});	
-				})
+				delete_group_messages($('.brep-table'));
+				
 			}
 			if(arg.target.nodeName != "INPUT" && arg.target.nodeName != "A") {
 				if (!multicollapsible_ ) {				

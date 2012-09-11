@@ -2,7 +2,7 @@
 <td class="tbl-item-rate">
     				<div><%= check_box_tag "check_message", message.id %></div>
 				</td>
-				<td >
+				<td style="width: 100px">
 					<div >
 						<%@user_avatar = User.find_by_nik_name(message.who_get_mail)%>
 						<%if @user_avatar.nil? %>						
@@ -28,7 +28,7 @@
 						<%end%>
 					</div>
 				</td>
-				<td>
+				<td style="width: 230px">
 					<div style="font-family: Times New Roman; color: #BABABA">
 						<%@user_title = User.find_by_nik_name(message.who_get_mail)%>
 						<%if @user_title.nil? %>
@@ -68,12 +68,12 @@
 						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
 					</div>
 				</td>
-				<td>
+				<td style="width: 300px">
 					<div>
 						<%= message.description %>
 					</div>
 				</td>
-				<td>
+				<td style="width: 100px">
 					<div>
 						<%= link_to "Видалити", :controller=>"messages", :action=>"delete_message_sent", :id => message.id %>
 					</div>

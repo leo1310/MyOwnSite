@@ -1,0 +1,86 @@
+<%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
+
+<div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
+	<%= render 'layouts/profile'%>
+	<div class="tab-content">
+        <div class="tab-pane active" >
+            <%= render 'about_me'%> 
+            <div id="my_information">
+            	<h1>Моя Інформація</h1>
+            	<%= form_for @user, :url => {:controller=>"profiles", :action => "update_my_information", :id=> current_user.id} do |f|  %>
+    				<div class="information">										        				        
+					        <table>
+						        <tr>
+						        	<td style="width: 100px">
+						        		E-mail:
+						    		</td>
+						    		<td>
+										<%= f.text_field :email %>
+									</td >
+								</tr>
+								<tr>
+									<td style="width: 100px">
+										Ім'я:
+									</td>
+									<td>
+						        		<%= f.text_field :name %>		           
+						        	</td>
+						        </tr>
+						        <tr>
+						        	<td style="width: 100px">
+						        		Прізвище:
+						        	</td>
+						        	<td>
+						        		<%= f.text_field :last_name %>
+						        	</td>
+						        </tr>
+						        <tr>
+									<td style="width: 100px">
+						    			По Батькові:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :surname %>
+						    		</td>
+						    	</tr>
+						    	<tr>
+									<td style="width: 100px">
+						    			День народження:
+						    		</td>
+						    		<td>						    			
+						    			<%= f.date_select :birthday, :start_year => 1950 %>
+						    		</td>
+						    	</tr>
+						    	<tr>
+									<td style="width: 100px">
+						    			Сімейний стан:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :marital_status %>
+						    		</td>
+						    	</tr>
+						        <tr>
+						        	<td style="width: 100px">
+						        		Телефон:
+						        	</td>
+						        	<td>
+						    			<%= f.text_field :phone%>
+						    		</td>
+								</tr>
+								<tr>
+									<td style="width: 100px">
+						    			Nik Name:
+						    		</td>
+						    		<td>
+						    			<%= f.text_field :nik_name, :readonly=>:readonly %>
+						    		</td>
+						    	</tr>
+					    	</table>
+					    	</br>					    
+				    	<%= f.submit "Зберегти"%> 
+				    </div> 
+    			<%end%>
+            </div>           
+        </div>        
+	</div>
+</div>

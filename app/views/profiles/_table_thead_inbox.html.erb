@@ -2,7 +2,7 @@
 <td class="tbl-item-rate">
     				<div><%= check_box_tag "check_message", message.id %></div>
 				</td>
-				<td >
+				<td style="width: 100px">
 					<div >
 						<%if message.user_id.nil? %>						
 							<% unless @admins.empty?%>
@@ -28,8 +28,8 @@
 						<%end%>
 					</div>
 				</td>
-				<td>
-					<div style="font-family: Times New Roman; color: #BABABA">
+				<td style="width: 230px">
+					<div style="font-family: Times New Roman; color: #BABABA ">
 						<%if message.user_id.nil? %>
 							<% unless @admins.empty?%>
 								<% @counter = 0 %>
@@ -68,13 +68,15 @@
 						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
 					</div>
 				</td>
-				<td>
-					<div>
+				<td style="width: 300px">
+					<div >
 						<%= message.description %>
 					</div>
 				</td>
-				<td>
-					<div>
+				<td style="width: 100px">
+					<div >
 						<%= link_to "Видалити", :controller=>"messages", :action=>"delete_message", :id => message.id %>
 					</div>
 				</td>
+
+				

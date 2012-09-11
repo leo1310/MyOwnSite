@@ -3,12 +3,84 @@ class ProfilesController < ApplicationController
 	before_filter :load_index
 	layout 'page'
 	
-	def about_me
+	# ----------------------About me actions-------------------------------------
+	def my_information
+		@user = User.find(current_user.id)
+
 		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 1
 	end
 
+	def update_my_information
+		@user = User.find(current_user.id)
+    	if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "my_information"  
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :action => "my_information"   
+    	end
+	end
+
+	def my_contacts
+		@user = User.find(current_user.id)
+		if @user.contact.nil?			
+			@contact = Contact.new
+		else
+			@contact = @user.contact
+		end
+		
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 2
+	end
+	
+	def update_my_contacts
+		@user = User.find(current_user.id)	
+		
+		if @user.contact.nil?			
+			
+			@contact = Contact.new(params[:contact])			
+			@contact.save
+
+			flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "my_contacts"  
+		else
+			if @user.contact.update_attributes(params[:contact])
+        		flash[:success] = "Your profile is updated!"
+        		redirect_to :action => "my_contacts"  
+    		else  
+        		flash[:error] = "Error! Your profile is not update!"
+        		redirect_to :action => "my_contacts"   
+    		end
+		end
+	end
+
+	def interests
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 3
+	end
+
+	def education
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 4
+	end
+
+
+	def career
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 5
+	end
+
+	def life_position
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 6
+	end
+	
+	# ----------------------My Page actions-------------------------------------
 	def my_page
 		@tab_index_profile_menu = 1
+		@user = User.find(current_user.id)
+		@contact = @user.contact
 	end
 
 	def foto
@@ -28,6 +100,7 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_menu = 7
 	end
 
+	# ----------------------Messages actions-------------------------------------
 	def messages_inbox
 		@tab_index_profile_message_menu = 1
 		@tab_index_profile_menu = 5
@@ -67,6 +140,19 @@ class ProfilesController < ApplicationController
 	def messages_spam
 		@tab_index_profile_message_menu = 3
 		@tab_index_profile_menu = 5
+	end	
+	
+	# ----------------------Foto actions-------------------------------------
+	def update_avatar
+		@user = User.find(current_user.id)
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is update!"
+        	redirect_to :controller => "profiles", :action => "foto"
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :controller => "profiles", :action => "foto"
+    	end
+		
 	end
 
 	def load_index
@@ -80,17 +166,5 @@ class ProfilesController < ApplicationController
 				@new_message += 1
 			end
 		end			
-	end
-
-	def update_avatar
-		@user = User.find(current_user.id)
-		if @user.update_attributes(params[:user])
-        	flash[:success] = "Your profile is update!"
-        	redirect_to :controller => "profiles", :action => "foto"
-    	else  
-        	flash[:error] = "Error! Your profile is not update!"
-        	redirect_to :controller => "profiles", :action => "foto"
-    	end
-		
 	end
 end

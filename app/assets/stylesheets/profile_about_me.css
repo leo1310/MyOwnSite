@@ -1,0 +1,31 @@
+#my_information{
+	border:1px solid black;
+	background: #CA6F00;
+	border-radius: 5px;
+	width: 580px;
+	margin-top: 15px;
+	padding:10px 20px;	
+}
+#my_information h1{
+	color: white;
+}
+
+.information td{
+	font-size: 14px;
+	font-family: Helvetica,Arial,Verdana,sans-serif;
+	color: white;
+	border-bottom: 1px solid #D58F38;
+	padding-top: 10px;	
+}
+input[type=text]{
+	background: #D6D6D6;
+}
+
+select{
+	width: 110px;
+	background: #D6D6D6;
+}
+
+td.titlename {
+	padding-left:40px;
+}

@@ -68,7 +68,7 @@ layout 'page'
 			@user.save
 			flash[:success] = "Your message sent to the recipient"
 		else
-			flash[:error] = "Error sending"
+			flash[:error] = "Error sending. No such nick."
 		end
 
 		redirect_to :controller => "messages", :action => "send_m"

@@ -21,6 +21,7 @@ MyOwnSite::Application.routes.draw do
   match 'partners' => 'Pages#partners'
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
+  match 'search' => 'Pages#search'
   match 'additionalInf' => 'Pages#additionalInf'   
 
   match 'africa' =>'Maps#africa' 
@@ -43,19 +44,32 @@ MyOwnSite::Application.routes.draw do
   match '/input', :to=> 'messages#input'
   match '/sent', :to=> 'messages#sent'  
   
-
-  match 'about_me',  :to=> 'profiles#about_me'
+  #Routes profiles controller
+  
   match 'my_page', :to=> 'profiles#my_page'
   match 'foto', :to=> 'profiles#foto'
-  match 'friends', :to=> 'profiles#friends'
-  match 'messages_friends', :to=> 'profiles#messages_friends'
+  match 'friends', :to=> 'profiles#friends'  
   match 'my_settings', :to=> 'profiles#my_settings'
   match 'towns', :to=> 'profiles#towns'
-  match 'messages_inbox', :to=> 'profiles#messages_inbox'
-  match 'messages_sent', :to=> 'profiles#messages_sent'
-  match 'messages_spam', :to=> 'profiles#messages_spam'
-  match 'update_avatar', :to=> 'profiles#update_avatar'
-  match 'send_message_in_profile', :to=> 'profiles#send_message_in_profile'
+    
+    #Messages
+    match 'messages_inbox', :to=> 'profiles#messages_inbox'
+    match 'messages_sent', :to=> 'profiles#messages_sent'
+    match 'messages_spam', :to=> 'profiles#messages_spam'  
+    match 'send_message_in_profile', :to=> 'profiles#send_message_in_profile'
+    
+    #Foto
+    match 'update_avatar', :to=> 'profiles#update_avatar'
+
+    #About me
+    match 'my_information',  :to=> 'profiles#my_information'
+    match 'my_contacts',  :to=> 'profiles#my_contacts'
+    match 'interests',  :to=> 'profiles#interests'
+    match 'education',  :to=> 'profiles#education'
+    match 'career',  :to=> 'profiles#career'
+    match 'life_position',  :to=> 'profiles#life_position'
+    match 'update_my_information', :to=> 'profiles#update_my_information'
+    match 'update_my_contacts', :to=> 'profiles#update_my_contacts'
 
   
   namespace :admin do
