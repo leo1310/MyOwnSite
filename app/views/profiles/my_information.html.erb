@@ -15,6 +15,7 @@
 						        	<td style="width: 100px">
 						        		E-mail:
 						    		</td>
+						    		<td></td>
 						    		<td>
 										<%= f.text_field :email %>
 									</td >
@@ -23,6 +24,7 @@
 									<td style="width: 100px">
 										Ім'я:
 									</td>
+									<td></td>
 									<td>
 						        		<%= f.text_field :name %>		           
 						        	</td>
@@ -31,6 +33,7 @@
 						        	<td style="width: 100px">
 						        		Прізвище:
 						        	</td>
+						        	<td></td>
 						        	<td>
 						        		<%= f.text_field :last_name %>
 						        	</td>
@@ -39,30 +42,43 @@
 									<td style="width: 100px">
 						    			По Батькові:
 						    		</td>
+						    		<td></td>
 						    		<td>
 						    			<%= f.text_field :surname %>
 						    		</td>
 						    	</tr>
 						    	<tr>
 									<td style="width: 100px">
+						    			Стать:
+						    		</td>
+						    		<td></td>
+						    		<td>						    			
+						    			<%= f.select :stat, ["Чоловіча", "Жіноча"] %>
+						    		</td>
+						    	</tr>						    	
+						    	<tr>
+									<td style="width: 100px">
 						    			День народження:
 						    		</td>
+						    		<td></td>
 						    		<td>						    			
-						    			<%= f.date_select :birthday, :start_year => 1950 %>
+						    			<%= f.date_select :birthday, :start_year => 1950 %>						    			
 						    		</td>
 						    	</tr>
 						    	<tr>
 									<td style="width: 100px">
 						    			Сімейний стан:
 						    		</td>
-						    		<td>
-						    			<%= f.text_field :marital_status %>
+						    		<td></td>
+						    		<td>						    			
+						    			<%= f.select :marital_status, ["Одружений(-а)", "Неодружений(-а)", "Заручений(-a)", "Зустрічаюся","В пошуку", "Все складно"]%>						    			
 						    		</td>
 						    	</tr>
 						        <tr>
 						        	<td style="width: 100px">
 						        		Телефон:
 						        	</td>
+						        	<td></td>
 						        	<td>
 						    			<%= f.text_field :phone%>
 						    		</td>
@@ -71,6 +87,7 @@
 									<td style="width: 100px">
 						    			Nik Name:
 						    		</td>
+						    		<td></td>
 						    		<td>
 						    			<%= f.text_field :nik_name, :readonly=>:readonly %>
 						    		</td>
