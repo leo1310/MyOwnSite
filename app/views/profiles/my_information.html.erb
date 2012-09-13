@@ -52,8 +52,10 @@
 						    			Стать:
 						    		</td>
 						    		<td></td>
-						    		<td>						    			
-						    			<%= f.select :stat, ["Чоловіча", "Жіноча"] %>
+						    		<td>
+						    			<div class="sel">								    			
+						    				<%= f.select :stat, ["","Чоловіча", "Жіноча"] %>
+						    			</div>
 						    		</td>
 						    	</tr>						    	
 						    	<tr>
@@ -61,8 +63,13 @@
 						    			День народження:
 						    		</td>
 						    		<td></td>
-						    		<td>						    			
-						    			<%= f.date_select :birthday, :start_year => 1950 %>						    			
+						    		<td>
+						    			<div class="birthday">						    			
+						    				<%= f.date_select :birthday, :start_year => 1950 %>
+						    			</div>
+						    			<div class="date">
+						    				<%= f.select :birthday_show_hide_date, ["Приховати дату","Показувати дату", "Лише день та місяць"] %>	
+						    			</div>
 						    		</td>
 						    	</tr>
 						    	<tr>
@@ -70,8 +77,20 @@
 						    			Сімейний стан:
 						    		</td>
 						    		<td></td>
-						    		<td>						    			
-						    			<%= f.select :marital_status, ["Одружений(-а)", "Неодружений(-а)", "Заручений(-a)", "Зустрічаюся","В пошуку", "Все складно"]%>						    			
+						    		<td>
+						    			<div class="sel">
+						    			<%= f.select :marital_status, ["","Одружений(-а)", "Неодружений(-а)", "Заручений(-a)", "Зустрічаюся","В пошуку", "Все складно"]%>						    			
+						    			</div>
+						    			
+						    		</td>
+						    	</tr>
+						    	<tr>
+									<td style="width: 100px">
+						    			Рідне місто:
+						    		</td>
+						    		<td></td>
+						    		<td>
+						    			<%= f.text_field :native_town %>
 						    		</td>
 						    	</tr>
 						        <tr>

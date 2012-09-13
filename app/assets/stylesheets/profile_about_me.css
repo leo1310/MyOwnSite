@@ -26,11 +26,18 @@ td{
 	min-width: 20px;
 }
 
-select{
+.date select{
+	width: 180px;
+	background: #D6D6D6;
+}
+.birthday select{
 	width: 140px;
 	background: #D6D6D6;
 }
-
+.sel select{
+	width: 180px;
+	background: #D6D6D6;
+}
 
 td.titlename {
 	padding-left:40px;

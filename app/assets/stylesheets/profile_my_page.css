@@ -46,3 +46,11 @@
 	color: red;
 	cursor:pointer;
 }
+
+#table_contacts{
+	margin-left: 50px;
+}
+
+#table_contacts td{
+	min-width: 40px;
+}
