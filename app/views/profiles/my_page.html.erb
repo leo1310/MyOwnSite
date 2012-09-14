@@ -22,6 +22,35 @@
 				        		Особисті дані:
 				        	</div>
 				        	<table id="table_personal_info">
+				        		<% unless @user.surname.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Повне Ім'я:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= @user.last_name%> <%= @user.name %> <%= @user.surname %>
+					        					
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
+					        	<% unless @user.nik_name.blank? %>
+					        		<tr>
+					        			<td>
+					        				<div class="title_c">
+					        					Nik_name:
+					        				</div>
+					        			</td>				        			
+					        			<td>
+					        				<div class="title_describe">
+					        					<%= @user.nik_name %>
+					        				<div>
+					        			</td>
+					        		</tr>
+					        	<%end%>
 				        		<% unless @user.birthday.blank? %>
 					        		<% if @user.birthday_show_hide_date.eql?("Показувати дату") or @user.birthday_show_hide_date.eql?("Лише день та місяць") %>
 						        		<tr >
@@ -67,20 +96,21 @@
 						        		</tr>					        		
 					        		<%end%>				        		
 				        		<%end%>
-				        		<% unless @user.nik_name.blank? %>
+				        		<% unless @user.native_town.blank? %>
 					        		<tr>
 					        			<td>
 					        				<div class="title_c">
-					        					Nik_name:
+					        					Рідне місто:
 					        				</div>
 					        			</td>				        			
 					        			<td>
 					        				<div class="title_describe">
-					        					<%= @user.nik_name %>
+					        					<%= @user.native_town%>
+					        					
 					        				<div>
 					        			</td>
 					        		</tr>
-					        	<%end%>
+					        	<%end%>				        		
 					        	<% unless @user.phone.blank? %>
 					        		<tr>
 					        			<td>
@@ -94,22 +124,7 @@
 					        				<div>
 					        			</td>
 					        		</tr>
-					        	<%end%>
-					        	<% unless @user.surname.blank? %>
-					        		<tr>
-					        			<td>
-					        				<div class="title_c">
-					        					Повне Ім'я:
-					        				</div>
-					        			</td>				        			
-					        			<td>
-					        				<div class="title_describe">
-					        					<%= @user.last_name%> <%= @user.name %> <%= @user.surname %>
-					        					
-					        				<div>
-					        			</td>
-					        		</tr>
-					        	<%end%>
+					        	<%end%>					        	
 					        	<% unless @user.marital_status.blank? %>
 					        		<tr>
 					        			<td>
@@ -124,28 +139,28 @@
 					        				<div>
 					        			</td>
 					        		</tr>
-					        	<%end%>
-					        	<% unless @user.native_town.blank? %>
-					        		<tr>
-					        			<td>
-					        				<div class="title_c">
-					        					Рідне місто:
-					        				</div>
-					        			</td>				        			
-					        			<td>
-					        				<div class="title_describe">
-					        					<%= @user.native_town%>
-					        					
-					        				<div>
-					        			</td>
-					        		</tr>
-					        	<%end%>
+					        	<%end%>					        	
 				        	</table>
 				        	<div class="sub" id="contacts">
 				        		Мої контакти:
 				        	</div>
 				        	<table id="table_contacts">
 				        		<% unless @contact.nil? %>
+				        			<% unless @contact.town.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					Місто:
+						        				</div>
+						        			</td>
+						        			<td></td>				        							        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.town%>						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
 					        		<% unless @contact.skype_c.blank? %>
 						        		<tr>
 						        			<td class="img_contact">
@@ -249,6 +264,21 @@
 						        			<td>
 						        				<div class="title_describe">
 						        					<%= @contact.email_c%>						        					
+						        				<div>
+						        			</td>
+						        		</tr>
+						        	<%end%>
+						        	<% unless @contact.own_site.blank? %>
+						        		<tr>
+						        			<td class="img_contact">
+						        				<div class="title_contact">
+						        					Власний сайт:
+						        				</div>
+						        			</td>
+						        			<td></td>				        			
+						        			<td>
+						        				<div class="title_describe">
+						        					<%= @contact.own_site%>						        					
 						        				<div>
 						        			</td>
 						        		</tr>

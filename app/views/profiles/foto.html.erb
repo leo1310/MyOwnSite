@@ -4,9 +4,9 @@
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
-            <div class="avatar">
+            <div class="foto_avatar">
                 <%= form_for @user, :url => {:controller=>"profiles", :action => "update_avatar", :id => current_user.id } do |f| %>
-                    <%= image_tag @user.avatar.url, :size => "300x200" %></br>
+                    <%= image_tag @user.avatar.url, :size => "200x150" %></br>
                     <%= f.file_field :avatar %></br>
                     <%= f.submit("Upload") %>
                 <% end %>

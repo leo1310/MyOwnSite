@@ -11,6 +11,33 @@
             	<%= form_for @contact, :url => {:controller=>"profiles", :action => "update_my_contacts", :id=> current_user.id} do |f|  %>
     				<div class="information">										        				        
 					        <table>
+					        	<tr>
+						        	<td style="width: 100px">
+						        		Країна:
+						    		</td>
+						    		<td>
+						    			<div class="sel">
+						    				<%= f.select :country, @countries_name %>										
+						    			</div>
+									</td >
+								</tr>
+								<tr>
+						        	<td style="width: 100px">
+						        		Місто:
+						    		</td>
+						    		<td>						    			
+										<%= f.text_field :town %>
+									</td >
+								</tr>
+								<tr>
+						        	<td style="width: 100px">
+						        		Дім:
+						    		</td>
+						    		<td>						    			
+										<%= f.text_field :house %>
+									</td >
+								</tr>
+								<tr style="height: 50px"></tr>
 						        <tr>
 						        	<td style="width: 100px">
 						        		Skype:
@@ -67,6 +94,16 @@
 						        	<td>
 						    			<%= f.text_field :email_c%>
 						    		</td>
+								</tr>
+								<tr style="height: 50px"></tr>
+						        <tr>
+								<tr>
+						        	<td style="width: 100px">
+						        		Власний сайт:
+						    		</td>
+						    		<td>						    			
+										<%= f.text_field :own_site %>
+									</td >
 								</tr>								
 					    	</table>
 					    	</br>					    

@@ -29,6 +29,13 @@ class ProfilesController < ApplicationController
 		else
 			@contact = @user.contact
 		end
+
+		@all_countries = Country.find(:all, :order=>"country")
+		if not @all_countries.nil?
+			@arr_countries_name = @all_countries.map { |c| c.country }.join ','
+			@arr_countries_name += ',Other'
+			@countries_name = @arr_countries_name.split(",")
+		end
 		
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 2
