@@ -8,6 +8,7 @@ gem 'rails', '3.2.6'
 gem 'mysql2'
 gem "twitter-bootstrap-rails", '>= 2.1.0'
 gem 'devise'
+gem 'cocoon'
 
 
 # Gems used only for assets and not required

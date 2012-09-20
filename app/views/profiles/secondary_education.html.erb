@@ -1,14 +1,20 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
 
+
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
-            <%= render 'about_me'%> 
-            <div id="my_information_blue">
-				<h1>Карєра</h1>
-			</div>
+            <%= render 'about_me'%>
+            <div id="my_information_green">	 
+            	<h1>Освіта</h1>
+            	<%= render 'education'%>
+            	<div id="secondary_education">
+            		<h1>Середня освіта</h1>
+            		<%= render 'form'%>
+        		</div>
+        	</div>
         </div>        
 	</div>
 </div>

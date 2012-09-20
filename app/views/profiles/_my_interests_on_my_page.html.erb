@@ -1,0 +1,127 @@
+<div class="sub" id="interests">
+	Мої Інтереси:
+</div>
+<table id="table_interests">
+	<% unless @interest.nil? %>
+		<% unless @interest.interests_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Інтереси:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.interests_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_sport_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблений спорт:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_sport_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_music_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблена музика:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_music_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_films_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблені фільми:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_films_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_games_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблені ігри:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_games_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_books_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблені книги:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_books_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.favorite_quotes_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Улюблені цитати:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.favorite_quotes_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @interest.about_yourself_i.blank? %>
+    		<tr>
+    			<td >
+    				<div class="title_c">
+    					Про себе:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @interest.about_yourself_i%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    <%end%>
+</table>

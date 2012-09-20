@@ -1,0 +1,144 @@
+<div class="sub" id="contacts">
+	Мої контакти:
+</div>
+<table id="table_contacts">
+	<% unless @contact.nil? %>
+		<% unless @contact.town.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					Місто:
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.town%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+		<% unless @contact.skype_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "Skype.png", :title=>"Skype"%>
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.skype_c%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.icq_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "icq.png", :title=>"ICQ"%>
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.icq_c%>					        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.twitter_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "Twitter.png", :title=>"Twitter"%>
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.twitter_c%>
+    					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.facebook_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "Facebook.png", :title=>"Facebook"%>
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.facebook_c%>					        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.google_plus_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "google_plus.png", :title=>"Google +"%>
+    				</div>
+    			</td>
+    			<td></td>				        							        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.google_plus_c%>					        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.vkontakte_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "vkontakte.png", :title=>"Vkontakte"%>
+    				</div>
+    			</td>				        			
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.vkontakte_c%>
+    					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.email_c.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					<%= image_tag "email.png", :title=>"E-mail"%>
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.email_c%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+    	<% unless @contact.own_site.blank? %>
+    		<tr>
+    			<td class="img_contact">
+    				<div class="title_contact">
+    					Власний сайт:
+    				</div>
+    			</td>
+    			<td></td>				        			
+    			<td>
+    				<div class="title_describe">
+    					<%= @contact.own_site%>						        					
+    				<div>
+    			</td>
+    		</tr>
+    	<%end%>
+	<%end%>
+</table>

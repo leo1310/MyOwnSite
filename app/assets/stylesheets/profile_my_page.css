@@ -32,7 +32,8 @@
 	font-family: "Times New Roman";	
 	font-weight: bold;
 	font-size: 15px;
-	margin-bottom: 10px; 
+	margin-bottom: 10px;
+	max-width: 300px; 
 }
 
 .profile_content{
@@ -45,10 +46,11 @@
 	font-family: "Times New Roman";
 	color: red;
 	cursor:pointer;
+	font-size: 18px;
 }
 
 #table_contacts{
-	margin-left: 50px;
+	/*margin-left: 50px;*/
 }
 
 #table_contacts td{

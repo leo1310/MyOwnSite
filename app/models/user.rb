@@ -17,5 +17,10 @@ class User < ActiveRecord::Base
   has_many :messages, :order => 'created_at DESC'
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "64x64>" }
   has_one :contact, :dependent => :destroy
+  has_one :interest, :dependent => :destroy
+  has_many :secondary_educations
+
+  accepts_nested_attributes_for :secondary_educations, :allow_destroy => true
+
   
 end

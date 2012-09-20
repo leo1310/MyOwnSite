@@ -63,13 +63,74 @@ class ProfilesController < ApplicationController
 	end
 
 	def interests
+		@user = User.find(current_user.id)
+		if @user.interest.nil?			
+			@interest = Interest.new
+		else
+			@interest = @user.interest
+		end
+
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 3
 	end
 
-	def education
+	def update_my_interests
+		@user = User.find(current_user.id)
+
+		if @user.interest.nil?			
+			
+			@interest = Interest.new(params[:interest])			
+			@interest.save
+
+			flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "interests"  
+		else
+			if @user.interest.update_attributes(params[:interest])
+        		flash[:success] = "Your profile is updated!"
+        		redirect_to :action => "interests"  
+    		else  
+        		flash[:error] = "Error! Your profile is not update!"
+        		redirect_to :action => "interests"   
+    		end
+		end
+	end
+
+	# ----------------------Education-------------------------------------
+	def secondary_education
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 4
+		@tab_index_education = 1
+
+		@user = User.find(current_user.id)
+
+		@all_countries = Country.find(:all, :order=>"country")
+		if not @all_countries.nil?
+			@arr_countries_name = @all_countries.map { |c| c.country }.join ','
+			@arr_countries_name += ',Other'
+			@countries_name = @arr_countries_name.split(",")
+		end
+	end
+	
+	def update_secondary_education
+
+	end
+
+	def higher_education
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 4
+		@tab_index_education = 2
+	end
+
+	def courses
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 4
+		@tab_index_education = 3
+	end
+	
+	def trainings
+		@tab_index_profile_menu = 2
+		@tab_index_profile_about_me = 4
+		@tab_index_education = 4
 	end
 
 
@@ -88,6 +149,7 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_menu = 1
 		@user = User.find(current_user.id)
 		@contact = @user.contact
+		@interest = @user.interest
 	end
 
 	def foto

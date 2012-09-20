@@ -2,6 +2,7 @@ $(document).ready( function (){
 	
 	hide_show_content($('#table_personal_info'), $('#personal_info'));
 	hide_show_content($('#table_contacts'), $('#contacts'));
+	hide_show_content($('#table_interests'), $('#interests'));
 	
 });
 

@@ -1,0 +1,41 @@
+<ul class="nav nav-pills">
+  				<%if @tab_index_education == 1%>
+            <li class="active">
+    				  <%= link_to "Середня освіта", secondary_education_path%>
+  				  </li>
+          <%else%>
+            <li >
+                <%= link_to "Середня освіта", secondary_education_path%>
+            </li>
+          <%end%>
+
+    			<%if @tab_index_education == 2%>
+            <li class="active">
+  				  	<%= link_to "Вища освіта", higher_education_path%>  					
+  				  </li>
+          <%else%>
+            <li >
+              <%= link_to "Вища освіта", higher_education_path%>            
+            </li>
+          <%end%>
+  				
+          <%if @tab_index_education == 3%>
+            <li class="active">
+  					  <%= link_to "Курси", courses_path%>  					
+  				  </li>
+          <%else%>
+            <li>
+              <%= link_to "Курси", courses_path%>           
+            </li>
+          <%end%>
+  				
+          <%if @tab_index_education == 4%>
+            <li class="active">
+  				    <%= link_to "Тренінги", trainings_path%>  					  					
+  				  </li>
+          <%else%>
+            <li >
+              <%= link_to "Тренінги", trainings_path%>                        
+            </li>
+          <%end%>
+			</ul>

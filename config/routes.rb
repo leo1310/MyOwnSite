@@ -65,11 +65,17 @@ MyOwnSite::Application.routes.draw do
     match 'my_information',  :to=> 'profiles#my_information'
     match 'my_contacts',  :to=> 'profiles#my_contacts'
     match 'interests',  :to=> 'profiles#interests'
-    match 'education',  :to=> 'profiles#education'
+      match 'secondary_education',  :to=> 'profiles#secondary_education'
+      match 'higher_education',  :to=> 'profiles#higher_education'
+      match 'courses',  :to=> 'profiles#courses'
+      match 'trainings',  :to=> 'profiles#trainings'
     match 'career',  :to=> 'profiles#career'
     match 'life_position',  :to=> 'profiles#life_position'
     match 'update_my_information', :to=> 'profiles#update_my_information'
     match 'update_my_contacts', :to=> 'profiles#update_my_contacts'
+    match 'update_my_interests', :to=> 'profiles#update_my_interests'
+    match 'update_secondary_education', :to=> 'profiles#update_secondary_education'
+    
 
   
   namespace :admin do

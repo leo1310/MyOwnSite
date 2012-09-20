@@ -1,11 +1,104 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
             <%= render 'about_me'%>            
-            <h1>Interests</h1>
+            <div id="my_information_green">	
+            	<h1>Мої інтереси</h1>
+            	<%= form_for @interest, :url => {:controller=>"profiles", :action => "update_my_interests", :id=> current_user.id} do |f|  %>
+            		<div class="information">										        				        
+					    <table>
+					        <tr>
+					        	<td style="width: 100px">
+						        		Діяльність:
+						    	</td>
+						    	<td></td>
+						    	<td>
+						    		<%= f.text_field :user_id, :type=>"hidden", :value=>current_user.id %>
+									<%= f.text_area :activity_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Мої Інтереси:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :interests_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Улюблений Спорт:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_sport_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Улюблена Музика:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_music_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Улюблені Фільми:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_films_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Улюблені Ігри:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_games_i %>
+								</td >
+					        </tr>
+					         <tr>
+					        	<td style="width: 100px">
+						        	Улюблені Книги:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_books_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Улюблені Фрази:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :favorite_quotes_i %>
+								</td >
+					        </tr>
+					        <tr>
+					        	<td style="width: 100px">
+						        	Про Себе:
+						    	</td>
+						    	<td></td>
+						    	<td>						    		
+									<%= f.text_area :about_yourself_i %>
+								</td >
+					        </tr>
+					    </table>
+					    </br>				    
+				    <%= f.submit "Зберегти"%>
+					</div>
+            	<%end%>
+        	</div>
         </div>        
 	</div>
 </div>

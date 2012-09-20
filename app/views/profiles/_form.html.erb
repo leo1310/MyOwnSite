@@ -1,0 +1,10 @@
+<%= form_for @user, :url => {:controller=>"profiles", :action => "update_secondary_education", :id=> current_user.id} do |f|  %>
+	<%= f.fields_for :secondary_educations do |s_education| %>
+		<%= render 'secondary_education_fields', :f=>s_education %> 		           				
+	<%end%> 
+	<div class="links">           		
+		<%= link_to_add_association 'Додати школу', f, :secondary_educations, :partial =>"secondary_education_fields"  %>
+	</div>
+	
+<%= f.submit "Зберегти"%>
+<%end%>

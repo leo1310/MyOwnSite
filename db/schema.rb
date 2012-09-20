@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914063319) do
+ActiveRecord::Schema.define(:version => 20120920080613) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -78,6 +78,21 @@ ActiveRecord::Schema.define(:version => 20120914063319) do
     t.integer  "zoom"
   end
 
+  create_table "interests", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "activity_i"
+    t.string   "interests_i"
+    t.string   "favorite_music_i"
+    t.string   "favorite_films_i"
+    t.string   "favorite_games_i"
+    t.string   "favorite_books_i"
+    t.string   "favorite_quotes_i"
+    t.string   "about_yourself_i"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "favorite_sport_i"
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "who_send_mail"
     t.string   "who_get_mail"
@@ -99,6 +114,18 @@ ActiveRecord::Schema.define(:version => 20120914063319) do
     t.string   "X_coordinate"
     t.string   "Y_coordinate"
     t.integer  "zoom"
+  end
+
+  create_table "secondary_educations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "town"
+    t.string   "school"
+    t.date     "start_year"
+    t.date     "end_year"
+    t.string   "specialization"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|

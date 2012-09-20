@@ -1,0 +1,69 @@
+<div class="nested-fields">
+	<div class="information_education">			
+		<table>
+			<tr>
+				<td>
+					Країна:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+						<%= f.select :country, @countries_name %>	            					
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Місто:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :town %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Школа:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :school %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Початок навчання:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+				    	<%= f.date_select :start_year, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
+				    </div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Закінчення навчання:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+						<%= f.date_select :end_year, :discard_day => true, :discard_month => true, :start_year => 1950 %> 	
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Спеціалізація:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :specialization %>
+				</td>
+			</tr>
+		</table>
+		
+	</div>
+	</br>
+	<%= link_to_remove_association "Видалити школу", f %>
+</div>

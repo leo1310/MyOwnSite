@@ -1,0 +1,123 @@
+<div class="sub" id="personal_info">
+	Особисті дані:
+</div>
+<table id="table_personal_info">
+	<% unless @user.surname.blank? %>
+		<tr>
+			<td>
+				<div class="title_c">
+					Повне Ім'я:
+				</div>
+			</td>				        			
+			<td>
+				<div class="title_describe">
+					<%= @user.last_name%> <%= @user.name %> <%= @user.surname %>
+					
+				<div>
+			</td>
+		</tr>
+	<%end%>
+	<% unless @user.nik_name.blank? %>
+		<tr>
+			<td>
+				<div class="title_c">
+					Nik_name:
+				</div>
+			</td>				        			
+			<td>
+				<div class="title_describe">
+					<%= @user.nik_name %>
+				<div>
+			</td>
+		</tr>
+	<%end%>
+	<% unless @user.birthday.blank? %>
+		<% if @user.birthday_show_hide_date.eql?("Показувати дату") or @user.birthday_show_hide_date.eql?("Лише день та місяць") %>
+    		<tr >
+    			<td >
+    				<div class="title_c">
+    					День народження:
+    				</div>
+    			</td>
+    			<td>
+    				<div class="title_describe">				        					
+						<%= @user.birthday.day %> 
+						<%if @user.birthday.month.eql?(1)%>
+							Січня
+						<%elsif @user.birthday.month.eql?(2)%>
+							Лютого
+						<%elsif @user.birthday.month.eql?(3)%>
+							Березня
+						<%elsif @user.birthday.month.eql?(4)%>
+							Квітня
+						<%elsif @user.birthday.month.eql?(5)%>
+							Травня
+						<%elsif @user.birthday.month.eql?(6)%>
+							Червня
+						<%elsif @user.birthday.month.eql?(7)%>
+							Липня
+						<%elsif @user.birthday.month.eql?(8)%>
+							Серпня
+						<%elsif @user.birthday.month.eql?(9)%>
+							Вересня
+						<%elsif @user.birthday.month.eql?(10)%>
+							Жовтня
+						<%elsif @user.birthday.month.eql?(11)%>
+							Листопада
+						<%elsif @user.birthday.month.eql?(12)%>
+							Грудня
+						<%end%>							        			
+						<% unless @user.birthday_show_hide_date.eql?("Лише день та місяць") %>
+    						<%= @user.birthday.year %>
+    					<%end%>
+					</div>
+					
+    			</td>				        			
+    		</tr>					        		
+		<%end%>				        		
+	<%end%>
+	<% unless @user.native_town.blank? %>
+		<tr>
+			<td>
+				<div class="title_c">
+					Рідне місто:
+				</div>
+			</td>				        			
+			<td>
+				<div class="title_describe">
+					<%= @user.native_town%>
+					
+				<div>
+			</td>
+		</tr>
+	<%end%>				        		
+	<% unless @user.phone.blank? %>
+		<tr>
+			<td>
+				<div class="title_c">
+					Телефон:
+				</div>
+			</td>				        			
+			<td>
+				<div class="title_describe">
+					<%= number_to_phone(@user.phone, :area_code => :true) %>
+				<div>
+			</td>
+		</tr>
+	<%end%>					        	
+	<% unless @user.marital_status.blank? %>
+		<tr>
+			<td>
+				<div class="title_c">
+					Сімейний стан:
+				</div>
+			</td>				        			
+			<td>
+				<div class="title_describe">
+					<%= @user.marital_status%>
+					
+				<div>
+			</td>
+		</tr>
+	<%end%>					        	
+</table>

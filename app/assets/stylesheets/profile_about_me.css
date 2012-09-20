@@ -7,7 +7,28 @@
 	margin-left: 20px;
 	padding:10px 20px;	
 }
-#my_information h1{
+
+#my_information_green{
+	border:1px solid blue;
+	background: #0E6620;
+	border-radius: 5px;
+	width: 580px;
+	margin-top: 15px;
+	margin-left: 20px;
+	padding:10px 20px;	
+}
+
+#my_information_blue{
+	border:1px solid red;
+	background: #044475;
+	border-radius: 5px;
+	width: 580px;
+	margin-top: 15px;
+	margin-left: 20px;
+	padding:10px 20px;	
+}
+
+#my_information h1, #my_information_green h1, #my_information_blue h1{
 	color: white;
 }
 
@@ -35,10 +56,30 @@ td{
 	background: #D6D6D6;
 }
 .sel select{
-	width: 180px;
+	width: 210px;
 	background: #D6D6D6;
 }
 
 td.titlename {
 	padding-left:40px;
 }
+
+
+#secondary_education{
+	color: white;
+}
+
+#secondary_education h1{
+	color: #08C;
+	text-align: center;
+	font-size: 16px;
+}
+.information_education td{
+	font-size: 14px;
+	font-family: Helvetica,Arial,Verdana,sans-serif;
+	color: white;
+	/*border-bottom: 1px solid #D58F38;*/
+	padding-top: 10px;	
+	text-align: right;
+}
+
