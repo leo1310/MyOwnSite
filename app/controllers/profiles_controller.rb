@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :load_index
 	layout 'page'
+	include ProfilesHelper
 	
 	# ----------------------About me actions-------------------------------------
 	def my_information
@@ -30,11 +31,11 @@ class ProfilesController < ApplicationController
 			@contact = @user.contact
 		end
 
-		@all_countries = Country.find(:all, :order=>"country")
-		if not @all_countries.nil?
-			@arr_countries_name = @all_countries.map { |c| c.country }.join ','
-			@arr_countries_name += ',Other'
-			@countries_name = @arr_countries_name.split(",")
+		@countries = get_countries()
+		unless @countries.blank?
+			@countries_name = @countries
+		else
+			@countries_name = [""]
 		end
 		
 		@tab_index_profile_menu = 2
@@ -101,30 +102,81 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_about_me = 4
 		@tab_index_education = 1
 
-		@user = User.find(current_user.id)
+		@user = User.find(current_user.id)		
 
-		@all_countries = Country.find(:all, :order=>"country")
-		if not @all_countries.nil?
-			@arr_countries_name = @all_countries.map { |c| c.country }.join ','
-			@arr_countries_name += ',Other'
-			@countries_name = @arr_countries_name.split(",")
+		@countries = get_countries()
+		unless @countries.blank?
+			@countries_name = @countries
+		else
+			@countries_name = [""]
 		end
 	end
 	
 	def update_secondary_education
 
+		@user = User.find(current_user.id)
+
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "secondary_education" 
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :action => "secondary_education" 
+    	end
 	end
 
-	def higher_education
+	def higher_education		
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 4
 		@tab_index_education = 2
+
+		@user = User.find(current_user.id)
+
+		@countries = get_countries()
+		unless @countries.blank?
+			@countries_name = @countries
+		else
+			@countries_name = [""]
+		end
+	end
+
+	def update_higher_education		
+		@user = User.find(current_user.id)
+
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "higher_education" 
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :action => "higher_education" 
+    	end
 	end
 
 	def courses
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 4
 		@tab_index_education = 3
+
+		@user = User.find(current_user.id)
+
+		@countries = get_countries()
+		unless @countries.blank?
+			@countries_name = @countries
+		else
+			@countries_name = [""]
+		end
+	end
+
+	def update_course
+		@user = User.find(current_user.id)
+
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "courses" 
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :action => "courses" 
+    	end
 	end
 	
 	def trainings

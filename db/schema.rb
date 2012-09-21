@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920080613) do
+ActiveRecord::Schema.define(:version => 20120921150230) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -76,6 +76,33 @@ ActiveRecord::Schema.define(:version => 20120920080613) do
     t.string   "X_coordinate"
     t.string   "Y_coordinate"
     t.integer  "zoom"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "town"
+    t.string   "name_course"
+    t.date     "year"
+    t.string   "description"
+    t.string   "narrator_course"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "higher_educations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "town"
+    t.string   "high_school"
+    t.string   "faculty"
+    t.string   "department"
+    t.string   "status"
+    t.date     "start_year"
+    t.date     "end_year"
+    t.string   "specialization"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "interests", :force => true do |t|

@@ -10,7 +10,7 @@
 
 #my_information_green{
 	border:1px solid blue;
-	background: #0E6620;
+	background: #0E5620;
 	border-radius: 5px;
 	width: 580px;
 	margin-top: 15px;
@@ -81,5 +81,25 @@ td.titlename {
 	/*border-bottom: 1px solid #D58F38;*/
 	padding-top: 10px;	
 	text-align: right;
+}
+
+.links{
+	background: #95AABA;
+	padding: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #D9D9D9;
+	width: 93px;
+	margin-left: 235px;
+}
+.delete_school{
+	background: #0F5F6A;
+	color: orange;
+	border: 1px solid #D9D9D9;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px;
+	margin-left: 40px;
+	width: 130px;
 }
 

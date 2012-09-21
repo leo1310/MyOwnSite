@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
+<%= javascript_include_tag 'cocoon' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
@@ -7,9 +8,20 @@
         <div class="tab-pane active" >
             <%= render 'about_me'%>
             <div id="my_information_green">	 
-            <h1>Освіта</h1>
-            <%= render 'education'%>
-            Курси
+                <h1>Освіта</h1>
+                <%= render 'education'%>
+                <div id="secondary_education">
+                    <h1>Курси</h1>
+                    <%= form_for @user, :url => {:controller=>"profiles", :action => "update_course", :id=> current_user.id} do |f|  %>
+                        <%= f.fields_for :courses do |с_education| %>
+                            <%= render 'course_fields', :f=>с_education %>                                 
+                        <%end%> 
+                        <div class="links" style="width: 80px; margin-left: 245px">                 
+                            <%= link_to_add_association "Додати Курс", f, :courses, :partial =>"course_fields"  %>       
+                        </div>    
+                        <%= f.submit "Зберегти"%>
+                    <%end%>
+                </div>
         	</div>
         </div>        
 	</div>

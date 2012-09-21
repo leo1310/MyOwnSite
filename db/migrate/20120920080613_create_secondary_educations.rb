@@ -12,6 +12,6 @@ class CreateSecondaryEducations < ActiveRecord::Migration
     end
   end
   def down
-  	drop_table :interests
+  	drop_table :secondary_educations
   end
 end

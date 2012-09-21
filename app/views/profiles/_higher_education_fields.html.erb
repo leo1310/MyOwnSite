@@ -23,11 +23,29 @@
 			</tr>
 			<tr>
 				<td>
-					Школа:
+					ВНЗ:
 				</td>
 				<td></td>
 				<td>
-					<%= f.text_field :school %>
+					<%= f.text_field :high_school %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Факультет:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :faculty %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Кафедра:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :department %>
 				</td>
 			</tr>
 			<tr>
@@ -54,18 +72,18 @@
 			</tr>
 			<tr>
 				<td>
-					Спеціалізація:
+					Статус:
 				</td>
 				<td></td>
 				<td>
-					<%= f.text_field :specialization %>
+					<%= f.text_field :status %>
 				</td>
-			</tr>
-		</table>
-		
+			</tr>			
+		</table>		
 	</div>
 	</br>
 	<div class="delete_school">
-		Видалити школу <%= link_to_remove_association image_tag('delete.png'), f %>		
+		Видалити ВНЗ <%= link_to_remove_association image_tag('delete.png'), f %>		
 	</div>
+	</br>
 </div>

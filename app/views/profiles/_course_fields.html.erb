@@ -23,42 +23,40 @@
 			</tr>
 			<tr>
 				<td>
-					Школа:
+					Назва Курсу:
 				</td>
 				<td></td>
 				<td>
-					<%= f.text_field :school %>
+					<%= f.text_field :name_course %>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Початок навчання:
+					Рік проведення:
 				</td>
 				<td></td>
 				<td>
 					<div class="sel">
-				    	<%= f.date_select :start_year, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
+				    	<%= f.date_select :year, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
 				    </div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Закінчення навчання:
+					Хто проводив:
 				</td>
 				<td></td>
 				<td>
-					<div class="sel">
-						<%= f.date_select :end_year, :discard_day => true, :discard_month => true, :start_year => 1950 %> 	
-					</div>
+					<%= f.text_field :narrator_course %>
 				</td>
 			</tr>
 			<tr>
-				<td>
-					Спеціалізація:
+				<td >
+					Опис Курсу:
 				</td>
 				<td></td>
 				<td>
-					<%= f.text_field :specialization %>
+					<%= f.text_area :description %>
 				</td>
 			</tr>
 		</table>
@@ -66,6 +64,6 @@
 	</div>
 	</br>
 	<div class="delete_school">
-		Видалити школу <%= link_to_remove_association image_tag('delete.png'), f %>		
+		Видалити курс <%= link_to_remove_association image_tag('delete.png'), f %>		
 	</div>
 </div>
