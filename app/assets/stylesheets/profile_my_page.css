@@ -56,3 +56,23 @@
 #table_contacts td{
 	min-width: 20px;
 }
+
+.school{
+	vertical-align: top;
+	min-width: 160px;
+}
+
+.title_describe_education{
+	color: #0909E9;
+	font-size: 11pt;
+	font-family: "Times New Roman";
+	max-width: 300px;
+}
+.title_education{
+	margin-left: 40px; 
+	margin-right: 10px; 
+	margin-bottom: 10px; 
+	font-size: 14px;
+	font-family: "Times New Roman";
+	color: #757575;
+}

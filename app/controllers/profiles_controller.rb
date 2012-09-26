@@ -183,6 +183,27 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_menu = 2
 		@tab_index_profile_about_me = 4
 		@tab_index_education = 4
+
+		@user = User.find(current_user.id)
+
+		@countries = get_countries()
+		unless @countries.blank?
+			@countries_name = @countries
+		else
+			@countries_name = [""]
+		end
+	end
+	
+	def update_training
+		@user = User.find(current_user.id)
+
+		if @user.update_attributes(params[:user])
+        	flash[:success] = "Your profile is updated!"
+        	redirect_to :action => "trainings" 
+    	else  
+        	flash[:error] = "Error! Your profile is not update!"
+        	redirect_to :action => "trainings" 
+    	end
 	end
 
 
@@ -202,6 +223,12 @@ class ProfilesController < ApplicationController
 		@user = User.find(current_user.id)
 		@contact = @user.contact
 		@interest = @user.interest
+		
+		@secondary_educations = @user.secondary_educations
+		@higher_educations = @user.higher_educations
+		@courses = @user.courses
+		@trainings = @user.trainings
+
 	end
 
 	def foto

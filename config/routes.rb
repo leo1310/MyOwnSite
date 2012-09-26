@@ -77,6 +77,7 @@ MyOwnSite::Application.routes.draw do
     match 'update_secondary_education', :to=> 'profiles#update_secondary_education'
     match 'update_higher_education', :to=> 'profiles#update_higher_education'
     match 'update_course', :to=> 'profiles#update_course'
+    match 'update_trainings',  :to=> 'profiles#update_training'
     
 
   

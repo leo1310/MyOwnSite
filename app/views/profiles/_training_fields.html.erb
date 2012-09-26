@@ -36,12 +36,12 @@
 				</td>
 				<td></td>
 				<td>
-					<%= f.text_field :name_course %>
+					<%= f.text_field :name_training %>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Рік початку курсу:
+					Рік проведення:
 				</td>
 				<td></td>
 				<td>
@@ -49,18 +49,7 @@
 				    	<%= f.date_select :year, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
 				    </div>
 				</td>
-			</tr>
-			<tr>
-				<td>
-					Рік закінчення курсу:
-				</td>
-				<td></td>
-				<td>
-					<div class="sel">
-				    	<%= f.date_select :year_end, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
-				    </div>
-				</td>
-			</tr>
+			</tr>			
 			<tr>
 				<td>
 					Хто проводив:
@@ -84,6 +73,6 @@
 	</div>
 	</br>
 	<div class="delete_school">
-		Видалити курс <%= link_to_remove_association image_tag('delete.png'), f %>		
+		Видалити тренінг <%= link_to_remove_association image_tag('delete.png'), f %>		
 	</div>
 </div>
