@@ -1,5 +1,14 @@
 <div class="sub" id="contacts">
-	Мої контакти:
+	Мої контакти:    
+    <%unless @contact.blank?%>
+        <%if not @contact.town.blank? or not @contact.skype_c.blank? or not @contact.icq_c.blank? or not @contact.twitter_c.blank? or not @contact.facebook_c.blank? or not @contact.google_plus_c.blank? or not @contact.vkontakte_c.blank? or not @contact.email_c.blank? or not @contact.own_site.blank? %>
+            <span value="1">Детальна інформація...</span>
+        <%else%>
+            <span value="0">Інформація відсутня</span>
+        <%end%>
+    <%else%>
+        <span value="0">Інформація відсутня</span>
+    <%end%>
 </div>
 <table id="table_contacts">
 	<% unless @contact.nil? %>

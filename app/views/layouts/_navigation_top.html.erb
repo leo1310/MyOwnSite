@@ -41,9 +41,9 @@
 						<%end%>
 						
 						<%if @tab_index_main_menu == 2%>		
-							<li class="active"><%= link_to "Profile", my_page_path%></li>						
+							<li class="active"><%= link_to "Profile", profile_path(current_user.id)%></li>						
 						<%else%>
-							<li><%= link_to "Profile", my_page_path%></li>						
+							<li><%= link_to "Profile", profile_path(current_user.id)%></li>						
 						<%end%>
 						
 						<%if @tab_index_main_menu == 7%>		

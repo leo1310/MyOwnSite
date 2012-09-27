@@ -35,7 +35,7 @@ h1 {
 #main h2 {
   font-size:130%;
   color:#293499;
-  margin-left: 25px; 
+  margin-left: -55px; 
 }
 
 #main h3 {
@@ -87,7 +87,7 @@ h1 {
 /*   Left Panel   */
 #left_panel {	  
   width:100%;
-  margin-left:-112%;
+  margin-left:-144%;
   background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
   padding: 95px 0;  
   border-right: 2px solid #0989F8;   
@@ -126,7 +126,7 @@ h1 {
 #right_panel {  
   width:100%;  
   border-left: 2px solid #0989F8;    
-  margin-left:169%;
+  margin-left:137%;
   margin-top: -13px;
 }
 
@@ -218,8 +218,12 @@ h1 {
   margin-top:480px;  
  }
 
-#main, #main .containers {
+#main{
+  width: 650px;  
+}
+#main .containers {
   width: 650px;
+  margin-left: -80px;
   
 }
 #main .containers h1{

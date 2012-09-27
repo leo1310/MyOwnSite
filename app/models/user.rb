@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :phone, :nik_name, :avatar, :surname, :birthday, :marital_status, :stat, :native_town, :birthday_show_hide_date, :secondary_educations_attributes, :higher_educations_attributes, :courses_attributes, :trainings_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :phone, :nik_name, :avatar, :surname, :birthday, :marital_status, :stat, :native_town, :birthday_show_hide_date, :secondary_educations_attributes, :higher_educations_attributes, :courses_attributes, :trainings_attributes, :careers_attributes
 
 
   validates :name, :last_name, :phone, :presence => true  
@@ -30,5 +30,8 @@ class User < ActiveRecord::Base
 
   has_many :trainings
   accepts_nested_attributes_for :trainings, :allow_destroy => true
+
+  has_many :careers
+  accepts_nested_attributes_for :careers, :allow_destroy => true
   
 end

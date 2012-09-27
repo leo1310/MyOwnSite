@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_my_page', :media => "all" %>
+<%= javascript_include_tag 'profile/my_page' %>
+
+<div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
+	<%= render 'layouts/profile'%>
+	<div class="tab-content">
+        <div class="tab-pane active" >
+            <table>
+            	<tr>
+            		<td style="vertical-align: top">
+			            <div class="avatar" >
+			            	<%= image_tag current_user.avatar.url, :size => "300x360"%>
+			        	</div>
+			        </td>
+			        <td style="vertical-align: top" >
+			        	<div class="profile_content">
+				        	<div class="titlename">
+				        		<%= @user.name %> <%= @user.last_name%>			        		
+				        	</div>
+				        	<%= render 'my_information_on_my_page'%>
+				        	<%= render 'my_contacts_on_my_page'%>
+				        	<%= render 'my_interests_on_my_page'%>				        	
+				        	<%= render 'my_education_on_my_page'%>
+				        	<%= render 'my_career_on_my_page'%>
+			        	</div>
+			        </td>
+	        	</tr>
+        	</table>
+        </div>        
+	</div>
+</div>

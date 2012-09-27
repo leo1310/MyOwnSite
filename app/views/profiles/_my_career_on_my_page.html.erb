@@ -1,0 +1,70 @@
+<div class="sub" id="career">
+	Моя карєра:
+	<%if not @careers.blank?%>
+		<%@careers.each do |career|%>
+			<% unless career.name_work.blank?%>
+        		<span value="1">Детальна інформація...</span>
+        	<%else%>
+        		<span value="0">Інформація відсутня</span>
+    		<%end%>
+    	<%end%>
+    <%else%>
+        <span value="0">Інформація відсутня</span>
+    <%end%>
+</div>
+<table id="table_career">
+	<%unless @careers.nil?%>         
+		<%@careers.each do |career|%>
+			<% unless career.name_work.blank?%>
+				<tr>		
+					<td class="school">
+						<div class="title_education">
+							Місце роботи:
+						</div>
+					</td>
+					<td>
+						<div class="title_describe_education">		
+							<%=career.name_work%>
+							</br>
+							<%if not career.town.blank?%>
+								<%=career.town%>,							
+							<%end%>
+							<%if not career.start_year.blank? and not career.end_year.blank?%>
+								<%=career.start_year.strftime("%Y")%> - <%=career.end_year.strftime("%Y")%>
+								</br>
+							<%end%>	
+						</div>
+					</td>
+				</tr>
+				<%if not career.position.blank?%>
+					<tr>
+						<td class="school">
+							<div class="title_education">
+								Посада:
+							</div>
+						</td>
+						<td>
+							<div class="title_describe_education">								
+								<%=career.position%>						
+							</div>
+						</td>
+					</tr>
+				<%end%>
+				<%if not career.obligations.blank?%>
+					<tr>
+						<td class="school">
+							<div class="title_education">
+								Обов'язки:
+							</div>
+						</td>
+						<td>	
+							<div class="title_describe_education">						
+								<%=career.obligations%>					
+							</div>
+						</td>
+					</tr>
+				<%end%>
+			<%end%>
+		<%end%>
+	<%end%>
+</table>

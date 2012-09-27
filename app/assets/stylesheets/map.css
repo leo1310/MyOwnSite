@@ -25,10 +25,10 @@ body{
 }
 
 #map_canvas{	
-	width: 80%;	
-	min-height:950px;
+	width: 79%;	
+	min-height:952px;
 	float: right;
-	margin-top: -12px;
+	margin-top: -13px;
 	
 }
 

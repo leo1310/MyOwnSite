@@ -1,5 +1,14 @@
 <div class="sub" id="interests">
 	Мої Інтереси:
+    <%unless @interest.nil?%>
+        <%if not  @interest.interests_i.blank? or not @interest.favorite_sport_i.blank? or not @interest.favorite_music_i.blank? or not @interest.favorite_films_i.blank? or not @interest.favorite_games_i.blank? or not @interest.favorite_books_i.blank? or not @interest.favorite_quotes_i.blank? or not @interest.about_yourself_i.blank?%>
+            <span value="1">Детальна інформація...</span>
+        <%else%>
+            <span value="0">Інформація відсутня</span>
+        <%end%>
+    <%else%>
+        <span value="0">Інформація відсутня</span>
+    <%end%>
 </div>
 <table id="table_interests">
 	<% unless @interest.nil? %>

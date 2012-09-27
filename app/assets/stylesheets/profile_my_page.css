@@ -39,6 +39,7 @@
 .profile_content{
 	border: 3px solid #F7C6F9;	
 	border-radius: 10px;
+	width: 470px;
 }
 
 .sub{
@@ -47,6 +48,16 @@
 	color: red;
 	cursor:pointer;
 	font-size: 18px;
+	padding: 3px;
+}
+.sub:hover{
+	background:#DFDFE4;
+}
+
+.sub span{
+	margin-left: 50px;
+	color: #333;
+	font-size: 14px;
 }
 
 #table_contacts{

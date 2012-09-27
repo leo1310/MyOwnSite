@@ -1,9 +1,9 @@
     <ul class="nav nav-tabs">
         
         <% if @tab_index_profile_menu == 1%>        
-            <li class="active"><%= link_to "Моя Сторінка", my_page_path, "data-toggle"=>"tab" %></li>
+            <li class="active"><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
         <%else%>
-            <li><%= link_to "Моя Сторінка", my_page_path, "data-toggle"=>"tab" %></li>
+            <li><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
         <%end%>
         
         <% if @tab_index_profile_menu == 2%>

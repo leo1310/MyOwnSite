@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120926121142) do
+ActiveRecord::Schema.define(:version => 20120927102247) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(:version => 20120926121142) do
     t.string   "X_coordinate"
     t.string   "Y_coordinate"
     t.integer  "zoom"
+  end
+
+  create_table "careers", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "town"
+    t.string   "name_work"
+    t.date     "start_year"
+    t.date     "end_year"
+    t.string   "position"
+    t.string   "obligations"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "contacts", :force => true do |t|
@@ -133,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20120926121142) do
     t.string   "read_message"
     t.string   "deleted_sender", :default => "true"
     t.string   "deleted_geter",  :default => "true"
+    t.integer  "spam"
   end
 
   create_table "part_of_the_worlds", :force => true do |t|
@@ -155,6 +169,12 @@ ActiveRecord::Schema.define(:version => 20120926121142) do
     t.string   "specialization"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "spam_words", :force => true do |t|
+    t.string   "word"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "trainings", :force => true do |t|

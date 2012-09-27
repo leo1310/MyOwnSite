@@ -46,7 +46,9 @@ MyOwnSite::Application.routes.draw do
   
   #Routes profiles controller
   
-  match 'my_page', :to=> 'profiles#my_page'
+  resources :profiles
+  #match "my_page/:id" => 'profiles#my_page'
+  
   match 'foto', :to=> 'profiles#foto'
   match 'friends', :to=> 'profiles#friends'  
   match 'my_settings', :to=> 'profiles#my_settings'
@@ -78,6 +80,8 @@ MyOwnSite::Application.routes.draw do
     match 'update_higher_education', :to=> 'profiles#update_higher_education'
     match 'update_course', :to=> 'profiles#update_course'
     match 'update_trainings',  :to=> 'profiles#update_training'
+    match 'update_career',  :to=> 'profiles#update_career'
+    
     
 
   

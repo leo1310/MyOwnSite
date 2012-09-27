@@ -1,5 +1,10 @@
 <div class="sub" id="education">
 	Моя освіта:
+	<%if not @higher_educations.blank? or not @secondary_educations.blank? or not @courses.blank? or not @trainings.blank?%>         
+        <span value="1">Детальна інформація...</span>
+    <%else%>
+        <span value="0">Інформація відсутня</span>
+    <%end%>
 </div>
 <table id="table_education">	
 	<%unless @higher_educations.nil?%>

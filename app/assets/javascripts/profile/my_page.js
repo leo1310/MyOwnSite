@@ -4,6 +4,7 @@ $(document).ready( function (){
 	hide_show_content($('#table_contacts'), $('#contacts'));
 	hide_show_content($('#table_interests'), $('#interests'));
 	hide_show_content($('#table_education'), $('#education'));
+	hide_show_content($('#table_career'), $('#career'));
 	
 });
 
@@ -15,12 +16,23 @@ function hide_show_content(_table, id_click)
 		if(index === 1){			
 			$(_table).fadeIn(700,function(){$(_table).show(); })
 			index = 0;
-			console.log('open ' + index);
+			var val = $(id_click).find('span').attr('value');			
+			if(val == 0){
+				$(id_click).find('span').css('display', 'inline');						
+			}
+			else if(val == 1){
+				$(id_click).find('span').css('display', 'none');						
+			}
+
+			
 		}
 		else{			
 			$(_table).fadeOut(400,function(){$(_table).hide(); })
 			index = 1;
-			console.log('close ' + index);
+			setTimeout(function() {
+				$(id_click).find('span').css('display', 'inline');
+			}, 500)
+			
 		}	
 	});
 }

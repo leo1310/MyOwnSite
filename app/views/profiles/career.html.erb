@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_about_me', :media => "all" %>
+<%= javascript_include_tag 'cocoon' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
@@ -8,6 +9,15 @@
             <%= render 'about_me'%> 
             <div id="my_information_blue">
 				<h1>Карєра</h1>
+				<%= form_for @user, :url => {:controller=>"profiles", :action => "update_career", :id=> current_user.id} do |f|  %>
+                        <%= f.fields_for :careers do |career| %>
+                            <%= render 'career_fields', :f=>career %>                                 
+                        <%end%> 
+                        <div class="links" style="width: 172px; margin-left: 180px">                 
+                            <%= link_to_add_association "Додати нове місце роботи", f, :careers, :partial =>"career_fields" %>       
+                        </div>    
+                        <%= f.submit "Зберегти"%>
+                    <%end%>
 			</div>
         </div>        
 	</div>

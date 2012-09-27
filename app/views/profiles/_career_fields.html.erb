@@ -1,0 +1,80 @@
+<div class="nested-fields">
+	<div class="information_education">			
+		<table>
+			<tr>
+				<td>
+					Країна:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+						<%= f.select :country, @countries_name %>	            					
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Місто:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :town %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Місце роботи:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :name_work %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Рік початку:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+				    	<%= f.date_select :start_year, :discard_day => true, :discard_month => true, :start_year => 1950 %>	
+				    </div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Рік закінчення:
+				</td>
+				<td></td>
+				<td>
+					<div class="sel">
+						<%= f.date_select :end_year, :discard_day => true, :discard_month => true, :start_year => 1950 %> 	
+					</div>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					Посада:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :position %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Обов'язки:
+				</td>
+				<td></td>
+				<td>
+					<%= f.text_field :obligations %>
+				</td>
+			</tr>								
+		</table>		
+	</div>
+	</br>
+	<div class="delete_school" style="margin-left:120">
+		Видалити <%= link_to_remove_association image_tag('delete.png'), f %>		
+	</div>
+	</br>
+</div>

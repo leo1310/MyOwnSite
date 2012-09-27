@@ -14,9 +14,17 @@
 	    <%end%>
 
 	    <% if @tab_index_profile_message_menu == 3 %>
-			<li class="active" ><%= link_to "Спам", messages_spam_path %></li>
+	    	<% if @new_message_spam > 0%>
+				<li class="active" ><%= link_to "Спам +"+ @new_message_spam.to_s, messages_spam_path %></li>
+			<%else%>
+				<li class="active" ><%= link_to "Спам", messages_spam_path %></li>
+			<%end%>
 		<%else%>
-			<li ><%= link_to "Спам", messages_spam_path %></li>
+			<% if @new_message_spam > 0%>
+				<li ><%= link_to "Спам +"+@new_message_spam.to_s, messages_spam_path %></li>
+			<%else%>
+				<li ><%= link_to "Спам", messages_spam_path %></li>
+			<%end%>
 		<%end%>					
 	</ul>	
 </div>
