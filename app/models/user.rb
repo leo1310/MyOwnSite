@@ -33,5 +33,7 @@ class User < ActiveRecord::Base
 
   has_many :careers
   accepts_nested_attributes_for :careers, :allow_destroy => true
+
+  has_many :friends
   
 end

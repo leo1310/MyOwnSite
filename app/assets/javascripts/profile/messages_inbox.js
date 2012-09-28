@@ -67,7 +67,7 @@ function buildTable(table_, multicollapsible_) {
 				delete_group_messages($('.brep-table'));
 				
 			}
-			if(arg.target.nodeName != "INPUT" && arg.target.nodeName != "A") {
+			if(arg.target.nodeName != "INPUT" && arg.target.nodeName != "A" && arg.target.nodeName != 'IMG') {
 				if (!multicollapsible_ ) {				
 					
 					var check_class = $(this).find('tr').attr('class');				

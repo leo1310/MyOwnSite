@@ -23,8 +23,14 @@
 							<%else%>
 								Error
 							<%end%>
-						<%else%>							
-							<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_get_mail%>
+						<%else%>
+							<%@user_get_mail = User.find_by_nik_name(message.who_get_mail)%>						
+							<a href="profiles/<%=@user_get_mail.id.to_s%>">							
+								<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_get_mail%>
+							</a>
+							<%if @user_get_mail.count_time_logout < @user_get_mail.sign_in_count%>
+								<div id="online">Online</div>	
+							<%end%>
 						<%end%>
 					</div>
 				</td>

@@ -5,7 +5,7 @@
 	font-size: 18px;
 	font-family: "Times New Roman";
 	font-style: italic;
-	width: 350px;
+	width: 420px;
 	font-weight: bold;
 }
 
@@ -87,3 +87,40 @@
 	font-family: "Times New Roman";
 	color: #757575;
 }
+#online{
+	margin-top: -45px;
+	margin-bottom: 30px;
+	font-family: "Times New Roman";
+	font-style: italic;	
+	font-weight: bold;
+}
+#online span{
+	margin-left: 410px;	
+	color: #E5E5E9;	
+	font-size: 18px;
+	
+}
+#online div{
+	margin-left: 120px;
+	margin-top: 20px;
+	color: #E5E5E9;
+	font-size: 16px;
+}
+
+#friend{
+	background: #DADAE0;	
+	padding: 5px;
+	height: 50px;
+}
+#friend input[type=submit]{
+	width: 100%;
+}
+
+#friend_wrapr{
+	margin-top: 5px;
+	background: #7B4ECE;
+	padding: 5px;
+	border-radius: 6px;
+
+}
+

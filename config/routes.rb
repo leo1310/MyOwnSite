@@ -7,7 +7,7 @@ MyOwnSite::Application.routes.draw do
   
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
-    match "/logout" => "devise/sessions#destroy"  
+    match "/logout" => "sessions#destroy"  
   end        
   devise_scope :admin do
     match "/logout" => "admin/sessions#destroy"  
@@ -49,8 +49,7 @@ MyOwnSite::Application.routes.draw do
   resources :profiles
   #match "my_page/:id" => 'profiles#my_page'
   
-  match 'foto', :to=> 'profiles#foto'
-  match 'friends', :to=> 'profiles#friends'  
+  match 'foto', :to=> 'profiles#foto'   
   match 'my_settings', :to=> 'profiles#my_settings'
   match 'towns', :to=> 'profiles#towns'
     
@@ -81,6 +80,16 @@ MyOwnSite::Application.routes.draw do
     match 'update_course', :to=> 'profiles#update_course'
     match 'update_trainings',  :to=> 'profiles#update_training'
     match 'update_career',  :to=> 'profiles#update_career'
+
+    #Friends 
+    match 'add_friend', :to=> 'profiles#add_friend' 
+    match 'delete_friends', :to=> 'profiles#delete_friend'
+
+    match 'friends_online', :to=> 'profiles#friends_online' 
+    match 'friends_all', :to=> 'profiles#friends_all' 
+    match 'friends_query_to', :to=> 'profiles#friends_query_to' 
+    match 'friends_query_in', :to=> 'profiles#friends_query_in' 
+
     
     
 

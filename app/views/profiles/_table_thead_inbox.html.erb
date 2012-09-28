@@ -8,7 +8,7 @@
 							<% unless @admins.empty?%>
 								<% @counter = 0 %>
 								<% @admins.each do |admin|%>
-									<%if admin.nik_name.eql?(message.who_send_mail)%>
+									<%if admin.nik_name.eql?(message.who_send_mail)%>										
 										<%= image_tag admin.avatar.url, :size => "64x64", :title=>admin.nik_name%>										
 										<% @counter = 0 %>
 										<%break%>
@@ -22,9 +22,15 @@
 							<%else%>
 								Error
 							<%end%>
-						<%else%>
+						<%else%>													
 							<%@user_avatar = User.find(message.user_id)%>
-							<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_send_mail%>
+							<a href="profiles/<%=message.user_id.to_s%>">
+								<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_send_mail%>
+							</a>							
+					        
+					        <%if @user_avatar.count_time_logout < @user_avatar.sign_in_count%>
+								<div id="online">Online</div>	
+							<%end%>							
 						<%end%>
 					</div>
 				</td>

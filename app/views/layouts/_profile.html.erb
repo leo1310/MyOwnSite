@@ -19,9 +19,9 @@
         <%end%>
         
         <% if @tab_index_profile_menu == 4%>
-            <li class="active"><%= link_to "Друзі", friends_path, "data-toggle"=>"tab" %></li>
+            <li class="active"><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%else%>
-            <li><%= link_to "Друзі", friends_path, "data-toggle"=>"tab" %></li>
+            <li><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%end%>
         
         <% if @tab_index_profile_menu == 5%>            

@@ -241,7 +241,20 @@ class ProfilesController < ApplicationController
 	# ----------------------My Page actions-------------------------------------
 	def show
 		@tab_index_profile_menu = 1
-		@user = User.find(current_user.id)
+		@user = User.find(params[:id])
+		
+		unless @user.time_logout.nil?
+			@time_logout = @user.time_logout
+		else
+			@time_logout = @user.current_sign_in_at
+		end
+
+		if @user.count_time_logout < @user.sign_in_count
+			@time = true
+		else
+			@time = false
+		end
+		
 		@contact = @user.contact
 		@interest = @user.interest
 		
@@ -258,7 +271,37 @@ class ProfilesController < ApplicationController
 		@user = User.find(current_user.id)
 	end
 
-	def friends
+	# ----------------------Friends actions-------------------------------------
+	
+	def add_friend
+		@user = User.find(current_user.id)
+		@user.friends.create(:friend=>params[:id], :query_to_friends => 0)
+
+		redirect_to profile_path(params[:id])
+		#@user = User.find(params[:id])
+		#@user.friends.create(:friend=>current_user.id)
+	end
+
+	def delete_friend
+	end
+
+	def friends_online
+		@tab_index_profile_friends_menu = 2
+		@tab_index_profile_menu = 4
+	end
+
+	def friends_all
+		@tab_index_profile_friends_menu = 3
+		@tab_index_profile_menu = 4
+	end
+
+	def friends_query_to
+		@tab_index_profile_friends_menu = 4
+		@tab_index_profile_menu = 4
+	end
+
+	def friends_query_in
+		@tab_index_profile_friends_menu = 1
 		@tab_index_profile_menu = 4
 	end
 	
@@ -310,7 +353,10 @@ class ProfilesController < ApplicationController
 		@admins = Admin.all		
 		
 		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail_and_deleted_geter_and_spam(@user.nik_name, 'true', 0)		
-		@messages_count = @messages.count		
+		@messages_count = @messages.count
+
+			
+			
 	end
 
 	def messages_sent

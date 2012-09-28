@@ -10,13 +10,50 @@
             	<tr>
             		<td style="vertical-align: top">
 			            <div class="avatar" >
-			            	<%= image_tag current_user.avatar.url, :size => "300x360"%>
+			            	<%= image_tag @user.avatar.url, :size => "300x360"%>
 			        	</div>
-			        </td>
+			        	<%if @user.id != current_user.id%>
+			        		<div id="friend_wrapr">
+				        		<div id="friend">
+				        			<%= form_for @user, :url => {:controller=>"profiles", :action => "add_friend", :id=> @user.id} do |f|  %>
+	                        			<%unless @friend.nil?%>                        
+		                        			<%@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)%>	
+		                    				<%if @friend.query_to_friends == 1%>                        
+		                        				<%= f.submit "Додати у друзі", :disabled=>'disabled'%>
+		                        			<%else%>
+		                        				<%= f.submit "Додати у друзі"%>
+		                        			<%end%>
+		                        		<%else%>
+		                        			<%= f.submit "Додати у друзі"%>
+		                        		<%end%>
+	                    			<%end%>
+	                    			<%= form_for @user, :url => {:controller=>"profiles", :action => "delete_friend", :id=>@user.id} do |f|  %>
+	                    				<%unless @friend.nil?%>                        
+		                    				<%@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)%>	
+		                    				<%if @friend.query_to_friends != 1%>                        
+		                        				<%= f.submit "Видалити з друзів", :style=>"margin-top:-20px", :disabled=>'disabled' %>
+		                        			<%else%>
+		                        				<%= f.submit "Видалити з друзів", :style=>"margin-top:-20px"%>
+		                        			<%end%>
+		                        		<%else%>
+		                        			<%= f.submit "Видалити з друзів", :style=>"margin-top:-20px", :disabled=>'disabled' %>
+		                        		<%end%>
+	                    			<%end%>
+				        		</div>
+			        		</div>
+			        	<%end%>
+			        </td>			        
 			        <td style="vertical-align: top" >
 			        	<div class="profile_content">
 				        	<div class="titlename">
-				        		<%= @user.name %> <%= @user.last_name%>			        		
+				        		<%= @user.name %> <%= @user.last_name%>				        		
+				        	</div>
+				        	<div id="online">
+				        		<%if @time%>
+				        			<span>Online</span>			        		
+				        		<%else%>
+				        			<div>Остання присутність <%= @time_logout.utc.getlocal.strftime("%e %B %Y o %H:%M")%></div>		
+				        		<%end%>
 				        	</div>
 				        	<%= render 'my_information_on_my_page'%>
 				        	<%= render 'my_contacts_on_my_page'%>

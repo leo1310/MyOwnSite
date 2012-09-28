@@ -5,10 +5,7 @@ class PagesController < ApplicationController
 	def index
 		@user = User.find(current_user.id)
 		@tab_index_main_menu = 1		
-	end
-	def profile
-		@user = User.find(current_user.id)		
-	end
+	end	
 	
 	def message
 	end
