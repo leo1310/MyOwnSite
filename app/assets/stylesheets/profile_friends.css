@@ -1,0 +1,76 @@
+.friend_to{
+	border: 1px solid #58ACFA;
+	width: 600px;
+	margin-left: 25px;
+}
+
+td.friend{
+	vertical-align: top;
+	padding: 10px;
+	height: 140px;
+	/*border-bottom: 1px solid #BDBDBD;*/
+}
+
+#online{
+  font-size: 14px;
+  color:#A5A5A6;
+  margin-left: 10px;
+}
+
+.friend_title{
+	font-family: "Times New Roman";
+	font-size: 14px;
+	color: blue;
+}
+
+.digg_pagination .page_info {
+	background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 20em;
+    margin-bottom: 0.5em;
+    margin-left: 25px;
+    text-align: left; 
+}
+.digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; 
+}
+
+.line{
+	border-top: 1px solid #BDBDBD ;
+	margin: 0px 10px 10px 10px;
+}
+
+.title_high_school{
+	font-family: "Times New Roman";
+	font-size: 14px;
+}
+td.friends_all{
+	width: 350px;
+	vertical-align: top;
+	padding-top: 15px;
+}
+
+.friend_all{
+	border: 1px solid #58ACFA;
+	width: 700px;
+	margin-left: 25px;
+}
+
+td.friend_options{
+	font-family: "Times New Roman";
+	font-size: 14px;
+	vertical-align: top;	
+	padding-top: 15px;
+}
+
+td.friend_options a{
+	margin-top: 5px;
+	color:green;
+	line-height: 20px;
+}
+td.friend_options a:hover{	
+	color:darkblue;	
+}

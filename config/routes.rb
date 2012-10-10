@@ -82,8 +82,10 @@ MyOwnSite::Application.routes.draw do
     match 'update_career',  :to=> 'profiles#update_career'
 
     #Friends 
+    match 'query_to_add_friend', :to=> 'profiles#query_to_add_friend' 
+    match 'delete_friend', :to=> 'profiles#delete_friend'
+    match 'delete_friend_query_to', :to=> 'profiles#delete_friend_query_to'
     match 'add_friend', :to=> 'profiles#add_friend' 
-    match 'delete_friends', :to=> 'profiles#delete_friend'
 
     match 'friends_online', :to=> 'profiles#friends_online' 
     match 'friends_all', :to=> 'profiles#friends_all' 

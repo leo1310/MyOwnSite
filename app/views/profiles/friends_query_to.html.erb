@@ -1,11 +1,48 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_friends', :media=> 'all' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
         	<%= render 'friends'%>
-            <h1>Friends Query To</h1>
+            <h1>Вихідні заявки у друзі</h1>
+            <div class="digg_pagination">
+				<div class="page_info">
+					<%= page_entries_info @friends%>    		
+				</div>		
+					<%= will_paginate @friends%>
+			</div>
+            <table class="friend_to">
+            	<% @friends.each do |friend|%>
+            		<%@user_f = User.find(friend.friend)%>
+            		<thead>
+            			<td class="friend" style="width:140px">
+            				<a href="profiles/<%=friend.friend.to_s%>">          				
+            					<%= image_tag @user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name%>
+            				</a>
+            			</td>
+            			<td class="friend">
+            				<div class="friend_title">
+            					<%= @user_f.last_name%> <%= @user_f.name%>            				
+            				</div>
+            				<%if @user_f.count_time_logout < @user_f.sign_in_count%>
+								<div id="online">Online</div>	
+							<%end%>
+							</br>
+							<%= form_for @user, :url => {:controller=>"profiles", :action => "delete_friend_query_to", :id=>friend.id} do |f|  %>                   				
+		                        <%= f.submit "Скасувати заявку"%>
+		                    <%end%>		              
+            			</td>            			
+            		</thead>
+            		<tr >
+            			<td colspan="2">
+            				<div class="line">
+		                	</div>	
+		            	</td>
+            		</tr>
+            	<%end%>
+            </table>
         </div>        
 	</div>
 </div>

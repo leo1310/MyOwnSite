@@ -2,10 +2,16 @@
 <%= stylesheet_link_tag 'profile_my_page', :media => "all" %>
 <%= javascript_include_tag 'profile/my_page' %>
 
+
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
+        	<% flash.each do |key, value| %>
+  				<div class="alert alert-<%= key %>">
+  					<%= value %>
+				</div>
+			<% end %>
             <table>
             	<tr>
             		<td style="vertical-align: top">
@@ -15,22 +21,28 @@
 			        	<%if @user.id != current_user.id%>
 			        		<div id="friend_wrapr">
 				        		<div id="friend">
-				        			<%= form_for @user, :url => {:controller=>"profiles", :action => "add_friend", :id=> @user.id} do |f|  %>
-	                        			<%unless @friend.nil?%>                        
-		                        			<%@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)%>	
-		                    				<%if @friend.query_to_friends == 1%>                        
-		                        				<%= f.submit "Додати у друзі", :disabled=>'disabled'%>
-		                        			<%else%>
-		                        				<%= f.submit "Додати у друзі"%>
-		                        			<%end%>
-		                        		<%else%>
-		                        			<%= f.submit "Додати у друзі"%>
+				        			<%if @friend.nil? and @friend_two.nil?%>
+				        				<%= form_for @user, :url => {:controller=>"profiles", :action => "query_to_add_friend", :id=> @user.id} do |f|  %>	          	                    				
+		                        			<%= f.submit "Додати у друзі"%>                        			
 		                        		<%end%>
-	                    			<%end%>
-	                    			<%= form_for @user, :url => {:controller=>"profiles", :action => "delete_friend", :id=>@user.id} do |f|  %>
-	                    				<%unless @friend.nil?%>                        
-		                    				<%@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)%>	
-		                    				<%if @friend.query_to_friends != 1%>                        
+		                        	<%elsif not @friend.nil? %>
+		                        		<%= form_for @user, :url => {:controller=>"profiles", :action => "query_to_add_friend", :id=> @user.id} do |f|  %>	          	                    				
+		                        			<%if @friend.query_to_friends == 1%>                        
+		                        				<%= f.submit "Додати у друзі", :disabled=>'disabled'%>                        		
+		                        			<%else%>
+		                        				<%= f.submit "Додати у друзі"%>                        		
+		                        			<%end%>	
+		                        		<%end%>
+		                        	<%elsif not @friend_two.nil? %>
+		                        		<%= form_for @user, :url => {:controller=>"profiles", :action => "add_friend", :id=>@friend_two.id, :user_id=>@user.id} do |f|  %>	          	                		
+		                        			<%= f.submit "Додати у друзі"%>                        			
+		                        		<%end%>
+		                        	<%end%>
+		                        	
+
+	                    			<%= form_for @user, :url => {:controller=>"profiles", :action => "delete_friend", :user_id=>@user.id, :id=>@user.id} do |f|  %>
+	                    				<%unless @friend.nil?%>                        		                    				
+		                    				<%if @friend.query_to_friends == 0%>                        
 		                        				<%= f.submit "Видалити з друзів", :style=>"margin-top:-20px", :disabled=>'disabled' %>
 		                        			<%else%>
 		                        				<%= f.submit "Видалити з друзів", :style=>"margin-top:-20px"%>

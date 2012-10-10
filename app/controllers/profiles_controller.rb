@@ -263,6 +263,8 @@ class ProfilesController < ApplicationController
 		@courses = @user.courses
 		@trainings = @user.trainings
 		@careers = @user.careers
+		@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)
+		@friend_two = Friend.find_by_user_id_and_friend(@user.id, current_user.id)
 
 	end
 
@@ -273,37 +275,94 @@ class ProfilesController < ApplicationController
 
 	# ----------------------Friends actions-------------------------------------
 	
-	def add_friend
+	def query_to_add_friend
 		@user = User.find(current_user.id)
 		@user.friends.create(:friend=>params[:id], :query_to_friends => 0)
+		@user_friend = User.find(params[:id])
 
-		redirect_to profile_path(params[:id])
-		#@user = User.find(params[:id])
-		#@user.friends.create(:friend=>current_user.id)
+		flash[:success] = @user_friend.last_name + " " + @user_friend.name + " Get your request that add you to friends!"
+		redirect_to profile_path(params[:id])		
 	end
 
 	def delete_friend
+		@friend = Friend.find_by_user_id_and_friend(current_user.id, params[:id])
+		@friend.destroy
+
+		@friend = Friend.find_by_user_id_and_friend(params[:id], current_user.id)
+		@friend.destroy
+
+		@user_friend = User.find(params[:id])
+		flash[:success] = @user_friend.last_name + " " + @user_friend.name + " Was deleted from your friends!"
+		
+		if params[:user_id].nil?  
+		  redirect_to friends_all_path
+		elsif not params[:user_id].nil?
+		  redirect_to profile_path(params[:user_id])
+		end		
 	end
 
 	def friends_online
 		@tab_index_profile_friends_menu = 2
 		@tab_index_profile_menu = 4
+
+		@user = User.find(current_user.id)
+
+		@friends = @user.friends.paginate(:page => params[:page], :per_page => 25).find_all_by_query_to_friends(1)
 	end
 
 	def friends_all
 		@tab_index_profile_friends_menu = 3
 		@tab_index_profile_menu = 4
+
+		@user = User.find(current_user.id)
+
+		@friends = @user.friends.paginate(:page => params[:page], :per_page => 25).find_all_by_query_to_friends(1)
 	end
 
 	def friends_query_to
 		@tab_index_profile_friends_menu = 4
 		@tab_index_profile_menu = 4
+
+		@user = User.find(current_user.id)
+
+		@friends = @user.friends.paginate(:page => params[:page], :per_page => 25).find_all_by_query_to_friends(0)		
+	end
+	
+	def delete_friend_query_to
+		@friend = Friend.find(params[:id])
+		@friend.destroy
+
+		redirect_to friends_query_to_path
 	end
 
 	def friends_query_in
+		@user = User.find(current_user.id)
+
+		@friends = Friend.paginate(:page => params[:page], :per_page => 25).find_all_by_friend_and_query_to_friends(current_user.id, 0)
+
 		@tab_index_profile_friends_menu = 1
 		@tab_index_profile_menu = 4
 	end
+
+	def add_friend
+		@friend = Friend.find(params[:id])
+		@friend.query_to_friends = 1
+		@friend.save
+
+		@user = User.find(current_user.id)
+		@user.friends.create(:friend=>@friend.user_id, :query_to_friends => 1)
+		
+		@user_friend = User.find(@friend.user_id)
+		flash[:success] = @user_friend.last_name + " " + @user_friend.name + " Was added to your friends!"
+		
+		if params[:user_id].nil?  
+		  redirect_to friends_query_in_path
+		elsif not params[:user_id].nil?
+		  redirect_to profile_path(params[:user_id])
+		end
+	end
+
+	# ----------------------Settings actions-------------------------------------
 	
 	def my_settings
 		@tab_index_profile_menu = 6		
@@ -353,9 +412,7 @@ class ProfilesController < ApplicationController
 		@admins = Admin.all		
 		
 		@messages = Message.order('created_at DESC').paginate(:page => params[:page], :per_page => 25).find_all_by_who_get_mail_and_deleted_geter_and_spam(@user.nik_name, 'true', 0)		
-		@messages_count = @messages.count
-
-			
+		@messages_count = @messages.count		
 			
 	end
 
@@ -411,17 +468,12 @@ class ProfilesController < ApplicationController
 		@tab_index_main_menu = 2		
 
 		@user = User.find(current_user.id)
-		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter(@user.nik_name, 'true')		
-		@new_message = 0
-		@new_message_spam = 0
-		@messages_count.each do |message|
-			if message.read_message.eql?('not_read') and message.spam == 0
-				@new_message += 1
-			end
-			if message.read_message.eql?('not_read') and message.spam == 1
-				@new_message_spam += 1
-			end
-		end
+		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 0)		
+		@new_message = @messages_count.count
+		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 1)		
+		@new_message_spam = @messages_count.count
 		
+		@friends = Friend.find_all_by_friend_and_query_to_friends(@user.id, 0)
+		@new_query_to_friends = @friends.count		
 	end
 end
