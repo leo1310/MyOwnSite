@@ -31,5 +31,5 @@ function buildTable(table_, multicollapsible_) {
 }
 
 $(document).ready( function (){
-	buildTable( $('.brep-table'));
+	buildTable( $('.brep-table'));			
 });

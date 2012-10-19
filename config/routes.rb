@@ -22,7 +22,14 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
   match 'search' => 'Pages#search'
-  match 'additionalInf' => 'Pages#additionalInf'   
+  match 'additionalInf' => 'Pages#additionalInf'
+  #match 'status_active' => 'Pages#status_active', :via => :post
+
+  resources :pages do
+    collection do
+      get 'status_active'
+    end
+  end
 
   match 'africa' =>'Maps#africa' 
   match 'europa' =>'Maps#europa'
@@ -36,17 +43,18 @@ MyOwnSite::Application.routes.draw do
       get 'delete_message'      
       get 'delete_message_sent'
       get 'delete_group_messages'
-      get 'delete_group_messages_sent'
+      get 'delete_group_messages_sent'    
     end
   end
 
   match '/send', :to=> 'messages#send_m'
   match '/input', :to=> 'messages#input'
-  match '/sent', :to=> 'messages#sent'  
+  match '/sent', :to=> 'messages#sent'
+  
   
   #Routes profiles controller
   
-  resources :profiles
+  resources :profiles   
   #match "my_page/:id" => 'profiles#my_page'
   
   match 'foto', :to=> 'profiles#foto'   

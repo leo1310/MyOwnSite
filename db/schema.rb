@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928124958) do
+ActiveRecord::Schema.define(:version => 20121019083805) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(:version => 20120928124958) do
     t.string   "birthday_show_hide_date"
     t.datetime "time_logout"
     t.integer  "count_time_logout",       :default => 0
+    t.datetime "status_active"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

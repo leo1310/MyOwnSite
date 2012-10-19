@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :load_index
 	layout 'page'
-	include ProfilesHelper
+	include ProfilesHelper	
 	
 	# ----------------------About me actions-------------------------------------
 	def my_information
@@ -241,18 +241,32 @@ class ProfilesController < ApplicationController
 	# ----------------------My Page actions-------------------------------------
 	def show
 		@tab_index_profile_menu = 1
-		@user = User.find(params[:id])
-		
-		unless @user.time_logout.nil?
-			@time_logout = @user.time_logout
-		else
-			@time_logout = @user.current_sign_in_at
-		end
+		@user = User.find(params[:id])		
 
 		if @user.count_time_logout < @user.sign_in_count
 			@time = true
 		else
 			@time = false
+		end
+
+		unless @user.status_active.nil?
+			if (Time.now-@user.status_active) < 60
+				@active = true
+			else
+				@active = false
+				unless @user.status_active.nil?
+					@time_logout = @user.status_active
+				else
+					@time_logout = @user.current_sign_in_at
+				end			
+			end
+		else
+			@active = false
+			unless @user.time_logout.nil?
+				@time_logout = @user.time_logout
+			else
+				@time_logout = @user.current_sign_in_at
+			end
 		end
 		
 		@contact = @user.contact
@@ -265,7 +279,6 @@ class ProfilesController < ApplicationController
 		@careers = @user.careers
 		@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)
 		@friend_two = Friend.find_by_user_id_and_friend(@user.id, current_user.id)
-
 	end
 
 	def foto

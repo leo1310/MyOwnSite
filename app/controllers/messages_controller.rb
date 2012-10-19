@@ -3,7 +3,6 @@ before_filter :authenticate_user!
 before_filter :load_index
 layout 'page'
 
-
 	def send_m
 		@tab_index_messages = 1
 		@user = User.find(current_user.id)
@@ -134,6 +133,6 @@ layout 'page'
 
 		redirect_to :controller=>"profiles", :action=>"messages_sent"
 					
-	end
+	end	
 	
 end

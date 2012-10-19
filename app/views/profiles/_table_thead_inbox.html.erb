@@ -27,8 +27,16 @@
 							<a href="profiles/<%=message.user_id.to_s%>">
 								<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_send_mail%>
 							</a>							
-					        
-					        <%if @user_avatar.count_time_logout < @user_avatar.sign_in_count%>
+					        <%unless @user_avatar.status_active.nil?%>
+								<%if (Time.now-@user_avatar.status_active) < 60%>
+									<%@active = true%>
+								<%else%>
+									<%@active = false%>
+								<%end%>
+							<%else%>
+								<%@active = false%>
+							<%end%>
+					        <%if @user_avatar.count_time_logout < @user_avatar.sign_in_count and @active%>
 								<div id="online">Online</div>	
 							<%end%>							
 						<%end%>

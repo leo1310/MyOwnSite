@@ -16,7 +16,16 @@
             <table class="friend_all">
             	<% @friends.each do |friend|%>
             		<%@user_f = User.find(friend.friend)%>
-            		<%if @user_f.count_time_logout < @user_f.sign_in_count%>
+            		<%unless @user_f.status_active.nil?%>
+                          <%if (Time.now-@user_f.status_active) < 60%>
+                                <%@active = true%>
+                          <%else%>
+                                <%@active = false%>
+                          <%end%>
+                    <%else%>
+                          <%@active = false%>
+                    <%end%>
+            		<%if @user_f.count_time_logout < @user_f.sign_in_count and @active%>
 	            		<thead>
 	            			<td class="friend" style="width:140px">
 	            				<a href="profiles/<%=friend.friend.to_s%>">          				
@@ -26,10 +35,8 @@
 	            			<td class="friends_all">
 	            				<div class="friend_title">
 	            					<%= @user_f.last_name%> <%= @user_f.name%>            				
-	            				</div>
-	            				<%if @user_f.count_time_logout < @user_f.sign_in_count%>
-									<div id="online">Online</div>	
-								<%end%>
+	            				</div>	            				
+								<div id="online">Online</div>								
 								<% unless @user_f.higher_educations.blank? %>		
 									<div class="title_high_school">
 										<%= @user_f.higher_educations.first.high_school%>								
@@ -37,7 +44,7 @@
 								<%end%>
 	            			</td>
 	            			<td class="friend_options">
-	            				<%= link_to "Написати повідомлення", "#{}"%></br>
+	            				<%= link_to "Написати повідомлення", "#"%></br>
 	            				<%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>
 	            				<%= link_to "Переглянути друзів", "#"%></br>
 	            				<%= link_to "Додати до списку", "#"%>            				

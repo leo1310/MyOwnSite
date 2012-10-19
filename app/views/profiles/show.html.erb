@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_my_page', :media => "all" %>
 <%= javascript_include_tag 'profile/my_page' %>
+<%= javascript_include_tag 'app' %>
 
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
@@ -61,7 +62,7 @@
 				        		<%= @user.name %> <%= @user.last_name%>				        		
 				        	</div>
 				        	<div id="online">
-				        		<%if @time%>
+				        		<%if @time and @active%>
 				        			<span>Online</span>			        		
 				        		<%else%>
 				        			<div>Остання присутність <%= @time_logout.utc.getlocal.strftime("%e %B %Y o %H:%M")%></div>		

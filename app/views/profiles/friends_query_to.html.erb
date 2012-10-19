@@ -26,7 +26,16 @@
             				<div class="friend_title">
             					<%= @user_f.last_name%> <%= @user_f.name%>            				
             				</div>
-            				<%if @user_f.count_time_logout < @user_f.sign_in_count%>
+                            <%unless @user_f.status_active.nil?%>
+                                  <%if (Time.now-@user_f.status_active) < 60%>
+                                        <%@active = true%>
+                                  <%else%>
+                                        <%@active = false%>
+                                  <%end%>
+                            <%else%>
+                                  <%@active = false%>
+                            <%end%>
+            				<%if @user_f.count_time_logout < @user_f.sign_in_count and @active%>
 								<div id="online">Online</div>	
 							<%end%>
 							</br>
