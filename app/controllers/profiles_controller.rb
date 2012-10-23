@@ -320,7 +320,8 @@ class ProfilesController < ApplicationController
 
 		@user = User.find(current_user.id)
 
-		@friends = @user.friends.paginate(:page => params[:page], :per_page => 25).find_all_by_query_to_friends(1)
+		@friends = @user.friends.find_all_by_query_to_friends(1)
+		@online_users = 0
 	end
 
 	def friends_all

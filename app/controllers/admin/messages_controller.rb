@@ -45,24 +45,19 @@ class Admin::MessagesController < ApplicationController
 		@counter = 0
 		@counter2 = 0
 	
-		@users.each do |user|
-			if user.nik_name.eql?(params[:message][:who_get_mail])
-				@counter2 = 1
-				break
-			else
-				@counter2 = 0
-			end
+		@arr_user = @users.select{|u| u[:nik_name].eql?(params[:message][:who_get_mail])}
+		unless @arr_user.empty?
+			@counter = 1
+		else
+			@counter = 0
 		end
 
-		
-		if @counter2 == 0			
-			@admins.each do |admin|
-				if admin.nik_name.eql?(params[:message][:who_get_mail])
-					@counter = 1
-					break
-				else
-					@counter = 0
-				end
+		if @counter == 0			
+			@arr_admin = @admins.select{|a| a[:nik_name].eql?(params[:message][:who_get_mail])}
+			unless @arr_admin.empty?
+				@counter2 = 1
+			else
+				@counter2 = 0
 			end
 		end		
 
@@ -74,7 +69,6 @@ class Admin::MessagesController < ApplicationController
 		end
 
 		redirect_to :controller => "messages", :action => "send_m"
-
 	end
 
 	def delete_inbox_message	

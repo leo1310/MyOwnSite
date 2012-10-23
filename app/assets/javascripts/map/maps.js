@@ -26,7 +26,7 @@ $(document).ready( function (){
       name = $("#part_of_the_world_data").attr("data-name");                  
   initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  //initialize(48.205, 376.375, 8, 'Europa');
+  //initialize(27.150, 346.800, 8, 'марроко');
   
   /*var myCars = new Array("Saab","Volvo","BMW");
   $('.typeahead').typeahead(myCars);*/

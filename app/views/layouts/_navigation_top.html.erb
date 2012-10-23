@@ -1,60 +1,55 @@
 <header>
-		
-           <div class="navbar-inner">
-              <div class="container">
-					<ul class="nav nav-pills pull-right">					
-						
-						<%if @tab_index_main_menu == 3%>		
-							<li class="active"><%= link_to "Setting", "#"%></li>
-						<%else%>
-							<li><%= link_to "Setting", "#"%></li>
-						<%end%>
+<div class="navbar-inner">
+    <div class="container">
+		<ul class="nav nav-pills pull-right">			
+			<%if @tab_index_main_menu == 3%>		
+				<li class="active"><%= link_to "Setting", "#"%></li>
+			<%else%>
+				<li><%= link_to "Setting", "#"%></li>
+			<%end%>
 
-						<%if @tab_index_main_menu == 4%>		
-						<li class="active"><%= link_to "Message", send_path%></li>						
-						<%else%>
-							<li><%= link_to "Message", send_path%></li>						
-						<%end%>
-						
-						<%if @tab_index_main_menu == 5%>								
-							<li class="active"><%= link_to "About Us", about_path%></li>			
-						<%else%>
-							<li><%= link_to "About Us", about_path%></li>			
-						<%end%>
-						
-						<%if @tab_index_main_menu == 6%>								
-							<li class="active"><%= link_to "Help", help_path%></li>							
-						<%else%>
-							<li><%= link_to "Help", help_path%></li>							
-						<%end%>
-						
-						<li ><%= link_to "Logout", logout_path%></li>						
-					</ul>
-
-					<ul class="nav nav-pills pull-left">
-						<li><a href="http://vk.com", title="G", alt="G"><%= image_tag("img/logo.jpg", :alt => "G") %></a></li>
-						
-						<%if @tab_index_main_menu == 1%>		
-							<li class="active"><%= link_to "Home", root_path%></li>
-						<%else%>
-							<li><%= link_to "Home", root_path%></li>
-						<%end%>
-						
-						<%if @tab_index_main_menu == 2%>		
-							<li class="active"><%= link_to "Profile", profile_path(current_user.id)%></li>						
-						<%else%>
-							<li><%= link_to "Profile", profile_path(current_user.id)%></li>						
-						<%end%>
-						
-						<%if @tab_index_main_menu == 7%>		
-							<li class="active"><%= link_to "Search", search_path%></li>						
-						<%else%>
-							<li><%= link_to "Search", search_path%></li>						
-						<%end%>
-					</ul>					
-			</div>				
-				
+			<%if @tab_index_main_menu == 4%>		
+				<li class="active"><%= link_to "Message", send_path%></li>						
+			<%else%>
+				<li><%= link_to "Message", send_path%></li>						
+			<%end%>
 			
-		</div>
-		
-	</header>
+			<%if @tab_index_main_menu == 5%>								
+				<li class="active"><%= link_to "About Us", about_path%></li>			
+			<%else%>
+				<li><%= link_to "About Us", about_path%></li>			
+			<%end%>
+			
+			<%if @tab_index_main_menu == 6%>								
+				<li class="active"><%= link_to "Help", help_path%></li>							
+			<%else%>
+				<li><%= link_to "Help", help_path%></li>							
+			<%end%>
+			
+			<li ><%= link_to "Logout", logout_path%></li>						
+		</ul>
+
+		<ul class="nav nav-pills pull-left">
+			<li><a href="http://vk.com", title="G", alt="G"><%= image_tag("img/logo.jpg", :alt => "G") %></a></li>
+			
+			<%if @tab_index_main_menu == 1%>		
+				<li class="active"><%= link_to "Home", root_path%></li>
+			<%else%>
+				<li><%= link_to "Home", root_path%></li>
+			<%end%>
+			
+			<%if @tab_index_main_menu == 2%>		
+				<li class="active"><%= link_to "Profile", profile_path(current_user.id)%></li>						
+			<%else%>
+				<li><%= link_to "Profile", profile_path(current_user.id)%></li>						
+			<%end%>
+			
+			<%if @tab_index_main_menu == 7%>		
+				<li class="active"><%= link_to "Search", search_path%></li>						
+			<%else%>
+				<li><%= link_to "Search", search_path%></li>						
+			<%end%>
+		</ul>					
+	</div>			
+</div>		
+</header>

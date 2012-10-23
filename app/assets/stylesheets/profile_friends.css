@@ -7,8 +7,7 @@
 td.friend{
 	vertical-align: top;
 	padding: 10px;
-	height: 140px;
-	/*border-bottom: 1px solid #BDBDBD;*/
+	height: 140px;	
 }
 
 #online{
@@ -21,21 +20,6 @@ td.friend{
 	font-family: "Times New Roman";
 	font-size: 14px;
 	color: blue;
-}
-
-.digg_pagination .page_info {
-	background: #2e6ab1;
-    color: white;
-    padding: 0.4em 0.6em;
-    width: 20em;
-    margin-bottom: 0.5em;
-    margin-left: 25px;
-    text-align: left; 
-}
-.digg_pagination .page_info b {
-      color: #000033;
-      background: #6aa6ed;
-      padding: 0.1em 0.25em; 
 }
 
 .line{
@@ -73,4 +57,31 @@ td.friend_options a{
 }
 td.friend_options a:hover{	
 	color:darkblue;	
+}
+
+.friend_online{
+	margin-left: 45px;
+	padding: 5px;
+	font-family: "Times New Roman";
+	font-size: 16px;
+	background: #2296E3;
+	width: 200px;
+	margin-bottom: 5px;
+	text-align: center;
+	border: 1px solid #9FF430;
+}
+
+.digg_pagination .page_info {
+	background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 25em;
+    margin-bottom: 0.5em;
+    margin-left: 112px;
+    text-align: left; 
+}
+.digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; 
 }

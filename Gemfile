@@ -8,7 +8,10 @@ gem 'rails', '3.2.6'
 gem 'mysql2'
 gem "twitter-bootstrap-rails", '>= 2.1.0'
 gem 'devise'
+
 gem 'cocoon'
+gem 'execjs'
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required
@@ -28,7 +31,14 @@ gem 'jquery-rails'
 #pagination
 gem 'will_paginate'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'roo'
 
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'capybara-webkit'  
+  gem 'database_cleaner'
+  gem "launchy"  
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

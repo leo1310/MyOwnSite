@@ -1,63 +1,60 @@
-    <ul class="nav nav-tabs">
-        
-        <% if @tab_index_profile_menu == 1%>        
-            <li class="active"><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
+<ul class="nav nav-tabs">        
+    <% if @tab_index_profile_menu == 1%>        
+        <li class="active"><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
+    <%else%>
+        <li><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
+    <%end%>
+    
+    <% if @tab_index_profile_menu == 2%>
+        <li class="active"><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
+    <%else%>
+        <li><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
+    <%end%>
+    
+    <% if @tab_index_profile_menu == 3%>
+        <li class="active"><%= link_to "Фото", foto_path, "data-toggle"=>"tab" %></li>
+    <%else%>
+        <li><%= link_to "Фото", foto_path, "data-toggle"=>"tab" %></li>
+    <%end%>
+    
+    <% if @tab_index_profile_menu == 4%>
+        <% if @new_query_to_friends > 0%>
+            <li class="active"><%= link_to "Друзі +" + @new_query_to_friends.to_s, friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%else%>
-            <li><%= link_to "Моя Сторінка", profile_path(current_user.id), "data-toggle"=>"tab" %></li>
+            <li class="active"><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%end%>
-        
-        <% if @tab_index_profile_menu == 2%>
-            <li class="active"><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
+    <%else%>
+        <% if @new_query_to_friends > 0%>
+            <li><%= link_to "Друзі +" + @new_query_to_friends.to_s, friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%else%>
-            <li><%= link_to "Про мене", my_information_path, "data-toggle"=>"tab" %></li>
+            <li><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%end%>
-        
-        <% if @tab_index_profile_menu == 3%>
-            <li class="active"><%= link_to "Фото", foto_path, "data-toggle"=>"tab" %></li>
-        <%else%>
-            <li><%= link_to "Фото", foto_path, "data-toggle"=>"tab" %></li>
+    <%end%>
+    
+    <% if @tab_index_profile_menu == 5%>            
+        <% if @new_message > 0%>
+            <li class="active"><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
+        <%else%>            
+            <li class="active"><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
         <%end%>
-        
-        <% if @tab_index_profile_menu == 4%>
-            <% if @new_query_to_friends > 0%>
-                <li class="active"><%= link_to "Друзі +" + @new_query_to_friends.to_s, friends_query_in_path, "data-toggle"=>"tab" %></li>
-            <%else%>
-                <li class="active"><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
-            <%end%>
-        <%else%>
-            <% if @new_query_to_friends > 0%>
-                <li><%= link_to "Друзі +" + @new_query_to_friends.to_s, friends_query_in_path, "data-toggle"=>"tab" %></li>
-            <%else%>
-                <li><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
-            <%end%>
+    <%else%>
+        <% if @new_message > 0%>
+            <li><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
+        <%else%>            
+            <li><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
+        <%end%>
+    <%end%>
 
-        <%end%>
-        
-        <% if @tab_index_profile_menu == 5%>            
-            <% if @new_message > 0%>
-                <li class="active"><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
-            <%else%>            
-                <li class="active"><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
-            <%end%>
-        <%else%>
-            <% if @new_message > 0%>
-                <li><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
-            <%else%>            
-                <li><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
-            <%end%>
-        <%end%>
+    <% if @tab_index_profile_menu == 6%>
+        <li class="active"><%= link_to "Налаштунки", my_settings_path, "data-toggle"=>"tab" %></li>
+    <%else%>
+        <li><%= link_to "Налаштунки", my_settings_path, "data-toggle"=>"tab" %></li>
+    <%end%>
 
-        <% if @tab_index_profile_menu == 6%>
-            <li class="active"><%= link_to "Налаштунки", my_settings_path, "data-toggle"=>"tab" %></li>
-        <%else%>
-            <li><%= link_to "Налаштунки", my_settings_path, "data-toggle"=>"tab" %></li>
-        <%end%>
-
-        <% if @tab_index_profile_menu == 7%>
-            <li class="active"><%= link_to "Towns", towns_path, "data-toggle"=>"tab" %></li>
-        <%else%>
-            <li><%= link_to "Towns", towns_path, "data-toggle"=>"tab" %></li>
-        <%end%>                
-        
-    </ul>
+    <% if @tab_index_profile_menu == 7%>
+        <li class="active"><%= link_to "Towns", towns_path, "data-toggle"=>"tab" %></li>
+    <%else%>
+        <li><%= link_to "Towns", towns_path, "data-toggle"=>"tab" %></li>
+    <%end%>        
+</ul>
     

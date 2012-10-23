@@ -65,7 +65,7 @@ layout 'page'
 		if @counter == 1 or @counter2 == 1
 			@user.messages.create(params[:message])
 			@user.save
-			flash[:success] = "Your message sent to the recipient"
+			flash[:success] = "Your message sent to the recipient."
 		else
 			flash[:error] = "Error sending. No such nick."
 		end

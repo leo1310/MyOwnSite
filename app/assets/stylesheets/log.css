@@ -12,7 +12,7 @@ body{
 #signin, #signup{
 	float: left;	
 	font-family: "Times New Roman";
-	margin-top: -24px;
+	margin-top: -2px;
 	font-size: 14px;	
 }
 #signin h2, #signup h2{

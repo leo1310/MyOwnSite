@@ -6,28 +6,28 @@
 	<h3>Нове повідомлення</h3>
 	<%= form_for Message.new, :url => {:controller=>"messages", :action => "create", :id=> current_admin.id} do |f|  %> 
     
-    <table>
+    <table class="mail">
     	<tr>
-    		<td class="mail">
+    		<td>
     			Від кого:
     		</td>
-    		<td class="mail" >
+    		<td>
     			<%= f.text_field :who_send_mail, :value => @admin.nik_name, :id=>"nik_name"  %>
     		</td>
     	</tr>
     	<tr>
-    		<td class="mail">
+    		<td>
     			Кому:
     		</td>
-    		<td class="mail">
+    		<td>
     			<%= f.text_field :who_get_mail%>
     		</td>
     	</tr>
     	<tr>
-    		<td class="mail">
+    		<td>
     			Заголовок:
     		</td>
-    		<td class="mail">
+    		<td>
     			<%= f.text_field :subject%>
     		</td>    		
     	</tr>
@@ -39,8 +39,7 @@
         <div>
     	   <%= f.text_area :description%>
 	   </div>
-    <%= f.submit "Надіслати"%> 
-    </div>  
-    
+        <%= f.submit "Надіслати"%> 
+    </div>   
 <%end%>
 </div>

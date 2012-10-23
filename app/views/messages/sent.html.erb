@@ -4,15 +4,15 @@
 <%= render 'layouts/message'%>
 
 <div class="sent">
-<h3>Ваші вихідні повідомлення</h3>
-<div class="digg_pagination">
-	<div class="page_info">
-		<%= page_entries_info @messages%>    		
-	</div>		
-	<%= will_paginate @messages%>
-</div>
+    <h3>Ваші вихідні повідомлення</h3>
+    <div class="digg_pagination">
+	   <div class="page_info">
+		  <%= page_entries_info @messages%>    		
+	   </div> 		
+	   <%= will_paginate @messages%>
+    </div>
 
-<table class="brep-table" cellpadding="0" cellspacing="0">
+    <table class="brep-table" cellpadding="0" cellspacing="0">
 		<thead class="tbl-header">
     		<tr class="gray">
       			<th class="tbl-item-rate">
@@ -29,46 +29,44 @@
         		</th>      			
     		</tr>
     	</thead>
-
-
     	<% @messages.each do |message|%>
-    	<thead>    		
+        	<thead>    		
 	    		<tr >
 	    			<td class="tbl-item-rate">
-    				<div><%= @index %></div>
-				</td>				
-				<td>
-					<div>
-						<%= message.who_get_mail %>
-					</div>
-				</td>
-				<td>
-					<div>
-						<%= message.subject %>
-					</div>
-				</td>
-				<td>
-					<div>
-						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
-					</div>
-				</td>
+    				    <div><%= @index %></div>
+				    </td>				
+				    <td>
+					   <div>
+						  <%= message.who_get_mail %>
+					   </div>
+				    </td>
+				    <td>
+					   <div>
+						  <%= message.subject %>
+					   </div>
+				    </td>
+				    <td>
+					   <div>
+						  <%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
+					   </div>
+				    </td>
 	    		</tr>    		
-    	</thead>
-    	<tbody>
-    		<tr>
-    			<td colspan = "4" align="left">
-    				<div class="text_message">
-                        <b>Від кого:</b>
-        				<%= message.who_send_mail %></br>
-        				<b>Заголовок:</b>
-        				<%= message.subject %></br>
-        				<b>Текст повідомлення:</b></br>
-        				<%= message.description %>
-                    </div>
-    			</td>
-    		</tr>
-    	</tbody>
-    	<% @index += 1 %>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td colspan = "4" align="left">
+        				<div class="text_message">
+                            <b>Від кого:</b>
+            				<%= message.who_send_mail %></br>
+            				<b>Заголовок:</b>
+            				<%= message.subject %></br>
+            				<b>Текст повідомлення:</b></br>
+            				<%= message.description %>
+                        </div>
+        			</td>
+        		</tr>
+        	</tbody>
+        	<% @index += 1 %>
     	<%end%>
 	</table> 
 </div>

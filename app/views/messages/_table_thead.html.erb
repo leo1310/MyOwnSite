@@ -1,40 +1,40 @@
 <input type="hidden" value = <%= message.id%> >
 <td class="tbl-item-rate">
-    				<div><%= @index %></div>
-				</td>
-				<td>
-					<div>
-						<% unless @admins.empty?%>
-							<% @counter = 0 %>
-							<% @admins.each do |admin|%>
-								<%if admin.nik_name.eql?(message.who_send_mail)%>
-									<%= message.who_send_mail %>(Administrator)
-									<% @counter = 0 %>
-									<%break%>
-								<%else%>
-									<% @counter = 1 %>
-								<%end%>
-							<%end%>
-							<% if @counter == 1 %>
-								<%= message.who_send_mail %>				
-							<%end%>
-						<%else%>
-							<%= message.who_send_mail %>				
-						<%end%>
-					</div>
-				</td>
-				<td>
-					<div>
-						<%= message.who_get_mail %>
-					</div>
-				</td>
-				<td>
-					<div>
-						<%= message.subject %>
-					</div>
-				</td>
-				<td>
-					<div>
-						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
-					</div>
-				</td>
+	<div><%= @index %></div>
+</td>
+<td>
+	<div>
+		<% unless @admins.empty?%>
+			<% @counter = 0 %>
+			<% @admins.each do |admin|%>
+				<%if admin.nik_name.eql?(message.who_send_mail)%>
+					<%= message.who_send_mail %>(Administrator)
+					<% @counter = 0 %>
+					<%break%>
+				<%else%>
+					<% @counter = 1 %>
+				<%end%>
+			<%end%>
+			<% if @counter == 1 %>
+				<%= message.who_send_mail %>				
+			<%end%>
+		<%else%>
+			<%= message.who_send_mail %>				
+		<%end%>
+	</div>
+</td>
+<td>
+	<div>
+		<%= message.who_get_mail %>
+	</div>
+</td>
+<td>
+	<div>
+		<%= message.subject %>
+	</div>
+</td>
+<td>
+	<div>		
+		<%= message.created_at.utc.getlocal.strftime('%e %B %Y о %H:%M') %> 
+	</div>
+</td>

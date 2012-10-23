@@ -22,8 +22,7 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'Pages#authors'
   match 'contacts' => 'Pages#contacts'
   match 'search' => 'Pages#search'
-  match 'additionalInf' => 'Pages#additionalInf'
-  #match 'status_active' => 'Pages#status_active', :via => :post
+  match 'additionalInf' => 'Pages#additionalInf'  
 
   resources :pages do
     collection do

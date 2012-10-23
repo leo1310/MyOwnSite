@@ -26,9 +26,9 @@ h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
 }
 
-#containers{
+/*#containers{
   margin-left: -500px;
-}
+}*/
 
 /*   Main   */
 
@@ -51,9 +51,8 @@ h1 {
 }
 
 #main {  
-  width:100%;
-  margin-left:-50%;
-  margin-left: -250px;   
+  width:100%;  
+  margin-left: 50px;   
 }
 
 #main p {
@@ -61,7 +60,7 @@ h1 {
 	font-size: 14px;
 	text-indent : 10px;
 	width: 90%;
-	margin-left:25px;
+	margin-left:-50px;
   margin-top:-10px;
 }
 
@@ -86,8 +85,7 @@ h1 {
 
 /*   Left Panel   */
 #left_panel {	  
-  width:100%;
-  margin-left:-144%;
+  width:100%;  
   background:url(img/jungle-scenery-thumb9832082.jpg) white left top repeat-y;
   padding: 95px 0;  
   border-right: 2px solid #0989F8;   
@@ -126,26 +124,14 @@ h1 {
 #right_panel {  
   width:100%;  
   border-left: 2px solid #0989F8;    
-  margin-left:137%;
-  margin-top: -13px;
+  margin-left:618px;
+  margin-top: -1px;
 }
 
 #right_panel h4 {
   font-size:130%; 
   font-weight:bold;
-}
-
-#right_panel h2 {
-  background:url(img/news-head-bg.png) #DDE6FF left top repeat-x;
-}
-
-#right_panel h2 {
-  margin:0;
-  padding:10px;
-}
-
-#right_panel h4 {
-  float:left; 
+  float:left;
   margin:0 5px;
 }
 
@@ -155,17 +141,15 @@ h1 {
 }
 
 #right_panel h2 {
+  background:url(img/news-head-bg.png) #DDE6FF left top repeat-x;
   margin:0 0 20px 0;
-  padding:10px;
-}
-
-#right_panel a {
-  color:#D00;  
+  padding:10px;  
 }
 
 #right_panel a {
   background:url(img/red-arrow.png) right center no-repeat;
   padding-right:13px;    
+  color:#D00; 
 }
 
 /*   Content   */
@@ -223,22 +207,21 @@ h1 {
 }
 #main .containers {
   width: 650px;
-  margin-left: -80px;
-  
+  margin-left: -70px;  
 }
 #main .containers h1{
-    margin-left: 25px; 
-    margin-top: 15px;
-    margin-bottom: 15px; 
-    color: green;   
-  }
-  .containers p{
-    font-family: "Times New Roman";
-    font-size: 14px;
-    text-indent : 10px;
-    width: 50%;
-    margin-left:25px;
-  }
+  margin-left: 25px; 
+  margin-top: 15px;
+  margin-bottom: 15px; 
+  color: green;   
+}
+#main .containers p{
+  font-family: "Times New Roman";
+  font-size: 14px;
+  text-indent : 10px;
+  min-width: 400px;
+  margin-left:25px;
+}
 
 
 

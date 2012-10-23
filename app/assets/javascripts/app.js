@@ -11,9 +11,10 @@
 }*/
 
 $(document).ready( function (){	
-	setInterval(function(){		   
-    console.log("writing dateTime");   
-		$.ajax({ url: "/pages/status_active",   type: "GET", data:{id: 1}});					       
+  $.ajax({ url: "/pages/status_active",   type: "GET"});                 
+	setInterval(function(){  		   
+    /*console.log("writing dateTime");   */
+		$.ajax({ url: "/pages/status_active",   type: "GET"});					       
 		
 	},10000);  
 });

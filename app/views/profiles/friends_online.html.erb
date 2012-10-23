@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_friends', :media=> 'all' %>
+<%= javascript_include_tag 'friends/online' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
@@ -7,12 +8,9 @@
         <div class="tab-pane active" >
         	<%= render 'friends'%>
             <h1>Друзі Online</h1>
-            <div class="digg_pagination">
-				<div class="page_info">
-					<%= page_entries_info @friends%>    		
-				</div>		
-					<%= will_paginate @friends%>
-			</div>
+            <div class="friend_online">
+            	<span id="count_friends_online"><span>
+            </div>
             <table class="friend_all">
             	<% @friends.each do |friend|%>
             		<%@user_f = User.find(friend.friend)%>
@@ -48,7 +46,8 @@
 	            				<%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>
 	            				<%= link_to "Переглянути друзів", "#"%></br>
 	            				<%= link_to "Додати до списку", "#"%>            				
-	            			</td>            			
+	            			</td>
+	            			<%@online_users += 1 %>            			
 	            		</thead>
 	            		<tr >
 	            			<td colspan="3">
@@ -56,8 +55,9 @@
 			                	</div>	
 			            	</td>
 	            		</tr>
-            		<%end%>
+            		<%end%>            		
             	<%end%>
+            	<input type="hidden" value=<%=@online_users %> id="online_users">
             </table>
         </div>        
 	</div>
