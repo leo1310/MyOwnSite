@@ -26,11 +26,11 @@ $(document).ready( function (){
       name = $("#part_of_the_world_data").attr("data-name");                  
   initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  //initialize(27.150, 346.800, 8, 'марроко');
+  //initialize(40.000, 87.000, 3, 'title');
   
   /*var myCars = new Array("Saab","Volvo","BMW");
   $('.typeahead').typeahead(myCars);*/
-  
+
 });
 
 function add_description_africa_country(){
@@ -39,7 +39,7 @@ function add_description_africa_country(){
     $("#capital").find("option").first().attr('selected',"true");
     //.find("option").attr("value","empty");
     if (country_id != 0){
-      $.ajax({ url: "/africa_country",   type: "GET", data: {id: country_id}});
+      $.ajax({ url: "/world_countries",   type: "GET", data: {id: country_id}});
       
       setTimeout(function(){
         var zoom = parseInt($("#country_data").attr("data-zoom")),
@@ -63,7 +63,7 @@ function add_description_africa_capital(){
     capital_id = $(this).find("option:selected").attr("id");
     $("#country").find("option").first().attr('selected',"true");
     if (capital_id != 0){
-      $.ajax({ url: "/africa_capital",   type: "GET", data: {id: capital_id}});
+      $.ajax({ url: "/world_capitals",   type: "GET", data: {id: capital_id}});
       
       setTimeout(function(){
 

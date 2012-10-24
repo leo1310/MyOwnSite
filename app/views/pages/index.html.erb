@@ -4,11 +4,11 @@
 
 <div id="content">
 	<div id="map">
-		<ul>
-			<li><a id="africa" href="/africa"><img src="/assets/map/africa.jpg", title='Africa', style="width:300px; height: 300px" ></a></li>
-			<li><a href="/europa"><img src="/assets/map/europe.jpg" title='Europe' style="width:300px; height: 300px"></a></li>
-			<li><a href="#"><img src="/assets/map/asia.jpg", title='Asia', style="width:300px; height: 300px"></a></li>
-			<li><a href="#"><img src="/assets/map/australia.jpg", title='Australia', style="width:300px; height: 300px"></a></li>		
+		<ul>			
+			<li><%= link_to image_tag("map/africa.jpg", :title=>'Africa', :style=>"width:300px; height: 300px"), map_view_path(:name=>"Африка"), {:id=>"africa"}%></li>
+			<li><%= link_to image_tag("map/europe.jpg", :title=>'Europe', :style=>"width:300px; height: 300px"), map_view_path(:name=>"Європа"), {:id=>"europa", :method=>:post}%></li>
+			<li><%= link_to image_tag("map/asia.jpg", :title=>'Asia', :style=>"width:300px; height: 300px"), map_view_path(:name=>"Азія"), {:id=>"asia", :method=>:post}%></li>
+			<li><%= link_to image_tag("map/australia.jpg", :title=>'Australia', :style=>"width:300px; height: 300px"), map_view_path(:name=>"Австралія"), {:id=>"australia", :method=>:post}%></li>
 		</ul>
 	</div>
 	<div id="map2">

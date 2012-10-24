@@ -33,6 +33,12 @@ gem 'will_paginate'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'roo'
 
+group :test, :development do
+  gem "rspec-rails"
+  gem "webrat"
+  gem "capybara"
+end
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'capybara-webkit'  

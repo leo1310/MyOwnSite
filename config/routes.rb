@@ -13,16 +13,18 @@ MyOwnSite::Application.routes.draw do
     match "/logout" => "admin/sessions#destroy"  
   end
   
-  root :to => 'Pages#index'
+  #Root 
+  root :to => 'pages#index'
 
-  match 'about' => 'Pages#about'
-  match 'help' => 'Pages#help'
-  match 'aboutSite' => 'Pages#about_site'
-  match 'partners' => 'Pages#partners'
-  match 'authors' => 'Pages#authors'
-  match 'contacts' => 'Pages#contacts'
-  match 'search' => 'Pages#search'
-  match 'additionalInf' => 'Pages#additionalInf'  
+  #Pages Controller
+  match 'about' => 'pages#about'
+  match 'help' => 'pages#help'
+  match 'aboutSite' => 'pages#about_site'
+  match 'partners' => 'pages#partners'
+  match 'authors' => 'pages#authors'
+  match 'contacts' => 'pages#contacts'
+  match 'search' => 'pages#search'
+  match 'additionalInf' => 'pages#additionalInf'  
 
   resources :pages do
     collection do
@@ -30,12 +32,14 @@ MyOwnSite::Application.routes.draw do
     end
   end
 
-  match 'africa' =>'Maps#africa' 
-  match 'europa' =>'Maps#europa'
+  #Maps Controller  
   
-  match 'africa_country' => 'Maps#add_description_africa_country'      
-  match 'africa_capital' => 'Maps#add_description_africa_capital'      
+  match 'map_view/:name' =>'maps#map_view', :as => 'map_view'
+  
+  match 'world_countries' => 'maps#add_description_country'      
+  match 'world_capitals' => 'maps#add_description_capital'
 
+  #Messages Controller
   resources :messages do
     collection do
       get 'message_status'
