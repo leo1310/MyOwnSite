@@ -1,0 +1,20 @@
+one:
+  part_of_the_world_id: 2  
+  country: Ukraine
+  X_coordinate: 450.000
+  Y_coordinate: 10.000
+  zoom: 8
+
+two:
+  part_of_the_world_id: 2  
+  country: Russia
+  X_coordinate: 400.000
+  Y_coordinate: 5.000
+  zoom: 8
+
+three:
+  part_of_the_world_id: 2  
+  country: Italy
+  X_coordinate: 350.000
+  Y_coordinate: 25.000
+  zoom: 8

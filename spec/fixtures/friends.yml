@@ -1,0 +1,14 @@
+one:
+  user_id: 2
+  friend: 10
+  query_to_friends: 0  
+
+two:
+  user_id: 4
+  friend: 10
+  query_to_friends: 0
+
+three:
+  user_id: 6
+  friend: 10
+  query_to_friends: 0

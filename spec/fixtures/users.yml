@@ -1,0 +1,20 @@
+one:  
+  name: name
+  last_name: last_name
+  phone: +380977777778
+  nik_name: nik
+  email: user@mail.ru
+
+two:  
+  name: name2
+  last_name: last_name2
+  phone: +380977777776
+  nik_name: nik2
+  email: user2@mail.ru
+
+three:  
+  name: name3
+  last_name: last_name3
+  phone: +380977777775
+  nik_name: nik3
+  email: user3@mail.ru

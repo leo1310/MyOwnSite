@@ -72,6 +72,8 @@ MyOwnSite::Application.routes.draw do
     
     #Foto
     match 'update_avatar', :to=> 'profiles#update_avatar'
+    match 'avatar', :to=> 'profiles#foto_avatar'   
+    match 'albums', :to=> 'profiles#foto_albums'   
 
     #About me
     match 'my_information',  :to=> 'profiles#my_information'

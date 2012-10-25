@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag 'log', :media=> 'all' %>
+
+<div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
+	<%= render 'layouts/profile'%>
+	<div class="tab-content">
+        <div class="tab-pane active" >
+            <%= render 'foto'%>            
+            <div class="foto_avatar">
+                <div class="foto_wrap">
+                    <%= form_for @user, :url => {:controller=>"profiles", :action => "update_avatar", :id => current_user.id } do |f| %>
+                    <%= image_tag @user.avatar.url, :size => "200x150", :class=>"img-rounded" %></br>
+                </div>
+                <div class="load_wrap">
+                    <%= f.file_field :avatar, :id=>"browse_avatar" %></br>
+                    <%= f.submit("Upload") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>        
+	</div>
+</div>

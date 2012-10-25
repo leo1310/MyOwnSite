@@ -3,7 +3,5 @@ class Message < ActiveRecord::Base
 
    validates :who_send_mail, :who_get_mail, :presence => true
    
-   belongs_to :user
-
-   
+   belongs_to :user   
 end

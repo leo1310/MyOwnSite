@@ -5,4 +5,5 @@ class Country < ActiveRecord::Base
   validates :part_of_the_world_id, :country, :X_coordinate, :Y_coordinate, :zoom, :presence => true 
 
   belongs_to :part_of_the_world
+  has_one :capital
 end

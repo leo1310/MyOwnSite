@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :last_name, :phone, :nik_name, :avatar, :surname, :birthday, :marital_status, :stat, :native_town, :birthday_show_hide_date, :secondary_educations_attributes, :higher_educations_attributes, :courses_attributes, :trainings_attributes, :careers_attributes
 
 
-  validates :name, :last_name, :phone, :presence => true  
+  validates :name, :last_name, :phone, :nik_name, :presence => true  
   validates :phone, :numericality => true
   validates :nik_name, :email, :uniqueness => true
   

@@ -74,6 +74,32 @@ body{
 	color: blue;
 }
 
+.foto_avatar{
+	
+}
+
+.load_wrap{	
+	margin-left: 30px;
+}
+
+.foto_wrap{
+	padding: 10px;
+	background: #9DCADD;
+	width: 200px;
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 250px;
+	border-radius: 4px;
+}
+
+#browse_avatar{
+	-moz-width: 200px;
+	-khtml-width: 200px;
+	-webkit-width: 200px;
+	width: 200px;
+
+}
+
 #footer{
 	position: static;
 	height: 50px;	

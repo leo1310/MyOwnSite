@@ -20,13 +20,13 @@ function initialize(Y_coordinat, X_coordinat, zoom, title) {
 $(document).ready( function (){
   add_description_africa_country();  
   add_description_africa_capital();
-  var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
+  /*var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
       X_coordinat = $("#part_of_the_world_data").attr("data-coordinateX"),
       Y_coordinat = $("#part_of_the_world_data").attr("data-coordinateY"),
       name = $("#part_of_the_world_data").attr("data-name");                  
-  initialize(Y_coordinat, X_coordinat, zoom, name);
+  initialize(Y_coordinat, X_coordinat, zoom, name);*/
   
-  //initialize(40.000, 87.000, 3, 'title');
+  initialize(30.0443, 391.2358, 15, 'title');
   
   /*var myCars = new Array("Saab","Volvo","BMW");
   $('.typeahead').typeahead(myCars);*/

@@ -470,12 +470,20 @@ class ProfilesController < ApplicationController
 		@user = User.find(current_user.id)
 		if @user.update_attributes(params[:user])
         	flash[:success] = "Your profile is update!"
-        	redirect_to :controller => "profiles", :action => "foto"
+        	redirect_to :controller => "profiles", :action => "foto_avatar"
     	else  
         	flash[:error] = "Error! Your profile is not update!"
-        	redirect_to :controller => "profiles", :action => "foto"
-    	end
-		
+        	redirect_to :controller => "profiles", :action => "foto_avatar"
+    	end		
+	end
+
+	def foto_avatar
+		 @tab_index_profile_foto_menu = 1
+		 @tab_index_profile_menu = 3
+	end
+	def foto_albums
+		 @tab_index_profile_foto_menu = 2
+		 @tab_index_profile_menu = 3
 	end
 
 	def load_index

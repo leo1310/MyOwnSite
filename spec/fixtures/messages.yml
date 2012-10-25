@@ -1,0 +1,20 @@
+one:
+  who_send_mail: leo
+  who_get_mail: maria
+  subject: Hello
+  description: Hi dear Maria.
+  read_message: not_read 
+
+two:
+  who_send_mail: maria
+  who_get_mail: tania
+  subject: Hello
+  description: Hi dear Tania.
+  read_message: not_read 
+
+three:
+  who_send_mail: tania
+  who_get_mail: leo
+  subject: Hello
+  description: Hi dear Leo.
+  read_message: not_read

@@ -37,6 +37,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "webrat"
   gem "capybara"
+  gem 'shoulda-matchers'
 end
 
 group :test do
