@@ -1,6 +1,6 @@
 class CreateSecondaryEducations < ActiveRecord::Migration
   def up
-    create_table :secondary_educations do |t|
+    create_table :secondary_educations, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
     t.integer :user_id
     t.string :country
     t.string :town

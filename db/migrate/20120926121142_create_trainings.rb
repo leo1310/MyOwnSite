@@ -1,6 +1,6 @@
 class CreateTrainings < ActiveRecord::Migration  
   def up
-    create_table :trainings do |t|
+    create_table :trainings, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
     t.integer :user_id
     t.string :country
     t.string :town

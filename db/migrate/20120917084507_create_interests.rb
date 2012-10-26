@@ -1,6 +1,6 @@
 class CreateInterests < ActiveRecord::Migration
    def up
-    create_table :interests do |t|
+    create_table :interests, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
     	t.integer :user_id   
     	t.string :activity_i 	
     	t.string :interests_i    	

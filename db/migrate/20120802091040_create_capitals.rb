@@ -1,6 +1,6 @@
 class CreateCapitals < ActiveRecord::Migration
   def change
-    create_table :capitals do |t|
+    create_table :capitals, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
     	t.integer :part_of_the_world_id
       t.integer :country_id
     	t.string :name

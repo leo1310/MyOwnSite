@@ -20,17 +20,19 @@ function initialize(Y_coordinat, X_coordinat, zoom, title) {
 $(document).ready( function (){
   add_description_africa_country();  
   add_description_africa_capital();
-  /*var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
+  var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
       X_coordinat = $("#part_of_the_world_data").attr("data-coordinateX"),
       Y_coordinat = $("#part_of_the_world_data").attr("data-coordinateY"),
       name = $("#part_of_the_world_data").attr("data-name");                  
-  initialize(Y_coordinat, X_coordinat, zoom, name);*/
+  initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  initialize(30.0443, 391.2358, 15, 'title');
+  $("#country").find("option[value='empty']").attr("selected", "selected");
+  $("#capital").find("option[value='empty']").attr("selected", "selected");
+  //initialize(4.845, 391.600, 8, 'title');
   
   /*var myCars = new Array("Saab","Volvo","BMW");
   $('.typeahead').typeahead(myCars);*/
-
+  search();  
 });
 
 function add_description_africa_country(){
@@ -47,8 +49,7 @@ function add_description_africa_country(){
             Y_coordinat = $("#country_data").attr("data-coordinateY"),
             name_country = $("#country_data").attr("data-name");            
             addMarker(new google.maps.LatLng(Y_coordinat, X_coordinat), name_country, zoom);
-      }, 1000);
-          
+      }, 1000);          
     }
     if (country_id == 0){
       $("#description").text("");
@@ -88,4 +89,20 @@ function addMarker(location, title, zoom) {
   
   map.setCenter(location);
   map.setZoom(zoom);
+}
+
+function search(){
+  $("#search").on('click', function(){
+    var input_text = $("#information").val();
+    if(input_text === ''){
+      $("#search").after("<p id='text_atention'>Введіть текст для пошуку</p>");
+      setTimeout(function(){
+        $("#text_atention").remove();
+      }, 5000);
+    }else{      
+      $("#text_atention").remove();
+      $.ajax({ url: "/search_content",   type: "GET", data: {input_text: input_text}});
+      $("#information").attr('value',"");      
+    }   
+  });
 }

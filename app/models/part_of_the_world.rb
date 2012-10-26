@@ -6,4 +6,5 @@ class PartOfTheWorld < ActiveRecord::Base
 
   has_many :countries
   has_many :capitals
+  has_many :cities
 end

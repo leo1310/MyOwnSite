@@ -4,7 +4,7 @@
 </td>
 <td>
 	<div>
-		<% unless @admins.empty?%>
+		<% unless @admins.blank?%>
 			<% @counter = 0 %>
 			<% @admins.each do |admin|%>
 				<%if admin.nik_name.eql?(message.who_send_mail)%>

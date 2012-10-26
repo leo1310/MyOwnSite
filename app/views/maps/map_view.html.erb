@@ -9,9 +9,12 @@
 	
 	<div id="map_canvas" ></div>
 	<div class="panel">
-		
+		<% flash.each do |key, value| %>
+  			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
 		<p>&nbsp;</p>
-		<input type="text" data-provide="typeahead">
+		<input type="text" data-provide="typeahead" id="information" placeholder="Введіть для пошуку">
+		<%= image_tag("button_next.png", :title=>'Пошук', :id=>'search') %>
 		
 		<p>Країни:</p>
 		<select id="country">			
