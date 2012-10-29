@@ -1,0 +1,132 @@
+html {
+  min-height:1000px;
+  background:url(img/uzor.jpeg) #EEE;
+}
+
+body{
+	width:1200px;	
+	margin: auto;
+	min-height: 1000px;	
+	background: #E38960;
+	/*background: #6CACDD;*/
+}
+
+#layout_country{
+ 	background: #E38960;
+ 	height: 950px;
+}
+
+#left, #center{float: left;}
+ 
+#left{ 	
+ 	width: 20%;
+ 	min-height: 950px; 	
+}
+
+#top_center{	
+	width: 60%;
+	height: 60px;
+	margin-left: 20%;	
+	margin-right: 40%;	
+	margin-top: -10px;
+}
+#top_center h2{
+	text-align: center;
+	padding-top: 10px;
+	font-style: italic;
+	color: black;
+}
+
+#center{ 	 	
+ 	width: 60%;
+ 	height: 884px;	 	
+ 	overflow: auto; 
+ 	border-style: groove;
+ 	background: white;
+}
+#center h2{
+	text-align: center;
+	margin-top: 10px;
+}
+#right{ 	
+ 	width: 234px;
+ 	min-height: 950px;
+ 	margin-top: -60px; 	
+ 	float: right;
+}
+
+.country_capcha{
+	margin-top: 70px;
+	margin-left: 40px;
+	margin-right: 10px;
+	list-style: none;
+	font-size: 16px
+}
+
+.country_capcha li{
+	line-height: 35px;	
+}
+
+.country_capcha li > a{
+	color: #2249E9;
+}
+
+.country_capcha li > a:hover{
+	text-decoration: underline;
+	font-style: italic;
+	color: #8F22E9;
+}
+
+.country_capcha_right{
+	margin-top: 70px;
+	margin-left: 10px;
+	margin-right: 40px;
+	list-style: none;
+	font-size: 16px;
+	float: right;
+}
+
+.country_capcha_right li{
+	line-height: 35px;	
+}
+
+.country_capcha_right li > a{
+	color: #2249E9;
+}
+
+.country_capcha_right li > a:hover{
+	text-decoration: underline;
+	font-style: italic;
+	color: #8F22E9;
+}
+
+#city{
+	margin-left: 10px;
+}
+.city{
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: 18px;
+	font-style: italic;
+}
+
+.description, .description_about_city, .description_something{
+	margin: 10px 10px 10px 10px; 
+	text-indent: 15px;
+}
+
+ #footer{
+	position: static;
+	height: 50px;	
+	background: #6A092E;
+	color: white;
+	text-align:center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	font-family: "Times New Roman";
+	font-size: 14px;
+
+	/*margin-top: 890px;*/
+	
+ }
+

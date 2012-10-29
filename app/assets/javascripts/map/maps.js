@@ -20,15 +20,15 @@ function initialize(Y_coordinat, X_coordinat, zoom, title) {
 $(document).ready( function (){
   add_description_africa_country();  
   add_description_africa_capital();
-  var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
+  /*var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
       X_coordinat = $("#part_of_the_world_data").attr("data-coordinateX"),
       Y_coordinat = $("#part_of_the_world_data").attr("data-coordinateY"),
       name = $("#part_of_the_world_data").attr("data-name");                  
-  initialize(Y_coordinat, X_coordinat, zoom, name);
+  initialize(Y_coordinat, X_coordinat, zoom, name);*/
   
   $("#country").find("option[value='empty']").attr("selected", "selected");
   $("#capital").find("option[value='empty']").attr("selected", "selected");
-  //initialize(4.845, 391.600, 8, 'title');
+  initialize(33.530, 352.420, 8, 'title');
   
   /*var myCars = new Array("Saab","Volvo","BMW");
   $('.typeahead').typeahead(myCars);*/
@@ -100,8 +100,39 @@ function search(){
         $("#text_atention").remove();
       }, 5000);
     }else{      
-      $("#text_atention").remove();
-      $.ajax({ url: "/search_content",   type: "GET", data: {input_text: input_text}});
+      $("#text_atention").remove(); 
+      $("#around_warning").remove();       
+      
+      /*var f = input_text.charAt(0).toUpperCase();
+      var str = f + input_text.substr(1, input_text.length-1);*/
+      var str = input_text.charAt(0).toUpperCase() + input_text.slice(1);      
+      console.log(str);
+      var result = $("#country").find("option[value='"+ str +"']");            
+      if(result.length > 0){
+        $("#country").find("option[value='empty']").attr("selected", "selected");
+        $("#capital").find("option[value='empty']").attr("selected", "selected");   
+      
+        $("#country").find("option[value='"+ str +"']").attr("selected", "selected").trigger('change');
+        add_description_africa_country();      
+      }
+      else{
+        var result_capital = $("#capital").find("option[value='"+ str +"']");
+        console.log(result_capital);
+        if(result_capital.length > 0){
+          $("#country").find("option[value='empty']").attr("selected", "selected");
+          $("#capital").find("option[value='empty']").attr("selected", "selected");   
+      
+          $("#capital").find("option[value='"+ str +"']").attr("selected", "selected").trigger('change');
+          add_description_africa_capital();      
+        }
+        else{
+          $("#information").before("<div id='around_warning'><p id='text_warning'>Введена Вами країна чи столиця відсутня</p></div>");
+          setTimeout(function(){
+            $("#around_warning").remove();
+          }, 7000);
+        }
+      }      
+      
       $("#information").attr('value',"");      
     }   
   });

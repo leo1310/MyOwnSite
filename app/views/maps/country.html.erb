@@ -1,1 +1,48 @@
-<h1>In This Page You Can Get More Information About Country <%=@country.country%></h1>
+<%= stylesheet_link_tag 'country', :media => "all" %>
+<%= javascript_include_tag 'map/countries' %>
+
+<div id="layout_country">
+	<div id="left">
+	<ul class="country_capcha">
+		<li><%= link_to 'Title_Left_1', '#'%></li>
+		<li><%= link_to 'Title_Left_2', '#'%></li>
+		<li><%= link_to 'Title_Left_3', '#'%></li>
+		<li><%= link_to 'Title_Left_4', '#'%></li>
+		<li><%= link_to 'Title_Left_5', '#'%></li>
+	</ul>
+	<p class="city">Міста:</p>
+		<select id="city">			
+			<option value="empty" id="0">Виберіть місто</option>
+			<% @cities.each do |city|%>
+				<option value="<%=city.city%>" id=<%=city.id%> > <%=city.city%> </option>
+			<%end%>
+		</select>			
+	</div>
+	<div id="top_center">
+		<h2>Країни світу: <%=@country.country%></h2>
+	</div>	
+	<div id="center">
+		<h2>Title</h2>		
+		<p class="description something">			
+			Something, Something, Something
+		</p>
+		<p class="description country_info">			
+			<%=@country.description%>
+			<%=@country.description%>
+			<%=@country.description%>
+		</p>
+		<p class="description_about_city">
+			<%= render 'description_city'%>    
+		</p>		
+
+	</div>
+	<div id="right">
+		<ul class="country_capcha_right">
+			<li><%= link_to 'Title_Right_1', '#'%></li>
+			<li><%= link_to 'Title_Right_2', '#'%></li>
+			<li><%= link_to 'Title_Right_3', '#'%></li>
+			<li><%= link_to 'Title_Right_4', '#'%></li>
+			<li><%= link_to 'Title_Right_5', '#'%></li>
+		</ul>
+	</div>
+</div>

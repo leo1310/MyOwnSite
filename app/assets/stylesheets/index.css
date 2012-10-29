@@ -6,7 +6,6 @@ html {
 body{
 	width:1200px;	
 	margin: auto;
-		
 }
 
 #map li, #map3 li, #map2 li{	
@@ -109,3 +108,4 @@ thead {cursor:pointer}
 .type_status{
   margin-top: 300px;
 }
+

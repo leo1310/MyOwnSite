@@ -16,32 +16,17 @@ layout 'page'
 		@capital = Capital.find(params[:id])
 	end
 
+	def add_description_city
+		@city = City.find(params[:id])
+	end
+
 	def country
 		@country = Country.find_by_country(params[:country_name])
+		@cities = @country.cities.all
 	end
 
 	def capital
 		@capital = Capital.find_by_name(params[:capital_name])
 	end
-
-	def search
-		puts "hhhhhhhhhhh"*3				
-
-		@country = Country.find_by_country(params[:input_text])
-		unless @country.nil?
-			redirect_to :controller => "maps", :action => "country", :country_name=> params[:input_text]
-		else
-			@capital = Capital.find_by_name(params[:input_text])
-			unless @capital.nil?
-				redirect_to :controller => "maps", :action => "capital", :capital_name=> params[:input_text]
-			else
-				@city = City.find_by_city(params[:input_text])
-				unless @city.nil?
-					redirect_to :controller => "maps", :action => "city", :city_name=> params[:input_text]
-				else
-					flash[:error] = "Your text not found."
-				end
-			end
-		end 
-	end
+	
 end

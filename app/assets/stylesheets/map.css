@@ -9,7 +9,7 @@ body{
 	min-width:1270px; 	
 }
 .panel{	
-	width: 20%;	
+	width: 300px;	
 	min-height:950px;	
 	margin-left: 15px;		
 }
@@ -21,16 +21,14 @@ body{
 	padding:5px 5px 5px 5px; 	
 	background: #eee;	
 	border:1px solid #d6d6d6; 
-	width: 90%
+	width: 240px;
 }
 
 #map_canvas{	
-	width: 79%;	
+	width: 78%;	
 	min-height:952px;
 	float: right;	
-	border-left: 2px solid #0989F8;	
-	/*margin-top: -13px;*/
-	
+	border-left: 2px solid #0989F8;			
 }
 
 #footer{
@@ -43,13 +41,11 @@ body{
 	border-top-right-radius: 30px;
 	font-family: "Times New Roman";
 	font-size: 14px;
-
 	margin-top: 2px;	
 }
 
 #info{
-	margin-left: 15px;
-	
+	margin-left: 15px;	
 }
 
 #text_atention{
@@ -58,6 +54,22 @@ body{
 	font-family: "Times New Roman";
 	margin-left: 10px;
 	margin-top: -10px;
+}
+#text_warning{
+	font-style: italic;
+	margin-left: 5px;
+	margin-top: 10px;
+	margin-right: 5px;
+}
+#around_warning{
+	background: #F5A9A9;	
+	border: 2px solid #DF0101;
+	border-radius: 10px;
+	font-size: 13px;
+	margin-bottom: 10px;
+	width: 280px;
+	text-align: center;
+	margin-top: -25px;
 }
 
 #search{

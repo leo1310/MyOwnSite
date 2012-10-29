@@ -59,6 +59,15 @@ array_file_names.count.times{
 				next
 			end
 		end
+
+		unless file_xls.cell(line, 4).nil?
+			if not file_xls.cell(line, 5).nil? and not file_xls.cell(line, 6).nil? and not file_xls.cell(line, 7).nil? and not file_xls.cell(line, 8).nil?
+				City.create(part_of_the_world_id: part_of_the_world.id, country_id: country.id, city: file_xls.cell(line, 4), description: file_xls.cell(line, 5), X_coordinate: file_xls.cell(line, 6), Y_coordinate: file_xls.cell(line, 7), zoom: file_xls.cell(line, 8))			
+			else
+				file_errors.write " row --> "+line.to_s+"has errors!\r\n"
+				next
+			end
+		end
 	end
 	i +=1
 }
