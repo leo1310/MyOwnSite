@@ -39,9 +39,10 @@ MyOwnSite::Application.routes.draw do
   match 'capital/:capital_name' =>'maps#capital', :as => 'capital'
   match 'city/:city_name' =>'maps#city', :as => 'city'
   
-  match 'world_countries' => 'maps#add_description_country'      
-  match 'world_capitals' => 'maps#add_description_capital'
+  match 'about_country' => 'maps#about_country'      
+  match 'about_capital' => 'maps#about_capital'
   match 'world_cities' => 'maps#add_description_city'
+  match 'about_city' => 'maps#about_city'
 
   #Messages Controller
   resources :messages do

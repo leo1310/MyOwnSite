@@ -1,6 +1,8 @@
 <title>Map Africa</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <%= stylesheet_link_tag 'map', :media => "all" %>
+<%= stylesheet_link_tag 'select2', :media => "all" %>
+<%= javascript_include_tag 'select2' %>
 <%= javascript_include_tag 'map/maps' %>
 <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyBeXFFgiHLl77awSoWCpcIfnvUhRgWFcCg&sensor=true&language=uk"%>
 
@@ -24,17 +26,26 @@
 			<%end%>
 		</select>
 		
-		<p>Столиці:</p>
+		<p style='margin-top: 10px'>Столиці:</p>
 		<select id="capital">			
 			<option value="empty" id="0">Виберіть столицю</option>
 			<% @capitals.each do |capital|%>
 			<option value="<%=capital.name%>" id=<%=capital.id%> ><%=capital.name%></option>
 			<%end%>
 		</select>
-		<br>
-		<div id="description">
+		
+		<p style='margin-top: 10px'>Міста:</p>
+		<select id="city">			
+			<option value="empty" id="0">Виберіть місто</option>
+			<% @cities.each do |city|%>
+			<option value="<%=city.city%>" id=<%=city.id%> ><%= image_tag('delete.png')%><%=city.city%></option>
+			<%end%>
+		</select>
+		
+		<div id="description" style='margin-top: 10px'>
 			<%= render 'description_country'%>    
 			<%= render 'description_capital'%>
+			<%= render 'description_city'%>
 		</div>		
 	</div>
 

@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag 'city', :media => "all" %>
+<%= javascript_include_tag 'map/cities' %>
+
+<div id="layout_city">
+	<div id="left">
+	<ul class="city_capcha">
+		<li><%= link_to 'Title_Left_1', '#'%></li>
+		<li><%= link_to 'Title_Left_2', '#'%></li>
+		<li><%= link_to 'Title_Left_3', '#'%></li>
+		<li><%= link_to 'Title_Left_4', '#'%></li>
+		<li><%= link_to 'Title_Left_5', '#'%></li>
+	</ul>
+				
+	</div>
+	<div id="top_center" >
+		<h2>Міста світу: <%=@city.city%></h2>
+	</div>	
+	<div id="center">
+		<h2>Title</h2>
+		<p class="description">			
+			<%=@city.description%>
+			<%=@city.description%>
+			<%=@city.description%>
+		</p>
+		<%= image_tag('bullet-white-icon.png', :id=>'point')%>		
+	</div>
+	<div id="right">
+		<ul class="city_capcha_right">
+			<li><%= link_to 'Title_Right_1', '#'%></li>
+			<li><%= link_to 'Title_Right_2', '#'%></li>
+			<li><%= link_to 'Title_Right_3', '#'%></li>
+			<li><%= link_to 'Title_Right_4', '#'%></li>
+			<li><%= link_to 'Title_Right_5', '#'%></li>
+		</ul>
+	</div>
+</div>

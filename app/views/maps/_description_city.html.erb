@@ -1,3 +1,4 @@
 <% unless @city.blank?%>
+	<input type="hidden" data-zoom=<%=@city.zoom%> data-coordinateX=<%=@city.X_coordinate%> data-coordinateY=<%=@city.Y_coordinate%> id="city_data" data-name=<%=@city.city%>>
 	<%= @city.description%>
 <%end%>

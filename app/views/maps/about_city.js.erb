@@ -1,0 +1,4 @@
+$("#description").html("<%=escape_javascript(render(:partial=>"description_city")) %>");
+$("#info").remove();
+var name_city = $("#city").find("option:selected").val();
+$("#description").after("<br/><a id='info' href='/city/"+ name_city +"' >Більше інформації про " + name_city + "</a>");      

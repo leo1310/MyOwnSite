@@ -3,20 +3,20 @@
 
 <div id="layout_country">
 	<div id="left">
-	<ul class="country_capcha">
-		<li><%= link_to 'Title_Left_1', '#'%></li>
-		<li><%= link_to 'Title_Left_2', '#'%></li>
-		<li><%= link_to 'Title_Left_3', '#'%></li>
-		<li><%= link_to 'Title_Left_4', '#'%></li>
-		<li><%= link_to 'Title_Left_5', '#'%></li>
-	</ul>
-	<p class="city">Міста:</p>
-		<select id="city">			
-			<option value="empty" id="0">Виберіть місто</option>
-			<% @cities.each do |city|%>
-				<option value="<%=city.city%>" id=<%=city.id%> > <%=city.city%> </option>
-			<%end%>
-		</select>			
+		<ul class="country_capcha">
+			<li><%= link_to 'Title_Left_1', '#'%></li>
+			<li><%= link_to 'Title_Left_2', '#'%></li>
+			<li><%= link_to 'Title_Left_3', '#'%></li>
+			<li><%= link_to 'Title_Left_4', '#'%></li>
+			<li><%= link_to 'Title_Left_5', '#'%></li>
+		</ul>
+		<p class="city">Міста:</p>
+			<select id="city">			
+				<option value="empty" id="0">Виберіть місто</option>
+				<% @cities.each do |city|%>
+					<option value="<%=city.city%>" id=<%=city.id%> > <%=city.city%> </option>
+				<%end%>
+			</select>			
 	</div>
 	<div id="top_center">
 		<h2>Країни світу: <%=@country.country%></h2>
