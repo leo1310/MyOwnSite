@@ -17,6 +17,10 @@ layout 'page'
 		@capital = Capital.find(params[:id])
 	end
 
+	def about_city
+		@city = City.find(params[:id])
+	end
+
 	def add_description_city
 		@city = City.find(params[:id])
 	end
@@ -32,10 +36,10 @@ layout 'page'
 
 	def city
 		@city = City.find_by_city(params[:city_name])
-	end
+	end	
 
-	def about_city
-		@city = City.find(params[:id])
+	def download_hymn
+		@hymn = Hymn.find_by_country_id(params[:id])
+    	send_data @hymn.binary_data, :type => "audio/mp3", :disposition => "inline", :filename=>@hymn.filename
 	end
-	
 end

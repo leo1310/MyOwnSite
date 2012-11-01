@@ -1,2 +1,16 @@
+<%= stylesheet_link_tag 'select2', :media => "all" %>
+<%= javascript_include_tag 'admin/add_places/add_content' %>
+<%= javascript_include_tag 'select2' %>
 <%= render 'layouts/admin'%>
 <h1>Add Places</h1>
+<%= form_for Hymn.new, :url => {:controller=>"admin/add_places", :action => "attachment_data"}, :multipart => true do |f|  %> 
+    Please, select file for upload to Data Base:
+    <p>Країни:</p>
+    <div id='country'>    	
+		<%= f.select :country_id, @countries_name %>
+	</div>
+    <div >     
+       <%= f.file_field :attachment%>
+    </div> 
+    <%= f.submit "Send Attachment" %> 
+<%end%>

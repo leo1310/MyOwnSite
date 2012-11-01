@@ -2364,7 +2364,7 @@
             return data ? data.text : undefined;
         },
         formatResultCssClass: function(data) {return undefined;},
-        formatNoMatches: function () { return "No matches found"; },
+        formatNoMatches: function () { return "Не знайдено жодної"; },
         formatInputTooShort: function (input, min) { return "Please enter " + (min - input.length) + " more characters"; },
         formatSelectionTooBig: function (limit) { return "You can only select " + limit + " item" + (limit == 1 ? "" : "s"); },
         formatLoadMore: function (pageNumber) { return "Loading more results..."; },

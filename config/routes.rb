@@ -38,12 +38,14 @@ MyOwnSite::Application.routes.draw do
   match 'country/:country_name' =>'maps#country', :as => 'country'
   match 'capital/:capital_name' =>'maps#capital', :as => 'capital'
   match 'city/:city_name' =>'maps#city', :as => 'city'
+
   
   match 'about_country' => 'maps#about_country'      
   match 'about_capital' => 'maps#about_capital'
   match 'world_cities' => 'maps#add_description_city'
   match 'about_city' => 'maps#about_city'
 
+  match 'download_hymn/:id' => 'maps#download_hymn'      
   #Messages Controller
   resources :messages do
     collection do
@@ -140,9 +142,10 @@ MyOwnSite::Application.routes.draw do
       end
     end    
 
-    resources :add_places do
+    resource :add_places do
       member do
-        
+        get 'index'
+        post 'attachment_data'        
       end
     end    
 

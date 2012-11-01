@@ -3,6 +3,21 @@
 
 <div id="layout_country">
 	<div id="left">
+		<div id="flag">
+			<p>Національний Прапор</p>
+			<%= image_tag('flags/big/'+@country.country+'.png')%>
+		</div>
+		<div id="gerb">
+			<p>Національний Герб</p>
+			<%= image_tag('flags/gerb/'+@country.country+'.jpg') %>
+		</div>
+		<div id="gimn">
+			<p>Національний Гімн</p>
+			<object type="application/x-shockwave-flash" data='<%=asset_path("player/dewplayer-vol.swf")%>?mp3=<%= url_for(:controller => "maps", :action => "download_hymn", :id => @country.id)%>' width="240" height="20" id="dewplayer-vol">
+				<param name="wmode" value="transparent" />
+				<param name="movie" value='<%=asset_path("player/dewplayer-vol.swf")%>?mp3=<%= url_for(:controller => "maps", :action => "download_hymn", :id => @country.id)%>' />
+			</object>			
+		</div>
 		<ul class="country_capcha">
 			<li><%= link_to 'Title_Left_1', '#'%></li>
 			<li><%= link_to 'Title_Left_2', '#'%></li>

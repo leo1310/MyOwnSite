@@ -21,13 +21,13 @@ $(document).ready( function (){
   add_description_about_country();  
   add_description_about_capital();
   add_description_about_city();
-  /*var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
+  var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
       X_coordinat = $("#part_of_the_world_data").attr("data-coordinateX"),
       Y_coordinat = $("#part_of_the_world_data").attr("data-coordinateY"),
       name = $("#part_of_the_world_data").attr("data-name");                  
-  initialize(Y_coordinat, X_coordinat, zoom, name);*/
+  initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  initialize(-18.920, 407.530, 8, 'title');
+  //initialize(14.925, 336.490, 8, 'title');
   $("#country").find("option[value='empty']").attr("selected", "selected");
   $("#capital").find("option[value='empty']").attr("selected", "selected");
   $("#city").find("option[value='empty']").attr("selected", "selected");
@@ -90,11 +90,11 @@ function add_description_about_capital(){
   });
 }
 
-function add_description_about_city(){
+function add_description_about_city(){  
   $("#city").change(function(){
     city_id = $(this).find("option:selected").attr("id");
     $("#country").find("option").first().attr('selected',"true");
-    $("#capital").find("option").first().attr('selected',"true");
+    $("#capital").find("option").first().attr('selected',"true");    
     if (city_id != 0){
       $.ajax({ url: "/about_city",   type: "GET", data: {id: city_id}});
       
@@ -140,9 +140,8 @@ function search(){
       var str = input_text.charAt(0).toUpperCase() + input_text.slice(1);            
       var result = $("#country").find("option[value='"+ str +"']");            
       if(result.length > 0){
-        $("#country").find("option[value='empty']").attr("selected", "selected");
-        $("#capital").find("option[value='empty']").attr("selected", "selected");   
-        $("#city").find("option[value='empty']").attr("selected", "selected");   
+        $("#capital").find("option[value='empty']").attr("selected", "selected").trigger('change');   
+        $("#city").find("option[value='empty']").attr("selected", "selected").trigger('change');   
       
         $("#country").find("option[value='"+ str +"']").attr("selected", "selected").trigger('change');
         add_description_about_country();      
@@ -151,9 +150,8 @@ function search(){
         var result_capital = $("#capital").find("option[value='"+ str +"']");
         //console.log(result_capital);
         if(result_capital.length > 0){
-          $("#country").find("option[value='empty']").attr("selected", "selected");
-          $("#capital").find("option[value='empty']").attr("selected", "selected");   
-          $("#city").find("option[value='empty']").attr("selected", "selected");   
+          $("#country").find("option[value='empty']").attr("selected", "selected").trigger('change');          
+          $("#city").find("option[value='empty']").attr("selected", "selected").trigger('change');   
       
           $("#capital").find("option[value='"+ str +"']").attr("selected", "selected").trigger('change');
           add_description_about_capital();      
@@ -161,9 +159,8 @@ function search(){
         else{
           var result_city = $("#city").find("option[value='"+ str +"']");
           if(result_city.length > 0){
-            $("#country").find("option[value='empty']").attr("selected", "selected");
-            $("#capital").find("option[value='empty']").attr("selected", "selected");   
-            $("#city").find("option[value='empty']").attr("selected", "selected");   
+            $("#country").find("option[value='empty']").attr("selected", "selected").trigger('change');
+            $("#capital").find("option[value='empty']").attr("selected", "selected").trigger('change'); 
 
             $("#city").find("option[value='"+ str +"']").attr("selected", "selected").trigger('change');
             add_description_about_city();
@@ -188,11 +185,10 @@ function format(state){
   }
   else{
     if(state.id === "Кот-д'Івуар"){
-      return "<img class='flag' src='/assets/flags/africa/Кот-дІвуар.png'/>" + state.text;
+      return "<img class='flag' src='/assets/flags/little/Кот-дІвуар.png'/>" + state.text;
     }
     else{
-      return "<img class='flag' src='/assets/flags/africa/"+ state.id +".png'/>" + state.text;
+      return "<img class='flag' src='/assets/flags/little/"+ state.id +".png'/>" + state.text;
     }    
   } 
-  
 }

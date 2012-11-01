@@ -1,14 +1,29 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
+Dir["#{File.dirname(__FILE__)}/factories/*.rb"].each {|f| require f} 
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'factory_girl'
+require 'capybara/rails'
+require 'database_cleaner'
+
+require "webrat"
+include Webrat::Methods
+  
+Webrat.configure do |config| 
+  config.mode = :rack
+end
+
+include Capybara::DSL
+include Capybara::RSpecMatchers
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-RSpec.configure do |config|
+RSpec.configure do |config|   
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -35,4 +50,5 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
 end

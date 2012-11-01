@@ -37,14 +37,19 @@ group :test, :development do
   gem "rspec-rails"
   gem "webrat"
   gem "capybara"
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers'  
 end
 
-group :test do
-  gem 'cucumber-rails', require: false
+group :test do    
+  gem 'rspec'
+  gem 'cucumber-rails', :require => false  
   gem 'capybara-webkit'  
   gem 'database_cleaner'
-  gem "launchy"  
+  gem "launchy"
+  gem 'factory_girl_rails', '1.0', :require => false  
+  gem "email_spec"
+  gem 'faker'
+  gem 'webrat'  
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

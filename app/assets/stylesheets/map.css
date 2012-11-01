@@ -77,4 +77,24 @@ body{
 	margin-top: -8px;
 }
 
+#red, #yellow, #violet{
+	padding: 5px;
+	width: 250px;
+	font-size: 13px;
+	font-family: "Times New Roman";
+}
 
+#red{
+	background: #E76666;
+	border-top: 2px solid red;
+}
+
+#yellow{
+	background: #F9F98E;
+	border-top: 2px solid yellow;
+}
+
+#violet{
+	background: #D4A1F6;
+	border-top: 2px solid violet;
+}

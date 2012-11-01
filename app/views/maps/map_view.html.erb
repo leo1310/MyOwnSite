@@ -11,9 +11,22 @@
 	
 	<div id="map_canvas" ></div>
 	<div class="panel">
-		<% flash.each do |key, value| %>
-  			<div class="alert alert-<%= key %>"><%= value %></div>
-		<% end %>
+		</br>
+		<div id='red'>			
+			<%= @part_of_the_world.description[0, 5]%>			
+		</div>
+		<div id='yellow'>
+			<%= @part_of_the_world.description%>
+		</br>
+			<%= @part_of_the_world.description%>
+		</div>
+		<div id='violet'>
+			<%= @part_of_the_world.description%>
+			</br>
+			<%= @part_of_the_world.description%>
+			</br>
+			<%= @part_of_the_world.description%>
+		</div>
 		<p>&nbsp;</p>
 		<input type="text" data-provide="typeahead" id="information" placeholder="Введіть для пошуку">
 		<%= image_tag("button_next.png", :title=>'Пошук', :id=>'search') %>
