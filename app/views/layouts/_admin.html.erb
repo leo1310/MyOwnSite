@@ -1,10 +1,12 @@
 <%= stylesheet_link_tag 'admin_content'%>
 
 <div id="admin_toolbar_top">
+	
 	</br>
-	<h3>Title of Site</h3>
+		<h3>Title of Site</h3>
 	</br>
 	</br>
+
 </div>
 <div id="admin_toolbar">
 	<div class="btn-group ">
@@ -27,9 +29,9 @@
 		<%end%>
 	    
 	    <%if @tab_index_menu == 4%>
-	    	<button class="btn active"><%= link_to "Додати місцевість", admin_add_places_path%></button>
+	    	<button class="btn active"><%= link_to "Додати місцевість", add_hymn_admin_add_places_path%></button>
 	    <%else%>
-	    	<button class="btn"><%= link_to "Додати місцевість", admin_add_places_path%></button>
+	    	<button class="btn"><%= link_to "Додати місцевість", add_hymn_admin_add_places_path%></button>
 		<%end%>
 	    
 	    <%if @tab_index_menu == 5%>

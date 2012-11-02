@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag 'select2', :media => "all" %>
+<%= stylesheet_link_tag 'admin/add_places/content', :media => "all" %>
+<%= javascript_include_tag 'admin/add_places/add_content' %>
+<%= javascript_include_tag 'select2' %>
+<%= render 'layouts/admin'%>
+<%= render 'content'%>
+
+<h1>Національний Гімн Країни</h1>
+<div id='attachment_wraper'>
+	<%= form_for Hymn.new, :url => {:controller=>"admin/add_places", :action => "attachment_data"}, :multipart => true do |f|  %> 
+	    <h6>Будь-ласка, виберіть фійл для завантаження до Бази Даних(*.mp3):</h6>
+	    <p style='font-style:italic'>Країни:</p>
+	    <div id='country'>    	
+			<%= f.select :country_id, @countries_name %>
+		</div>
+	    <div >     
+	       <%= f.file_field :attachment%>
+	    </div> 
+	    <%= f.submit "Завантажити Дані", :id=>"send_atachment" %> 
+	<%end%>
+</div>
+<div id='table_wraper'>
+	<h6>Управління файлами, "Національний Гімн":</h6>
+	<table id="database_content">
+		<thead>
+			<tr>
+				<td>			
+					Країна
+				</td>
+				<td>
+					Ім'я файлу
+				</td>
+				<td>
+					Видалити
+				</td>
+				<td>
+					Завантажити
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<%@hymns.each do |hymn|%>
+				<tr>
+					<td>
+						<%@country = Country.find(hymn.country_id) %>
+						<%= @country.country%>
+					</td>
+					<td>
+						<%= hymn.filename%>
+					</td>
+					<td>
+						<%= link_to 'Видалити Файл', url_for(:controller => "admin/add_places", :action => "delete_hymn", :id => hymn.id)%>
+					</td>
+					<td>
+						<%= link_to 'Скачати', url_for(:controller => "admin/add_places", :action => "download_hymn", :id => hymn.id)%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

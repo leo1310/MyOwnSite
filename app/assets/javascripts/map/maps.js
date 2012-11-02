@@ -27,7 +27,7 @@ $(document).ready( function (){
       name = $("#part_of_the_world_data").attr("data-name");                  
   initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  //initialize(14.925, 336.490, 8, 'title');
+  //initialize(-26.325, 391.140, 8, 'title');
   $("#country").find("option[value='empty']").attr("selected", "selected");
   $("#capital").find("option[value='empty']").attr("selected", "selected");
   $("#city").find("option[value='empty']").attr("selected", "selected");

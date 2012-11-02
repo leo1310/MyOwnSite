@@ -23,7 +23,7 @@ fixtures :part_of_the_worlds
     @part_of_the_world.should be_valid
   end
 
-  it "should require name" do
+  it "should require title" do
   	@part_of_the_world.title = nil
   	@part_of_the_world.should_not be_valid
   	@part_of_the_world.errors.full_message(:title, 'is invalid').should_not be_nil
@@ -42,7 +42,7 @@ fixtures :part_of_the_worlds
     @part_of_the_world.title.should eq(@part_of_the_world3.title)
   end
 
- it "check length of name" do 
+ it "check length of title" do 
  	@part_of_the_world.title = "PartOfTheWorld"
  	@part_of_the_world.title.should have(14).characters
  	@part_of_the_world.title.should_not have(20).characters

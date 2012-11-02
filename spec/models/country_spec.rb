@@ -25,7 +25,7 @@ fixtures :countries
     @country.should be_valid
   end
 
-  it "should require name" do
+  it "should require 'country'" do
   	@country.country = nil
   	@country.should_not be_valid
   	@country.errors.full_message(:country, 'is invalid').should_not be_nil
@@ -44,7 +44,7 @@ fixtures :countries
     @country.country.should eq(@country3.country)
   end
 
- it "check length of name" do 
+ it "check length of 'country'" do 
  	@country.country = "Country"
  	@country.country.should have(7).characters
  	@country.country.should_not have(5).characters

@@ -17,7 +17,7 @@ fixtures :friends
     @friend.should be_valid
   end
 
-  it "should require name" do
+  it "should require friend" do
   	@friend2 = Friend.create!(:friend => "7", :user_id=>"1")
     @friend3 = Friend.new(:friend => "7", :user_id=>"1")
   	@friend3.should_not be_valid

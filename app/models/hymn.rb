@@ -1,5 +1,5 @@
 class Hymn < ActiveRecord::Base
-  #attr_accessible :title, :body
+  attr_accessible :filename
   validates :country_id, :presence => true
   validates :country_id, :uniqueness => true
 

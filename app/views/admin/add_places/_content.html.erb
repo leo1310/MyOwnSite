@@ -1,0 +1,12 @@
+<div id="admin_add_content">
+	<div class="btn-group ">
+		<%if @tab_content_index == 1 %>
+			<button class="btn active"><%= link_to "Додати Гімн", add_hymn_admin_add_places_path%></button>
+		<%else%>
+			<button class="btn"><%= link_to "Додати Гімн", add_hymn_admin_add_places_path%></button>
+		<%end%>
+	</div>
+	<% flash.each do |key, value| %>
+       	<div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>  
+</div>

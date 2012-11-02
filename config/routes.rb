@@ -144,10 +144,12 @@ MyOwnSite::Application.routes.draw do
 
     resource :add_places do
       member do
-        get 'index'
-        post 'attachment_data'        
+        get 'add_hymn'
+        post 'attachment_data'
+        get 'delete_hymn'        
       end
     end    
+    match 'download_hymn/:id' => 'add_places#download_hymn'        
 
     resource :my_informations do
       member do

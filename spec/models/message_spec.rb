@@ -20,7 +20,7 @@ fixtures :messages
     @message.should be_valid
   end
 
-  it "should require name" do
+  it "should require who_send_mail" do
   	@message.who_send_mail = nil
   	@message.should_not be_valid
   	@message.errors.full_message(:who_send_mail, 'is invalid').should_not be_nil
@@ -39,7 +39,7 @@ fixtures :messages
     @message.who_send_mail.should eq(@message3.who_send_mail)
   end
 
- it "check length of name" do 
+ it "check length of 'who_get_mail'" do 
  	@message.who_get_mail = "Maria_mirabella"
  	@message.who_get_mail.should have(15).characters
  	@message.who_get_mail.should_not have(21).characters

@@ -27,7 +27,7 @@ fixtures :cities
     @city.should be_valid
   end
 
-  it "should require name" do
+  it "should require 'city'" do
   	@city.city = nil
   	@city.should_not be_valid
   	@city.errors.full_message(:city, 'is invalid').should_not be_nil
@@ -46,7 +46,7 @@ fixtures :cities
     @city.city.should eq(@city3.city)
   end
 
- it "check length of name" do 
+ it "check length of 'city'" do 
  	@city.city = "Manchester"
  	@city.city.should have(10).characters
  	@city.city.should_not have(11).characters
