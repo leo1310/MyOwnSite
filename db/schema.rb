@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101144918) do
+ActiveRecord::Schema.define(:version => 20121105152357) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20121101144918) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "album_fotos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "capitals", :force => true do |t|
     t.integer  "part_of_the_world_id"
@@ -103,6 +111,12 @@ ActiveRecord::Schema.define(:version => 20121101144918) do
     t.integer  "zoom"
   end
 
+  create_table "country_informations", :force => true do |t|
+    t.integer  "country_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "courses", :force => true do |t|
     t.integer  "user_id"
     t.string   "country"
@@ -115,6 +129,16 @@ ActiveRecord::Schema.define(:version => 20121101144918) do
     t.datetime "updated_at",       :null => false
     t.date     "year_end"
     t.string   "name_institution"
+  end
+
+  create_table "fotos", :force => true do |t|
+    t.integer  "album_foto_id"
+    t.text     "description"
+    t.string   "content_type"
+    t.string   "filename"
+    t.binary   "binary_data",   :limit => 16777215
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "friends", :force => true do |t|

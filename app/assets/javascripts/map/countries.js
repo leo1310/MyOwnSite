@@ -1,21 +1,39 @@
 $(document).ready( function (){
-  getTitle('.country_capcha');
-  getTitle('.country_capcha_right');  
+  getTitleAndDescription('.country_capcha');
+  getTitleAndDescription('.country_capcha_right');  
   selectCity();
   $(".description").hide();
   $(".something").show();    
 });
 
-function getTitle(ul_class){
+function getTitleAndDescription(ul_class){
   $(''+ ul_class).find('li').find('a').on('click', function(){
     var title = $(this).text();
     $('#center > h2').text(title);
-    if(title === "Title_Left_1"){
-    	$(".description").hide();
-    	$(".description_about_city").hide();
-    	$("#city").find("option").first().attr('selected',"true");
-    	$(".country_info").show();        	
+    
+    $(".description").hide();
+    $(".description_about_city").hide();
+    $("#city").find("option").first().attr('selected',"true");
+    $("#info").remove();
+    
+    if(title === "Title_Left_1"){    	
+    	$(".country_info").show();        
     }
+    else if(title === "Столиця"){
+      $(".capital").show();        
+    }
+    else if(title === "Title_Right_1"){
+      $(".Title_Right_1").show();        
+    }
+    else if(title === "Title_Right_2"){
+      $(".Title_Right_2").show();        
+    }
+    else if(title === "Title_Right_3"){
+      $(".Title_Right_3").show();
+    }
+    else if(title === "Title_Right_4"){
+      $(".Title_Right_4").show();
+    }    
   });
 }
 function selectCity()

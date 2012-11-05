@@ -1,0 +1,11 @@
+<% unless @answer.nil?%>
+	<%if @answer.eql?(1)%>
+		<div class="answer_success">
+			Створено новий Альбом
+		</div>
+	<%elsif @answer.eql?(0)%>
+		<div class="answer_error">
+			Помилка при створені Альбому
+		</div>
+	<%end%>
+<%end%>

@@ -484,8 +484,55 @@ class ProfilesController < ApplicationController
 	def foto_albums
 		 @tab_index_profile_foto_menu = 2
 		 @tab_index_profile_menu = 3
+
+		@str = 'Select Album,'
+		@all_albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")		
+		if not @all_albums.nil?
+			@arr_albums_name = @str
+			@arr_albums_name += @all_albums.map { |c| c.title }.join ','			
+
+			@albums_name = @arr_albums_name.split(",")
+		end
 	end
 
+	def create_album
+		unless current_user.nil?
+			@album = AlbumFoto.new
+			@album.user_id = current_user.id
+			@album.title = params[:title]
+			@album.description = params[:description]		
+			if @album.save
+				@answer = 1
+				#render :text => ""
+			else
+				@answer = 0
+				#render :text => ""
+			end
+		end		
+	end
+
+	def add_foto
+		if not params[:foto][:album_foto_id].eql?('Select Album') and not params[:foto][:attachment].nil?
+			@albym = AlbumFoto.find_by_title_and_user_id(params[:foto][:album_foto_id],current_user.id)
+
+	        @attachment = Foto.new
+	        @attachment.uploaded_file(params[:foto][:attachment], @albym.id, params[:foto][:description])   
+
+	        if @attachment.save
+	            flash[:success] = "Your fail was loaded. You can see it in the album."
+	            redirect_to :controller => 'profiles', :action => "foto_albums"
+	        else
+	            flash[:error] = "There was a problem load your file."
+	    		redirect_to :controller => 'profiles', :action => "foto_albums"
+	        end
+	    else
+	    	flash[:error] = "There was a problem load your file."
+	    	redirect_to :controller => 'profiles', :action => "foto_albums"
+	    end
+
+	end
+	
+	# ----------------------Other actions-------------------------------------
 	def load_index
 		@tab_index_main_menu = 2		
 

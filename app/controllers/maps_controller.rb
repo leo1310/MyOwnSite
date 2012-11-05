@@ -28,6 +28,8 @@ layout 'page'
 	def country
 		@country = Country.find_by_country(params[:country_name])
 		@cities = @country.cities.all
+		@capital = Capital.find_by_country_id(@country.id)
+		@country_information = CountryInformation.find_by_country_id(@country.id)
 	end
 
 	def capital

@@ -57,10 +57,10 @@ body{
 
 .country_capcha{
 	margin-top: 15px;
-	margin-left: 40px;
-	margin-right: 10px;
+	margin-left: 0px;
 	list-style: none;
-	font-size: 16px
+	font-size: 16px;
+	text-align: center;	
 }
 
 .country_capcha li{
@@ -79,11 +79,11 @@ body{
 
 .country_capcha_right{
 	margin-top: 70px;
-	margin-left: 10px;
-	margin-right: 40px;
+	margin-left: 0px;
+	margin-right: 0px;
 	list-style: none;
-	font-size: 16px;
-	float: right;
+	font-size: 16px;	
+	text-align: center;
 }
 
 .country_capcha_right li{
@@ -163,4 +163,47 @@ body{
 
 #gimn p{
 	margin-top: 10px;
+}
+
+#more_info_about > a{
+	font-style: italic;
+	font-size: 14px;
+	font-family: "Times New Roman";
+}
+
+.interesting_facts{
+	margin-left: 10px;
+	margin-right: 10px;
+	background: #AC58FA;
+	min-height: 100px;
+	max-height: 250px;
+	overflow: auto;
+	text-indent: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	line-height: 13px;
+}
+
+.interesting_facts h4{
+	text-align: center;
+	color:#445DDD;
+}
+
+.interesting_places{
+	margin-left: 10px;
+	margin-right: 10px;
+	background: #F1EE87;
+	min-height: 100px;
+	max-height: 250px;
+	overflow: auto;
+	text-indent: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	line-height: 13px;
+}
+.interesting_places h4{
+	text-align: center;
+	color:#509627;
 }

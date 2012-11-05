@@ -8,7 +8,7 @@
 <h1>Національний Гімн Країни</h1>
 <div id='attachment_wraper'>
 	<%= form_for Hymn.new, :url => {:controller=>"admin/add_places", :action => "attachment_data"}, :multipart => true do |f|  %> 
-	    <h6>Будь-ласка, виберіть фійл для завантаження до Бази Даних(*.mp3):</h6>
+	    <h6>Будь-ласка, виберіть файл для завантаження до Бази Даних(*.mp3):</h6>
 	    <p style='font-style:italic'>Країни:</p>
 	    <div id='country'>    	
 			<%= f.select :country_id, @countries_name %>

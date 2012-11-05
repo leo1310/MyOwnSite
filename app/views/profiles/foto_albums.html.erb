@@ -1,13 +1,48 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
+<%= stylesheet_link_tag 'profile_foto' %>
+<%= javascript_include_tag 'profile/fotos' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
 	<div class="tab-content">
         <div class="tab-pane active" >
             <%= render 'foto'%>
-            <h1>My Fotos</h1>
+            <h1>Мої Фотографії</h1>
             <div class="foto_avatar">
                 
+            </div>
+            <div id="main">
+            	fgbfgbnfgngh
+            </div>
+            <div id="panel_settings">
+            	<%= link_to "Додати Альбом", "#", :id=>"add_album" %><p></p>            	
+            	<div id="show_album">
+            		<%= render 'callback_album_foto_save'%>
+            		<h5>Створити новий Альбом</h5>
+            		Назва: <input type="text" id="title_album">
+            		Опис: <textarea id="description_album"></textarea>
+            		<button id="create_album">Створити</button>
+            	</div>
+            	</br>
+            	<%= link_to "Додати Фото", "#" , :id=>"add_foto"%><p></p>
+            	<div id="show_foto">
+            		<%= form_for Foto.new, :url => {:controller=>"profiles", :action => "add_foto"}, :multipart => true do |f|  %> 
+					    <h6>Виберіть файл для завантаження(*.jpeg):</h6>					    
+					    <div style='font-style:italic'>Альбоми:</div>
+					    <div id='country'>    	
+							<%= f.select :album_foto_id, @albums_name %>
+						</div>
+						<h6>Файл має бути не більше 10 Мб</h6>
+					    <div >     
+					       <%= f.file_field :attachment%>
+					    </div>
+					    <div >
+					    	<div style='font-style:italic'>Додати опис:</div>
+					       <%= f.text_area :description %>
+					    </div> 
+					    <%= f.submit "Завантажити Фото", :id=>"send_atachment" %> 
+					<%end%>
+            	</div>
             </div>
         </div>        
 	</div>

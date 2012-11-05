@@ -1,6 +1,6 @@
 class CreateHymns < ActiveRecord::Migration
   def up
-    create_table :hymns do |t|
+    create_table :hymns, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :country_id
       t.string :content_type
       t.string :filename

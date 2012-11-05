@@ -1,0 +1,75 @@
+#main{
+	border: 1px solid red;
+	float: left;
+	width: 650px;
+	background: white;
+}
+#panel_settings{	
+	background: #F3F5F7;
+	margin-left: 652px;
+	border-left: 1px solid #105BCC;
+	height: 630px;
+	padding: 15px;
+}
+
+#panel_settings a{
+	font-size: 12px;
+}
+
+#panel_settings a:hover{
+	text-decoration: none;
+	color: blue;
+}
+
+#panel_settings p{
+	border-top: 1px solid #08C;
+	margin-bottom: 0;
+}
+
+#title_album{
+	width: 190px;
+	height: 15px;
+}
+#show_album textarea{
+	max-height: 100px;
+	min-height: 100px;
+	min-width: 237px;
+	max-width: 237px;
+}
+
+#show_foto textarea{
+	max-height: 100px;
+	min-height: 100px;
+	min-width: 237px;
+	max-width: 237px;
+}
+
+#show_album, #show_foto{
+	margin-left: 7px;	
+}
+
+#info-error{
+	background: #EC7D73;
+	border: 1px solid red;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	padding: 3px;
+	font-style: italic;	
+}
+
+.answer_success{
+	margin-top: 5px;
+	background: #7DB581;
+	border: 1px solid green;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+}
+.answer_error{
+	margin-top: 5px;
+	background: #EEC6C3;
+	border: 1px solid red;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+}

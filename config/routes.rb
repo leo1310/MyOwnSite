@@ -65,9 +65,8 @@ MyOwnSite::Application.routes.draw do
   #Routes profiles controller
   
   resources :profiles   
-  #match "my_page/:id" => 'profiles#my_page'
+  #match "my_page/:id" => 'profiles#my_page'  
   
-  match 'foto', :to=> 'profiles#foto'   
   match 'my_settings', :to=> 'profiles#my_settings'
   match 'towns', :to=> 'profiles#towns'
     
@@ -80,7 +79,9 @@ MyOwnSite::Application.routes.draw do
     #Foto
     match 'update_avatar', :to=> 'profiles#update_avatar'
     match 'avatar', :to=> 'profiles#foto_avatar'   
-    match 'albums', :to=> 'profiles#foto_albums'   
+    match 'albums', :to=> 'profiles#foto_albums'
+    match 'create_album', :to=> 'profiles#create_album'
+    match 'add_foto', :to=> 'profiles#add_foto'   
 
     #About me
     match 'my_information',  :to=> 'profiles#my_information'

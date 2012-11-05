@@ -16,7 +16,7 @@
 			<object type="application/x-shockwave-flash" data='<%=asset_path("player/dewplayer-vol.swf")%>?mp3=<%= url_for(:controller => "maps", :action => "download_hymn", :id => @country.id)%>' width="240" height="20" id="dewplayer-vol">
 				<param name="wmode" value="transparent" />
 				<param name="movie" value='<%=asset_path("player/dewplayer-vol.swf")%>?mp3=<%= url_for(:controller => "maps", :action => "download_hymn", :id => @country.id)%>' />
-			</object>			
+			</object>
 		</div>
 		<ul class="country_capcha">
 			<li><%= link_to 'Title_Left_1', '#'%></li>
@@ -26,29 +26,84 @@
 			<li><%= link_to 'Title_Left_5', '#'%></li>
 		</ul>
 		<p class="city">Міста:</p>
-			<select id="city">			
+			<select id="city">
 				<option value="empty" id="0">Виберіть місто</option>
 				<% @cities.each do |city|%>
 					<option value="<%=city.city%>" id=<%=city.id%> > <%=city.city%> </option>
 				<%end%>
-			</select>			
+			</select>
+		<div class="interesting_facts">
+			<h4>Цікаві факти</h4>
+			<p><%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>				
+			</p>
+		</div>
 	</div>
 	<div id="top_center">
 		<h2>Країни світу: <%=@country.country%></h2>
 	</div>	
 	<div id="center">
-		<h2>Title</h2>		
-		<p class="description something">			
+		<h2>Title</h2>
+		<div class="description something">
 			Something, Something, Something
-		</p>
-		<p class="description country_info">			
+		</div>
+		<div class="description country_info">
 			<%=@country.description%>
 			<%=@country.description%>
 			<%=@country.description%>
-		</p>
-		<p class="description_about_city">
+		</div>
+		<div class="description_about_city">
 			<%= render 'description_city'%>    
-		</p>		
+		</div>
+		
+		<div class="description Title_Right_1">
+			It's information include Title_Right_1
+		</div>		
+		<div class="description Title_Right_2">
+			It's information include Title_Right_2
+		</div>
+		<div class="description Title_Right_3">
+			It's information include Title_Right_3
+		</div>
+		<div class="description Title_Right_4">
+			It's information include Title_Right_4
+		</div>
+		<div class="description capital">
+			<%=@capital.description%>
+			<div id="more_info_about">
+				<%= link_to 'Більше інформації про '+@capital.name, capital_path(@capital.name)%>
+			</div>
+		</div>
 
 	</div>
 	<div id="right">
@@ -57,7 +112,43 @@
 			<li><%= link_to 'Title_Right_2', '#'%></li>
 			<li><%= link_to 'Title_Right_3', '#'%></li>
 			<li><%= link_to 'Title_Right_4', '#'%></li>
-			<li><%= link_to 'Title_Right_5', '#'%></li>
+			<li><%= link_to 'Столиця', '#'%></li>
 		</ul>
+		<div class="interesting_places">
+			<h4>Цікаві місця</h4>
+			<p><%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>
+				<%=@country.description%>				
+			</p>
+		</div>
 	</div>
 </div>

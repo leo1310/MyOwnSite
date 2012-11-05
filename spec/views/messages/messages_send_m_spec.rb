@@ -2,11 +2,7 @@ require 'spec_helper'
 
 #describe MessagesController do	
 	describe "profiles/show.html.erb" do
-		#before do
-    	#	message = Message.new(who_send_mail: "James", who_get_mail: 'Hylio')
-    #		assign :message, message 
-    #		render
-  	#	end	  
+			  
 	  	before(:each) do
 	      @request.env["devise.mapping"] = Devise.mappings[:user]
 	      @user = Factory.create(:user)	     

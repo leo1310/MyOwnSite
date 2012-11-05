@@ -7,5 +7,6 @@ class Country < ActiveRecord::Base
   belongs_to :part_of_the_world
   has_one :capital
   has_one :hymn
+  has_one :country_information
   has_many :cities
 end
