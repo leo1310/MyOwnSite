@@ -1,0 +1,11 @@
+<% unless @answer.nil?%>
+	<%if @answer.eql?(1)%>
+		<div class="answer_success">
+			Фото переміщено до нового альбому
+		</div>
+	<%elsif @answer.eql?(0)%>
+		<div class="answer_error">
+			Помилка при переміщені фото
+		</div>
+	<%end%>
+<%end%>

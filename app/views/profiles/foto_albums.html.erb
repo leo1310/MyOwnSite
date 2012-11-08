@@ -1,6 +1,7 @@
-<%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_foto' %>
+<%= stylesheet_link_tag 'lightbox' %>
 <%= javascript_include_tag 'profile/fotos' %>
+<%= javascript_include_tag 'lightbox' %>
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
@@ -9,10 +10,40 @@
             <%= render 'foto'%>
             <h1>Мої Фотографії</h1>
             <div class="foto_avatar">
-                
+               
             </div>
             <div id="main">
-            	fgbfgbnfgngh
+            	<table id="albums">            		
+            		<% @i = 0 %>
+	            	<%@albums.each do |album|%>	            		
+	            		<%if (@i % 4) == 0%>
+	            			<tr>
+	            					
+	            			</tr>
+	            		<%end%>	            		
+	            			<td>
+	            				<% unless album.title_foto.nil? %>
+		            				<div class="foto_wraper">
+		            					<%@foto = Foto.find(album.title_foto)%>
+			            				<%= image_tag(@foto.foto.url(:thumb), :size=>"128x128", :alt=>album.title, :title=>album.title, :class=>'album_click')%>
+			            			</div>
+		            			<%else%>
+		            				<div class="foto_wraper">
+			            				<%= image_tag('', :size=>"128x128", :alt=>album.title, :title=>album.title, :class=>'album_click')%>
+			            			</div>
+		            			<%end%>
+		            			</br>
+		            			<div class='album_title'>
+		            				<%=album.title%>
+		            			</div>
+		            		</td>		            			            			            	
+		            	
+		            	<% @i += 1%>		            	
+	            	<%end%>
+            	</table>
+            </div>
+            <div id="foto_panel">
+            	<%= render 'display_foto'%>
             </div>
             <div id="panel_settings">
             	<%= link_to "Додати Альбом", "#", :id=>"add_album" %><p></p>            	
@@ -23,7 +54,8 @@
             		Опис: <textarea id="description_album"></textarea>
             		<button id="create_album">Створити</button>
             	</div>
-            	</br>
+            	</br>            	
+            	
             	<%= link_to "Додати Фото", "#" , :id=>"add_foto"%><p></p>
             	<div id="show_foto">
             		<%= form_for Foto.new, :url => {:controller=>"profiles", :action => "add_foto"}, :multipart => true do |f|  %> 
@@ -33,16 +65,47 @@
 							<%= f.select :album_foto_id, @albums_name %>
 						</div>
 						<h6>Файл має бути не більше 10 Мб</h6>
-					    <div >     
-					       <%= f.file_field :attachment%>
+					    <div class="attachment_foto">     
+					       <%= f.file_field :foto %>
 					    </div>
-					    <div >
-					    	<div style='font-style:italic'>Додати опис:</div>
-					       <%= f.text_area :description %>
+					    <div>
+					      <div style='font-style:italic'>Додати опис:</div>
+					      <%= f.text_area :description %>
 					    </div> 
 					    <%= f.submit "Завантажити Фото", :id=>"send_atachment" %> 
 					<%end%>
             	</div>
+                </br>
+                
+                <%= link_to "Редагувати Фото", "#" , :id=>"edit_foto"%><p></p>
+                <div id="show_edit_foto">
+                	<h5>Для редагування виберіть Альбом</h5>
+            		<select id="albums_name_foto_edit">			
+						<option value="empty" id="0">Виберіть Альбом</option>
+						<% @albums.each do |album|%>
+						<option value="<%=album.title%>" id=<%=album.id%> > <%=album.title%> </option>
+						<%end%>
+					</select>
+					<div id="form_edit_foto">
+						<%= render 'form_edit_foto' %>
+					</div> 
+                </div>
+            	</br>
+            	
+            	<%= link_to "Редагувати Альбом", "#", :id=>"edit_album" %><p></p>
+            	<div id="show_edit">            		            	
+            		<h5>Для редагування виберіть Альбом</h5>
+            		<select id="albums_name">			
+						<option value="empty" id="0">Виберіть Альбом</option>
+						<% @albums.each do |album|%>
+						<option value="<%=album.title%>" id=<%=album.id%> > <%=album.title%> </option>
+						<%end%>
+					</select>
+					<div id="form">
+						<%= render 'form_edit_album' %>
+					</div>            		
+            	</div>
+            	</br>
             </div>
         </div>        
 	</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105152357) do
+ActiveRecord::Schema.define(:version => 20121106135112) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121105152357) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "title_foto"
   end
 
   create_table "capitals", :force => true do |t|
@@ -134,11 +135,12 @@ ActiveRecord::Schema.define(:version => 20121105152357) do
   create_table "fotos", :force => true do |t|
     t.integer  "album_foto_id"
     t.text     "description"
-    t.string   "content_type"
-    t.string   "filename"
-    t.binary   "binary_data",   :limit => 16777215
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "friends", :force => true do |t|

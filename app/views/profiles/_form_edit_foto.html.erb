@@ -1,0 +1,31 @@
+<% unless @album.nil?%>
+	<div id="edit_fotos">
+	    <%@fotos.each do |foto|%>
+		   	<div class="foto_line">
+		   		<table class='table_foto_edit' id='table_<%=foto.id%>'>
+		   			<tr>
+		   				<td style='width:64px'>
+		   					<%= image_tag foto.foto.url(:little)%>
+		   				</td>
+		   				<td id='move_foto'>
+		   					<select id="foto_edit_<%=foto.id%>">			
+								<option value="empty" id="0">Виберіть Альбом</option>
+								<% @albums.each do |album|%>
+									<%unless @album.eql?(album) %>
+										<option value="<%=album.title%>" id=<%=album.id%> > <%=album.title%> </option>
+									<%else%>
+										<%next%>
+									<%end%>
+								<%end%>
+							</select>
+		   					<%= link_to "Перемістити", '#', :class=>"move_foto", :value=>foto.id %>
+		   				</td>
+		   				<td class="delete_foto">
+		   					<%= link_to "Видалити", delete_foto_path(:id=>foto.id)%>
+		   				</td>
+		   			</tr>
+		   		</table>		   		
+		   	</div> 
+	    <%end%>	    
+	</div>
+<%end%>

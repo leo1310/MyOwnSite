@@ -1,0 +1,25 @@
+<% unless @fotos.blank?%>
+    <div class="imageRow">
+    	<div class="set">
+	    	<% @index = 1%>
+	    	<%@fotos.each do |foto|%>		  	
+		  		<% if @index == 1%>
+			  	    <div class="single first">
+			  		  <%= link_to image_tag(foto.foto.url(:thumb), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+			  		</div>
+			  		<% @index += 1 %>
+				<%elsif @index.eql?(@fotos.count)%>
+			        <div class="single last">
+			  		  <%= link_to image_tag(foto.foto.url(:thumb), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+			        </div>		     
+			        <% @index = 0 %>   
+		        <%else%>
+			        <div class="single">
+			  		  <%= link_to image_tag(foto.foto.url(:thumb), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+			        </div>
+			        <% @index += 1 %>
+		        <%end%>		  			    
+		    <%end%>	
+	    </div>
+    </div>
+<%end%>

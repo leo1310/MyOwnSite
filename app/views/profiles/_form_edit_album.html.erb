@@ -1,0 +1,27 @@
+<% unless @album.nil?%>
+	<%= form_for @album, :url => {:controller=>"profiles", :action => "edit_album", :album_id=>@album.id} do |f|  %> 
+	    <div id='title_edit_album'>    	
+	    	<div style='font-style:italic'>Назва:</div>
+			<%= f.text_field :title %>
+		</div>		
+	    <div id='description_edit_album'>
+	        <div style='font-style:italic'>Змінити опис:</div>
+	      	<%= f.text_area :description %>
+	    </div>
+	    <div id='title_foto_edit'>
+	    	<div id="album_fotos">
+			    <%@fotos.each do |foto|%>
+				   	<span class="foto" value=<%=foto.id%>>
+				   		<%= image_tag foto.foto.url(:little)%>
+				   	</span> 
+			    <%end%>	    
+			</div>
+		    <div style='font-style:italic'>Титул Альбому:</div>
+			<%= f.text_field :title_foto, :readonly=>'readonly' %>
+		</div>		
+		<%= f.submit "Надіслати зміни", :id=>"send_edit" %> 
+	<%end%>
+	<%= form_for @album, :url => {:controller=>"profiles", :action => "delete_album", :album_id=>@album.id} do |f|  %> 
+		<%= f.submit "Видалити Альбом", :id=>"send_delete" %> 
+	<%end%>
+<%end%>

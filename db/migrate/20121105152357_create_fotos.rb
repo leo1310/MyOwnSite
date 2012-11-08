@@ -3,9 +3,7 @@ class CreateFotos < ActiveRecord::Migration
     create_table :fotos, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.integer :album_foto_id
       t.text :description
-      t.string :content_type
-      t.string :filename
-      t.binary :binary_data, :limit => 10.megabyte
+      t.attachment :foto     
       t.timestamps
     end
   end

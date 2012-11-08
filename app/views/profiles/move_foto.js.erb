@@ -1,0 +1,5 @@
+setTimeout(function(){
+	$("#form_edit_foto").before("<%=escape_javascript(render(:partial=>"callback_foto_move")) %>");
+	var prev_album = $('#albums_name_foto_edit').find('option:selected').attr('value');	
+	$('#table_'+<%=@id%>).remove();	
+}, 400);

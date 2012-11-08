@@ -81,7 +81,15 @@ MyOwnSite::Application.routes.draw do
     match 'avatar', :to=> 'profiles#foto_avatar'   
     match 'albums', :to=> 'profiles#foto_albums'
     match 'create_album', :to=> 'profiles#create_album'
-    match 'add_foto', :to=> 'profiles#add_foto'   
+    match 'add_foto', :to=> 'profiles#add_foto'
+    match 'get_album_name', :to=> 'profiles#get_album_name'   
+    match 'edit_album' => 'profiles#edit_album'
+    match 'delete_album' => 'profiles#delete_album'
+    match 'foto_edit' => 'profiles#foto_edit'
+    match 'delete_foto' => 'profiles#delete_foto'
+    match 'move_foto' => 'profiles#move_foto'
+    match 'display_foto' => 'profiles#display_foto'
+
 
     #About me
     match 'my_information',  :to=> 'profiles#my_information'

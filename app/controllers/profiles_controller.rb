@@ -486,6 +486,7 @@ class ProfilesController < ApplicationController
 		 @tab_index_profile_menu = 3
 
 		@str = 'Select Album,'
+		@albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")		
 		@all_albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")		
 		if not @all_albums.nil?
 			@arr_albums_name = @str
@@ -510,16 +511,51 @@ class ProfilesController < ApplicationController
 			end
 		end		
 	end
+	
+	def get_album_name
+		@album = AlbumFoto.find_by_title_and_user_id(params[:album_name],current_user.id)
+		@fotos = Foto.find_all_by_album_foto_id(@album.id)		
+	end
+
+	def edit_album		
+		@album = AlbumFoto.find(params[:album_id])
+		if @album.update_attributes(params[:album_foto])
+        	flash[:success] = "Your album is update!"
+        	redirect_to :controller => "profiles", :action => "foto_albums"
+    	else  
+        	flash[:error] = "Error! Your album is not update!"
+        	redirect_to :controller => "profiles", :action => "foto_albums"
+    	end
+	end
+
+	def delete_album
+		@album = AlbumFoto.find(params[:album_id])
+		@fotos = Foto.find_all_by_album_foto_id(@album.id)
+
+		if @fotos.count.eql?(0)
+			if @album.destroy
+				flash[:success] = "Your Album was deleted."
+	        	redirect_to :controller => 'profiles', :action => "foto_albums"
+	        else
+	        	flash[:error] = "Error delete Album."
+	        	redirect_to :controller => 'profiles', :action => "foto_albums"
+	        end
+		else
+			flash[:error] = "Move foto to other Album and try again."
+	        redirect_to :controller => 'profiles', :action => "foto_albums"
+		end
+	end
 
 	def add_foto
-		if not params[:foto][:album_foto_id].eql?('Select Album') and not params[:foto][:attachment].nil?
-			@albym = AlbumFoto.find_by_title_and_user_id(params[:foto][:album_foto_id],current_user.id)
+		if not params[:foto][:album_foto_id].eql?('Select Album') and not params[:foto][:foto].nil?
+			@album = AlbumFoto.find_by_title_and_user_id(params[:foto][:album_foto_id],current_user.id)
+	        
+	        @foto = Foto.create(params[:foto])
 
-	        @attachment = Foto.new
-	        @attachment.uploaded_file(params[:foto][:attachment], @albym.id, params[:foto][:description])   
-
-	        if @attachment.save
-	            flash[:success] = "Your fail was loaded. You can see it in the album."
+	        if @foto.save	        	
+	        	@foto.album_foto_id = @album.id
+	        	@foto.save
+	            flash[:success] = "Your foto was loaded. You can see it in the album."
 	            redirect_to :controller => 'profiles', :action => "foto_albums"
 	        else
 	            flash[:error] = "There was a problem load your file."
@@ -529,7 +565,59 @@ class ProfilesController < ApplicationController
 	    	flash[:error] = "There was a problem load your file."
 	    	redirect_to :controller => 'profiles', :action => "foto_albums"
 	    end
+	end
 
+	def foto_edit
+		@albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")
+		@album = AlbumFoto.find_by_title_and_user_id(params[:album_name], current_user.id)
+		@fotos = Foto.find_all_by_album_foto_id(@album.id)
+	end
+
+	def delete_foto
+		@foto = Foto.find(params[:id])
+		@album = AlbumFoto.find(@foto.album_foto_id)
+		if @album.title_foto.eql?(@foto.id)
+		    @album.title_foto = nil
+		    @album.save
+		end
+		
+		if @foto.destroy
+			flash[:success] = "Your Foto was deleted."
+	        redirect_to :controller => 'profiles', :action => "foto_albums"
+		else
+			flash[:error] = "There was a problem delete your foto."
+	    	redirect_to :controller => 'profiles', :action => "foto_albums"
+		end
+	end
+
+	def move_foto
+		@id = params[:id]
+		@foto = Foto.find(@id)
+		@new_album = AlbumFoto.find_by_title_and_user_id(params[:new_album_name], current_user.id)	
+		@old_album = AlbumFoto.find_by_title_and_user_id(params[:old_album_name], current_user.id)		
+		
+		if @old_album.title_foto.eql?(@foto.id)
+		    @old_album.title_foto = nil
+		    @old_album.save
+		end
+
+		unless @new_album.nil?
+			unless @foto.nil?
+				@foto.album_foto_id = @new_album.id
+				if @foto.save
+					@answer = 1
+				else
+					@answer = 0
+				end
+			end
+		end
+	end
+
+	def display_foto
+		@album = AlbumFoto.find_by_title_and_user_id(params[:album_name], current_user.id)
+		unless @album.nil?  
+			@fotos = Foto.find_all_by_album_foto_id(@album.id)
+		end
 	end
 	
 	# ----------------------Other actions-------------------------------------

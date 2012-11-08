@@ -14,26 +14,26 @@ class User < ActiveRecord::Base
   validates :nik_name, :email, :uniqueness => true
   
 
-  has_many :messages, :order => 'created_at DESC'
+  has_many :messages, :order => 'created_at DESC', :dependent => :destroy
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "64x64>" }
   has_one :contact, :dependent => :destroy
   has_one :interest, :dependent => :destroy
   
-  has_many :secondary_educations
+  has_many :secondary_educations, :dependent => :destroy
   accepts_nested_attributes_for :secondary_educations, :allow_destroy => true
 
-  has_many :higher_educations
+  has_many :higher_educations, :dependent => :destroy
   accepts_nested_attributes_for :higher_educations, :allow_destroy => true
 
-  has_many :courses
+  has_many :courses, :dependent => :destroy
   accepts_nested_attributes_for :courses, :allow_destroy => true
 
-  has_many :trainings
+  has_many :trainings, :dependent => :destroy
   accepts_nested_attributes_for :trainings, :allow_destroy => true
 
-  has_many :careers
+  has_many :careers, :dependent => :destroy
   accepts_nested_attributes_for :careers, :allow_destroy => true
 
-  has_many :friends
+  has_many :friends, :dependent => :destroy
   
 end

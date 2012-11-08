@@ -1,15 +1,53 @@
+html {
+  height:1000px;
+  background:url(img/uzor.jpeg) #EEE;
+}
+
+body{
+	width:1100px;	
+	margin: auto;
+	min-height:1000px;
+}
+
+#footer{
+	position: static;
+	height: 50px;	
+	background: #6A092E;
+	color: white;
+	text-align:center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	font-family: "Times New Roman";
+	font-size: 14px;
+
+	/*margin-top: 600px;*/
+	
+ } 
+
 #main{
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	float: left;
-	width: 650px;
+	width: 618px;
 	background: white;
+	overflow-y: auto;
+	height: 360px;
 }
 #panel_settings{	
 	background: #F3F5F7;
-	margin-left: 652px;
+	margin-left: 620px;
 	border-left: 1px solid #105BCC;
-	height: 630px;
-	padding: 15px;
+	height: 765px;
+	padding: 15px;	
+}
+
+#foto_panel{
+	float: left;
+	/*border: 1px solid blue;*/
+	margin-top: 361px;
+	margin-left: -620px;
+	width: 618px;
+	height: 432px;
+	overflow: auto;
 }
 
 #panel_settings a{
@@ -30,6 +68,7 @@
 	width: 190px;
 	height: 15px;
 }
+
 #show_album textarea{
 	max-height: 100px;
 	min-height: 100px;
@@ -44,8 +83,8 @@
 	max-width: 237px;
 }
 
-#show_album, #show_foto{
-	margin-left: 7px;	
+#show_album, #show_foto, #show_edit, #show_edit_foto{
+	margin-left: 8px;	
 }
 
 #info-error{
@@ -72,4 +111,250 @@
 	border-radius: 5px;
 	text-align: center;
 	padding: 5px;
+}
+
+.attachment_foto > input{
+	width: 250px;
+}
+#albums td{
+	padding: 5px;
+	/*width: 200px;
+	height: 200px;*/
+	vertical-align: top;
+}
+.foto_wraper > img{
+	width: 128px;
+	height: 128px;
+	cursor: pointer;
+	background: white;
+}
+
+.foto_wraper{
+	padding: 5px;
+	background: #F7B037;
+	border-radius: 5px;
+	width: 128px;
+	height: 128px;
+}
+
+.album_title{
+	margin-top: -18px;
+	text-align: center;
+	width: 138px;
+}
+
+#description_edit_album textarea{
+	max-height: 100px;
+	min-height: 100px;
+	min-width: 237px;
+	max-width: 237px;	
+}
+
+#title_edit_album {
+	height: 60px;
+	max-width: 280px;	
+}
+
+.foto{
+	cursor: pointer;	
+}
+
+.foto img{
+	width: 64px;
+	height: 64px;
+	background: white;	
+}
+
+.foto img:hover{
+	border: 2px solid #F2E232;
+}
+
+#album_fotos{
+	width: 280px;
+	height: 200px;
+	padding: 5px;
+	overflow: auto;
+}
+
+#show_edit_foto select, #show_edit select{
+	width: 255px;
+}
+
+.foto_line{
+
+}
+
+#edit_fotos{
+	width: 280px;	
+	min-height: 60px;
+	max-height: 277px;
+	overflow: auto;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.table_foto_edit{
+	border: 1px solid #C8E2FA;
+	width: 270px;
+	margin-top: 3px;
+}
+
+.table_foto_edit:hover{
+	border: 1px solid #F2E232;	
+}
+
+.delete_foto{
+	width: 70px;
+	text-align: center;
+}
+
+#move_foto{
+	text-align: center;	
+}
+
+#move_foto select{
+	font-size: 10px;
+	width: 121px;
+}
+
+.display > img:hover{
+	width: 128px;
+	height: 128px;
+	/*cursor: pointer;*/
+	background: white;
+	border: 2px solid #538EC5;
+}
+
+.display > img{
+	/*padding: 5px;	
+	border-radius: 5px;*/
+	
+	background: white;
+	width: 128px;
+	height: 128px;
+}
+
+
+
+
+
+.imageRow {
+  *zoom: 1;
+  margin: 20px 0;
+  margin-left: 8px;
+  margin-right: 20px;
+}
+
+.imageRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.imageRow .single {
+  float: left;
+}
+
+.imageRow .single a {
+  float: left;
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  line-height: 1em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-right: 40px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.imageRow .single a img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 128px;
+  height: 128px;
+}
+/* line 335, ../sass/screen.sass */
+.imageRow .single a:hover {
+  background-color: #8ad459;
+}
+/* line 337, ../sass/screen.sass */
+.imageRow .set {
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.imageRow .set:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+/* line 346, ../sass/screen.sass */
+.imageRow .set .single a {
+  background: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin-right: 0;
+}
+/* line 351, ../sass/screen.sass */
+.imageRow .set .single a:hover {
+  background-color: #8ad459;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.imageRow .set .single.first a {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -ms-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 358, ../sass/screen.sass */
+.imageRow .set .single.last a {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -ms-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
