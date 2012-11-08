@@ -279,11 +279,25 @@ class ProfilesController < ApplicationController
 		@careers = @user.careers
 		@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)
 		@friend_two = Friend.find_by_user_id_and_friend(@user.id, current_user.id)
-	end
+		@friends = Friend.find_all_by_user_id(@user.id)	
 
-	def foto
-		@tab_index_profile_menu = 3
-		@user = User.find(current_user.id)
+		unless @friends.blank?
+			@friends_count = @friends.count
+		else
+			@friends_count = 0
+		end
+
+		@online_users = 0
+		@fotos_count = 0
+		@albums = AlbumFoto.find_all_by_user_id(@user.id)
+		@albums.each do |album|
+			@fotos = Foto.find_all_by_album_foto_id(album.id)
+			@fotos_count += @fotos.count
+		end
+		@album = @albums.last
+		unless @album.nil?
+			@fotos_on_my_page = Foto.find_all_by_album_foto_id(@album.id, :order=>'created_at DESC')
+		end
 	end
 
 	# ----------------------Friends actions-------------------------------------
@@ -318,7 +332,7 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_friends_menu = 2
 		@tab_index_profile_menu = 4
 
-		@user = User.find(current_user.id)
+		@user = User.find(params[:id])
 
 		@friends = @user.friends.find_all_by_query_to_friends(1)
 		@online_users = 0
@@ -328,7 +342,7 @@ class ProfilesController < ApplicationController
 		@tab_index_profile_friends_menu = 3
 		@tab_index_profile_menu = 4
 
-		@user = User.find(current_user.id)
+		@user = User.find(params[:id])
 
 		@friends = @user.friends.paginate(:page => params[:page], :per_page => 25).find_all_by_query_to_friends(1)
 	end
@@ -482,17 +496,24 @@ class ProfilesController < ApplicationController
 		 @tab_index_profile_menu = 3
 	end
 	def foto_albums
-		 @tab_index_profile_foto_menu = 2
-		 @tab_index_profile_menu = 3
+		@tab_index_profile_foto_menu = 2
+		@tab_index_profile_menu = 3
 
+		@user = User.find(params[:id])
 		@str = 'Select Album,'
-		@albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")		
+		@albums = AlbumFoto.find_all_by_user_id(@user.id, :order=>"created_at DESC")		
 		@all_albums = AlbumFoto.find_all_by_user_id(current_user.id, :order=>"title")		
 		if not @all_albums.nil?
 			@arr_albums_name = @str
 			@arr_albums_name += @all_albums.map { |c| c.title }.join ','			
 
 			@albums_name = @arr_albums_name.split(",")
+		end
+
+		unless @albums.blank?
+			@count_albums = @albums.count
+		else
+			@count_albums = 0
 		end
 	end
 
@@ -521,10 +542,10 @@ class ProfilesController < ApplicationController
 		@album = AlbumFoto.find(params[:album_id])
 		if @album.update_attributes(params[:album_foto])
         	flash[:success] = "Your album is update!"
-        	redirect_to :controller => "profiles", :action => "foto_albums"
+        	redirect_to :controller => "profiles", :action => "foto_albums", :id=> current_user.id
     	else  
         	flash[:error] = "Error! Your album is not update!"
-        	redirect_to :controller => "profiles", :action => "foto_albums"
+        	redirect_to :controller => "profiles", :action => "foto_albums", :id=> current_user.id
     	end
 	end
 
@@ -535,14 +556,14 @@ class ProfilesController < ApplicationController
 		if @fotos.count.eql?(0)
 			if @album.destroy
 				flash[:success] = "Your Album was deleted."
-	        	redirect_to :controller => 'profiles', :action => "foto_albums"
+	        	redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 	        else
 	        	flash[:error] = "Error delete Album."
-	        	redirect_to :controller => 'profiles', :action => "foto_albums"
+	        	redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 	        end
 		else
 			flash[:error] = "Move foto to other Album and try again."
-	        redirect_to :controller => 'profiles', :action => "foto_albums"
+	        redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 		end
 	end
 
@@ -556,14 +577,14 @@ class ProfilesController < ApplicationController
 	        	@foto.album_foto_id = @album.id
 	        	@foto.save
 	            flash[:success] = "Your foto was loaded. You can see it in the album."
-	            redirect_to :controller => 'profiles', :action => "foto_albums"
+	            redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 	        else
 	            flash[:error] = "There was a problem load your file."
-	    		redirect_to :controller => 'profiles', :action => "foto_albums"
+	    		redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 	        end
 	    else
 	    	flash[:error] = "There was a problem load your file."
-	    	redirect_to :controller => 'profiles', :action => "foto_albums"
+	    	redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 	    end
 	end
 
@@ -583,10 +604,10 @@ class ProfilesController < ApplicationController
 		
 		if @foto.destroy
 			flash[:success] = "Your Foto was deleted."
-	        redirect_to :controller => 'profiles', :action => "foto_albums"
+	        redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 		else
 			flash[:error] = "There was a problem delete your foto."
-	    	redirect_to :controller => 'profiles', :action => "foto_albums"
+	    	redirect_to :controller => 'profiles', :action => "foto_albums", :id=> current_user.id
 		end
 	end
 
@@ -614,7 +635,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def display_foto
-		@album = AlbumFoto.find_by_title_and_user_id(params[:album_name], current_user.id)
+		@album = AlbumFoto.find_by_title_and_user_id(params[:album_name], params[:user_id])
 		unless @album.nil?  
 			@fotos = Foto.find_all_by_album_foto_id(@album.id)
 		end

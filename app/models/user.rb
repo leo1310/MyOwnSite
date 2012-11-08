@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
 
   has_many :messages, :order => 'created_at DESC', :dependent => :destroy
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "64x64>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300", :big_thumb=>"128x128", :thumb => "64x64", :very_little => "48x48" }
   has_one :contact, :dependent => :destroy
   has_one :interest, :dependent => :destroy
   

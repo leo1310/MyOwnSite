@@ -79,7 +79,7 @@ MyOwnSite::Application.routes.draw do
     #Foto
     match 'update_avatar', :to=> 'profiles#update_avatar'
     match 'avatar', :to=> 'profiles#foto_avatar'   
-    match 'albums', :to=> 'profiles#foto_albums'
+    match 'albums/:id' => 'profiles#foto_albums', :as=>'albums'
     match 'create_album', :to=> 'profiles#create_album'
     match 'add_foto', :to=> 'profiles#add_foto'
     match 'get_album_name', :to=> 'profiles#get_album_name'   
@@ -116,8 +116,8 @@ MyOwnSite::Application.routes.draw do
     match 'delete_friend_query_to', :to=> 'profiles#delete_friend_query_to'
     match 'add_friend', :to=> 'profiles#add_friend' 
 
-    match 'friends_online', :to=> 'profiles#friends_online' 
-    match 'friends_all', :to=> 'profiles#friends_all' 
+    match 'friends_online/:id', :to=> 'profiles#friends_online', :as=> 'friends_online'
+    match 'friends_all/:id', :to=> 'profiles#friends_all', :as=> 'friends_all'           
     match 'friends_query_to', :to=> 'profiles#friends_query_to' 
     match 'friends_query_in', :to=> 'profiles#friends_query_in' 
 

@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_my_page', :media => "all" %>
+<%= stylesheet_link_tag 'lightbox' %>
 <%= javascript_include_tag 'profile/my_page' %>
 <%= javascript_include_tag 'app' %>
+<%= javascript_include_tag 'lightbox' %>
 
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
@@ -55,6 +57,112 @@
 				        		</div>
 			        		</div>
 			        	<%end%>
+			        	<% unless @friends_count.eql?(0)%>
+				        	<div id="show_info_friends">
+				        		<div class='title_block'>
+				        			<%= link_to "Мої друзі", friends_all_path(@user.id)%>
+				        		</div>
+				        		<div class='count_block'>
+				        			 Всього друзів <%=@friends_count%>
+				        		</div>
+				        		<div class="main_menu_block">			        			
+				        			<table style="margin-left: 4px;">
+				        				<% @index_f = 0 %>
+					        			<%@friends.each do |friend|%>
+					        				<%if (@index_f % 5) == 0%>
+					        					<tr></tr>
+					        				<%end%>
+						        			<%@user_f = User.find(friend.friend)%>
+						        			<td class='image_width'>
+						        				<%= link_to image_tag(@user_f.avatar.url(:very_little), :title=>@user_f.name+" "+@user_f.last_name, :class=>"image_hover"), profile_path(@user_f)%>
+						        				<div class='notate_block'>
+							        				<span id="span_name"><%=@user_f.name%></span>
+							        				<p id="span_last_name"><%=@user_f.last_name%></p>
+						        				</div>					        				
+						        			</td>
+						        			<% @index_f += 1%>
+					        			<%end%>				        			
+				        			</table>
+				        		</div>			        		
+				        	</div>
+			        	<%end%>
+			        	<div id="show_info_friends_online">
+			        		<div class='title_block'>
+			        			<%= link_to "Мої друзі online", friends_online_path(@user.id)%>
+			        		</div>
+			        		<div class='count_block'>
+			        			 Друзів Online <span id="insert_her_count"></span>
+			        		</div>
+			        		<div class="main_menu_block">			        			
+			        			<table style="margin-left: 4px;">
+			        				<% @index_f = 0 %>
+				        			<%@friends.each do |friend|%>
+				        				<%if (@index_f % 5) == 0%>
+				        					<tr></tr>
+				        				<%end%>
+					        			<%@user_online = User.find(friend.friend)%>
+					        			<%unless @user_online.status_active.nil?%>
+					                        <%if (Time.now-@user_online.status_active) < 60%>
+					                            <%@active_second = true%>
+					                        <%else%>
+					                            <%@active_second = false%>
+					                        <%end%>
+					                    <%else%>
+					                        <%@active_second = false%>
+					                    <%end%>
+					        			<%if @user_online.count_time_logout < @user_online.sign_in_count and @active_second%>
+						        			<td class='image_width'>
+						        				<%= link_to image_tag(@user_online.avatar.url(:very_little), :title=>@user_online.name+" "+@user_online.last_name, :class=>"image_hover"), profile_path(@user_online)%>
+						        				<div class='notate_block'>
+							        				<span id="span_name"><%=@user_online.name%></span>
+							        				<p id="span_last_name"><%=@user_online.last_name%></p>
+						        				</div>					        				
+						        			</td>
+						        			<% @index_f += 1%>
+						        			<%@online_users += 1 %>
+						        		<%end%>
+				        			<%end%>				        			
+			        			</table>
+			        		</div>			        		
+			        	</div>
+			        	<input type="hidden" value=<%=@online_users %> id="online_users">			        	
+			        	<% unless @fotos_count.eql?(0)%>
+				        	<div id="show_info_fotos">
+				        		<div class='title_block'>
+				        			<%= link_to "Мої фото", albums_path(@user.id)%>
+				        		</div>
+				        		<div class='count_block'>
+				        			 Всього <%=@fotos_count%>
+				        		</div>
+				        		<div class="main_menu_block">
+				        			<div class="imageRow">
+										<div class="set">
+									    	<% @index = 1%>
+									    	<% unless @fotos_on_my_page.blank?%>
+										    	<%@fotos_on_my_page.each do |foto|%>		  	
+											  		<% if @index == 1%>
+												  	    <div class="single first">
+												  		  <%= link_to image_tag(foto.foto.url(:very_little), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+												  		</div>
+												  		<% @index += 1 %>
+													<%elsif @index.eql?(8)%>
+												        <div class="single last">
+												  		  <%= link_to image_tag(foto.foto.url(:very_little), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+												        </div>		     
+												        <% break %>   
+											        <%else%>
+												        <div class="single">
+												  		  <%= link_to image_tag(foto.foto.url(:very_little), :alt=>foto.foto_file_name), foto.foto.url(:medium), :rel=>"lightbox[plants]", :title=>foto.description%>
+												        </div>
+												        <% @index += 1 %>
+											        <%end%>		  			    
+											    <%end%>	
+											<%end%>	
+									    </div>
+									</div>
+				        		</div>
+				        	</div>
+				        <%end%>
 			        </td>			        
 			        <td style="vertical-align: top" >
 			        	<div class="profile_content">

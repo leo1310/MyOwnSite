@@ -12,12 +12,14 @@ $(document).ready( function (){
 	changeAlbum();
 	editAlbum();
 	editFoto();	
+	displayFoto();
 
-	$('.album_click').on('click',function(){
-		var title = $(this).attr('title');				
-		$('#many_fotos').remove();
-		$.ajax({ url: "/display_foto",   type: "GET", data: {album_name: title}});
+	$('#send_atachment').on('click',function(){
+		setTimeout(function(){
+            $('#send_atachment').attr('disabled','disabled');            
+        },300);
 	});
+	
 });
 	
 function hide_show_content(_subject, content, hide1, hide2, hide3)
@@ -83,7 +85,7 @@ function createAlbum(){
 function changeAlbum(){
   $("#foto_album_foto_id").change(function(){    
     var val = $("#foto_album_foto_id").find("option:selected").val();
-    console.log(val);
+ 
     if(val === 'Select Album'){
       $('#send_atachment').attr('disabled','disabled');
     }  
@@ -141,5 +143,14 @@ function editFoto(){
               	}
             });              
         }, 200);
+	});	
+}
+
+function displayFoto(){
+	$('.album_click').on('click',function(){
+		var title = $(this).attr('alt');
+		var user_id = $('.foto_info').find('input').attr('value');
+				
+		$.ajax({ url: "/display_foto",   type: "GET", data: {album_name: title, user_id: user_id}});
 	});	
 }

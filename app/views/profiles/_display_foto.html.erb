@@ -1,4 +1,8 @@
 <% unless @fotos.blank?%>
+<div id="album_description">
+	<h3><%=@album.title%></h3>
+	<p><%=@album.description%></p>
+</div>
     <div class="imageRow">
     	<div class="set">
 	    	<% @index = 1%>

@@ -121,6 +121,196 @@
 	background: #7B4ECE;
 	padding: 5px;
 	border-radius: 6px;
-
 }
 
+#show_info_friends, #show_info_friends_online, #show_info_fotos{
+	border: 1px solid #A6BACB;
+	margin-top: 5px;
+	height: 225px;	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	width: 300px;
+}
+
+.title_block{
+	background: #DFE7ED;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	height: 20px;
+	text-align: right;
+	padding-right: 10px;
+	font-family: "Times New Roman";
+	font-style: italic;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.count_block{
+	background: #F0E3F9;
+	height: 20px;
+	text-align: right;
+	padding-right: 10px;
+	font-family: "Times New Roman";	
+}
+
+.main_menu_block{
+	padding: 5px;
+}
+
+.image_hover{	
+	height: 48px;
+	width: 48px;
+}
+.image_hover:hover{
+	border: 2px solid #1D46DC;	
+}
+
+.image_width{
+	width: 54px;
+	height: 54px;
+	text-align: center;
+}
+
+#span_name{
+	text-align: center;
+	font-size: 11px;
+	width: 54px;
+}
+
+#span_last_name{
+	text-align: center;
+	font-size: 11px;
+	width: 54px;
+	margin-top: -8px;	
+}
+
+.notate_block{
+	text-align:center;
+	width: 54px;
+	color: #2C82FA;
+}
+
+
+
+
+/*----------------------------------------------foto style*/
+.imageRow {
+  *zoom: 1;
+  margin: 20px 0;
+  margin-left: 15px;
+  margin-right: 18px;
+}
+
+.imageRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.imageRow .single {
+  float: left;
+}
+
+.imageRow .single a {
+  float: left;
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  line-height: 1em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-right: 40px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.imageRow .single a img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 48px;
+  height: 48px;
+}
+/* line 335, ../sass/screen.sass */
+.imageRow .single a:hover {
+  background-color: #8ad459;
+}
+/* line 337, ../sass/screen.sass */
+.imageRow .set {
+  float: left;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.imageRow .set:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+/* line 346, ../sass/screen.sass */
+.imageRow .set .single a {
+  background: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin-right: 0;
+}
+/* line 351, ../sass/screen.sass */
+.imageRow .set .single a:hover {
+  background-color: #8ad459;
+  -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.imageRow .set .single.first a {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -ms-border-top-left-radius: 4px;
+  -o-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 358, ../sass/screen.sass */
+.imageRow .set .single.last a {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -ms-border-top-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}

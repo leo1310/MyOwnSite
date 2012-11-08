@@ -8,15 +8,15 @@
 	    <%end%>				
 
 	    <% if @tab_index_profile_friends_menu == 2 %>
-	    	<li class="active" ><%= link_to "Друзі Online", friends_online_path %></li>
+	    	<li class="active" ><%= link_to "Друзі Online", friends_online_path(current_user.id) %></li>
 	    <%else%>
-	    	<li ><%= link_to "Друзі Online", friends_online_path %></li>
+	    	<li ><%= link_to "Друзі Online", friends_online_path(current_user.id) %></li>
 	    <%end%>
 
 	    <% if @tab_index_profile_friends_menu == 3 %>
-	    	<li class="active" ><%= link_to "Усі Друзі", friends_all_path %></li>
+	    	<li class="active" ><%= link_to "Усі Друзі", friends_all_path(current_user.id) %></li>
 	    <%else%>
-	    	<li ><%= link_to "Усі Друзі", friends_all_path %></li>
+	    	<li ><%= link_to "Усі Друзі", friends_all_path(current_user.id) %></li>
 	    <%end%>
 
 	    <% if @tab_index_profile_friends_menu == 4 %>

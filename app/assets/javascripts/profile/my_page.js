@@ -5,7 +5,8 @@ $(document).ready( function (){
 	hide_show_content($('#table_interests'), $('#interests'));
 	hide_show_content($('#table_education'), $('#education'));
 	hide_show_content($('#table_career'), $('#career'));
-	
+
+	countFriendsOnline();
 });
 
 function hide_show_content(_table, id_click)
@@ -22,9 +23,7 @@ function hide_show_content(_table, id_click)
 			}
 			else if(val == 1){
 				$(id_click).find('span').css('display', 'none');						
-			}
-
-			
+			}			
 		}
 		else{			
 			$(_table).fadeOut(400,function(){$(_table).hide(); })
@@ -35,4 +34,13 @@ function hide_show_content(_table, id_click)
 			
 		}	
 	});
+}
+
+function countFriendsOnline(){
+	var count = $('#online_users').val();	
+	$('#insert_her_count').after(count);
+
+	if(count == 0){
+		$('#show_info_friends_online').remove();
+	}
 }

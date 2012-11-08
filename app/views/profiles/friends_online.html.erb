@@ -43,9 +43,11 @@
 	            			</td>
 	            			<td class="friend_options">
 	            				<%= link_to "Написати повідомлення", "#"%></br>
-	            				<%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>
-	            				<%= link_to "Переглянути друзів", "#"%></br>
-	            				<%= link_to "Додати до списку", "#"%>            				
+	            				<%= link_to "Переглянути друзів", friends_all_path(@user_f.id)%></br>
+	            				<%if current_user.id.eql?(@user.id)%>
+	            					<%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>
+	            					<%= link_to "Додати до списку", "#"%>            				
+	            				<%end%>
 	            			</td>
 	            			<%@online_users += 1 %>            			
 	            		</thead>

@@ -43,10 +43,10 @@ body{
 #foto_panel{
 	float: left;
 	/*border: 1px solid blue;*/
-	margin-top: 361px;
+	margin-top: 362px;
 	margin-left: -620px;
 	width: 618px;
-	height: 432px;
+	height: 420px;
 	overflow: auto;
 }
 
@@ -127,6 +127,8 @@ body{
 	height: 128px;
 	cursor: pointer;
 	background: white;
+	-moz-width: 128px;
+	-moz-height: 128px;
 }
 
 .foto_wraper{
@@ -234,6 +236,31 @@ body{
 	height: 128px;
 }
 
+.foto_info{
+	width: 300px;
+	margin-left: 10px;
+	font-size: 13px;
+	color: #0989F2;
+}
+
+.album_info{
+	background: #525354;
+	color: white;
+	height: 20px;
+	text-align: right;
+	margin-top: -20px;
+	opacity: 0.8;
+	padding-right: 5px;
+}
+
+#album_description h3{
+	text-align: center;
+}
+#album_description p{
+	margin-left: 10px;
+	padding: 5px;
+	width: 565px;
+}
 
 
 
@@ -242,7 +269,7 @@ body{
   *zoom: 1;
   margin: 20px 0;
   margin-left: 8px;
-  margin-right: 20px;
+  margin-right: 18px;
 }
 
 .imageRow:after {

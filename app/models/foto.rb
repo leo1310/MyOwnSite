@@ -6,6 +6,6 @@ class Foto < ActiveRecord::Base
 belongs_to :album_foto
 
 attr_accessible :foto
-has_attached_file :foto, :styles => { :medium => "600x600", :thumb => "128x128", :little => "64x64" }
+has_attached_file :foto, :styles => { :medium => "600x600", :thumb => "128x128", :little => "64x64", :very_little => "48x48" }
     
 end
