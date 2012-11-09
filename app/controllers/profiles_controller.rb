@@ -282,18 +282,20 @@ class ProfilesController < ApplicationController
 		@friends = Friend.find_all_by_user_id(@user.id)	
 
 		unless @friends.blank?
-			@friends_count = @friends.count
+			@friends_count = @friends.count			
 		else
 			@friends_count = 0
 		end
 
 		@online_users = 0
-		@fotos_count = 0
+		
+		@fotos_count = 0		
 		@albums = AlbumFoto.find_all_by_user_id(@user.id)
 		@albums.each do |album|
 			@fotos = Foto.find_all_by_album_foto_id(album.id)
 			@fotos_count += @fotos.count
 		end
+		
 		@album = @albums.last
 		unless @album.nil?
 			@fotos_on_my_page = Foto.find_all_by_album_foto_id(@album.id, :order=>'created_at DESC')

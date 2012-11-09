@@ -19,7 +19,11 @@
             	<tr>
             		<td style="vertical-align: top">
 			            <div class="avatar" >
-			            	<%= image_tag @user.avatar.url, :size => "300x360"%>
+			            	<%if @user.avatar_file_name.nil?%>
+			            		<%= image_tag "face_big.png", :size => "300x360"%>
+			            	<%else%>
+			               		<%= image_tag @user.avatar.url, :size => "300x360"%>
+			               	<%end%>			            	
 			        	</div>
 			        	<%if @user.id != current_user.id%>
 			        		<div id="friend_wrapr">
@@ -68,19 +72,28 @@
 				        		<div class="main_menu_block">			        			
 				        			<table style="margin-left: 4px;">
 				        				<% @index_f = 0 %>
+				        				<% @suma = 0 %>
 					        			<%@friends.each do |friend|%>
 					        				<%if (@index_f % 5) == 0%>
 					        					<tr></tr>
 					        				<%end%>
 						        			<%@user_f = User.find(friend.friend)%>
 						        			<td class='image_width'>
-						        				<%= link_to image_tag(@user_f.avatar.url(:very_little), :title=>@user_f.name+" "+@user_f.last_name, :class=>"image_hover"), profile_path(@user_f)%>
+						        				<%if @user_f.avatar_file_name.nil?%>
+						        					<%= link_to image_tag('face.png', :size=>'48x48', :title=>@user_f.name+" "+@user_f.last_name, :class=>"image_hover"), profile_path(@user_f)%>
+						        				<%else%>
+						        					<%= link_to image_tag(@user_f.avatar.url(:very_little), :title=>@user_f.name+" "+@user_f.last_name, :class=>"image_hover"), profile_path(@user_f)%>
+						        				<%end%>
 						        				<div class='notate_block'>
 							        				<span id="span_name"><%=@user_f.name%></span>
 							        				<p id="span_last_name"><%=@user_f.last_name%></p>
 						        				</div>					        				
 						        			</td>
 						        			<% @index_f += 1%>
+						        			<% @suma += 1 %>
+						        			<% if @suma.eql?(10)%>
+						        				<%break%>
+						        			<%end%>
 					        			<%end%>				        			
 				        			</table>
 				        		</div>			        		
@@ -96,6 +109,7 @@
 			        		<div class="main_menu_block">			        			
 			        			<table style="margin-left: 4px;">
 			        				<% @index_f = 0 %>
+			        				<% @suma = 0 %>
 				        			<%@friends.each do |friend|%>
 				        				<%if (@index_f % 5) == 0%>
 				        					<tr></tr>
@@ -112,7 +126,11 @@
 					                    <%end%>
 					        			<%if @user_online.count_time_logout < @user_online.sign_in_count and @active_second%>
 						        			<td class='image_width'>
-						        				<%= link_to image_tag(@user_online.avatar.url(:very_little), :title=>@user_online.name+" "+@user_online.last_name, :class=>"image_hover"), profile_path(@user_online)%>
+						        				<%if @user_online.avatar_file_name.nil?%>
+						        					<%= link_to image_tag('face.png', :size=>'48x48', :title=>@user_online.name+" "+@user_online.last_name, :class=>"image_hover"), profile_path(@user_online)%>
+						        				<%else%>
+						        					<%= link_to image_tag(@user_online.avatar.url(:very_little), :title=>@user_online.name+" "+@user_online.last_name, :class=>"image_hover"), profile_path(@user_online)%>
+						        				<%end%>
 						        				<div class='notate_block'>
 							        				<span id="span_name"><%=@user_online.name%></span>
 							        				<p id="span_last_name"><%=@user_online.last_name%></p>
@@ -120,6 +138,10 @@
 						        			</td>
 						        			<% @index_f += 1%>
 						        			<%@online_users += 1 %>
+						        			<% @suma += 1 %>
+						        			<% if @suma.eql?(10)%>
+						        				<%break%>
+						        			<%end%>
 						        		<%end%>
 				        			<%end%>				        			
 			        			</table>

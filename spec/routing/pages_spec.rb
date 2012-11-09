@@ -39,7 +39,7 @@ describe PagesController do
 		end
 
 		it "routes to #status_active" do
-			get("/pages/status_active").should route_to("pages#status_active")
+			get("/status_active").should route_to("pages#status_active")
 		end	
 	end
 end

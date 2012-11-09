@@ -39,7 +39,7 @@ Given /^I click on the send new message button$/ do
 end
 
 When /^I select on the country form row with name "(.*?)"$/ do |name|	
-  find('#country').find('option', :text => name).click
+  page.find('#country').find('option', :text => name).click
 end
 
 When /^I select on the capital form row with name "(.*?)"$/ do |name|	

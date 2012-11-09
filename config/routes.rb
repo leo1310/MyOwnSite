@@ -26,11 +26,7 @@ MyOwnSite::Application.routes.draw do
   match 'search' => 'pages#search'
   match 'additionalInf' => 'pages#additionalInf'  
 
-  resources :pages do
-    collection do
-      get 'status_active'
-    end
-  end
+  match 'status_active' => 'pages#status_active'    
 
   #Maps Controller  
   

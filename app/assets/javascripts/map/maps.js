@@ -27,7 +27,7 @@ $(document).ready( function (){
       name = $("#part_of_the_world_data").attr("data-name");                  
   initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  //initialize(-26.325, 391.140, 8, 'title');
+  //initialize(30.915, 353.110, 8, 'title');
   $("#country").find("option[value='empty']").attr("selected", "selected");
   $("#capital").find("option[value='empty']").attr("selected", "selected");
   $("#city").find("option[value='empty']").attr("selected", "selected");
@@ -39,6 +39,7 @@ $(document).ready( function (){
   $("#country").select2({ formatResult: format, formatSelection: format });
   $("#capital").select2();
   $("#city").select2();
+
 });
 
 function add_description_about_country(){
@@ -46,7 +47,7 @@ function add_description_about_country(){
     country_id = $(this).find("option:selected").attr("id");
     $("#capital").find("option").first().attr('selected',"true");
     $("#city").find("option").first().attr('selected',"true");
-    //.find("option").attr("value","empty");
+    
     if (country_id != 0){
       $.ajax({ url: "/about_country",   type: "GET", data: {id: country_id}});
       
@@ -135,8 +136,10 @@ function search(){
       $("#text_atention").remove(); 
       $("#around_warning").remove();       
       
-      /*var f = input_text.charAt(0).toUpperCase();
+      /*-----------------the first char Uppercase----------------------------
+      var f = input_text.charAt(0).toUpperCase();
       var str = f + input_text.substr(1, input_text.length-1);*/
+      
       var str = input_text.charAt(0).toUpperCase() + input_text.slice(1);            
       var result = $("#country").find("option[value='"+ str +"']");            
       if(result.length > 0){
@@ -148,7 +151,7 @@ function search(){
       }
       else{
         var result_capital = $("#capital").find("option[value='"+ str +"']");
-        //console.log(result_capital);
+        
         if(result_capital.length > 0){
           $("#country").find("option[value='empty']").attr("selected", "selected").trigger('change');          
           $("#city").find("option[value='empty']").attr("selected", "selected").trigger('change');   

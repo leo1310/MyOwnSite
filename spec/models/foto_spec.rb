@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-describe Foto do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Foto, "model tests" do
+  
+  it { should belong_to :album_foto }
+  it { should validate_presence_of :foto }
 end

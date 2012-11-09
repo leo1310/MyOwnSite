@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :name, :last_name, :phone, :nik_name, :presence => true  
   validates :phone, :numericality => true
   validates :nik_name, :email, :uniqueness => true
+  validates :phone, :length => {:within => 10..15}
   
 
   has_many :messages, :order => 'created_at DESC', :dependent => :destroy
@@ -35,5 +36,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :careers, :allow_destroy => true
 
   has_many :friends, :dependent => :destroy
+  has_many :album_fotos, :dependent => :destroy
   
 end

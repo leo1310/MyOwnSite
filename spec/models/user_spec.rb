@@ -27,6 +27,7 @@ fixtures :users
   it { should have_many :trainings }
   it { should have_many :careers }
   it { should have_many :friends }
+  it { should have_many :album_fotos }
 
 
   it "should be valid" do

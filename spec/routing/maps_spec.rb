@@ -33,5 +33,9 @@ describe MapsController do
 		it "routes to #add_description_city" do
 			get("/world_cities").should route_to("maps#add_description_city")
 		end
+
+		it "routes to #download_hymn" do
+			get("/download_hymn/2").should route_to("maps#download_hymn", :id=>'2')
+		end
 	end
 end
