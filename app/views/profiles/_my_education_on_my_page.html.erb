@@ -1,6 +1,6 @@
 <div class="sub" id="education">
 	Моя освіта:
-	<%if not @higher_educations.blank? or not @secondary_educations.blank? or not @courses.blank? or not @trainings.blank?%>         
+	<%if not @higher_educations.blank? or not @secondary_educations.blank? or not @courses.blank? or not @trainings.blank?%>        
         <span value="1">Детальна інформація...</span>
     <%else%>
         <span value="0">Інформація відсутня</span>
@@ -8,160 +8,170 @@
 </div>
 <table id="table_education">	
 	<%unless @higher_educations.nil?%>
-		<% @higher_educations.each do |h_school|%>
-			<%if not h_school.high_school.blank?%>
+		<% @higher_educations.each do |h_school|%>			
+			<tr>
+				<td class="school">
+					<div class="title_education">
+						ВНЗ:
+					</div>
+				</td>
+				<td>
+					<div class="title_describe_education">							
+						<%if not h_school.high_school.blank?%>
+							<%=h_school.high_school%>
+						<%else%>
+							<span class="empty_result">Не вказано</span>
+						<%end%>
+						</br>							
+						<%if not h_school.town.blank?%>
+							<%=h_school.town%>,							
+						<%end%>
+						<%if not h_school.start_year.blank? and not h_school.end_year.blank?%>
+							<%=h_school.start_year.strftime("%Y")%> - <%=h_school.end_year.strftime("%Y")%>
+							</br>
+						<%end%>																
+						<%if not h_school.status.blank?%>
+							<%=h_school.status%>							
+						<%end%>						
+					</div>							
+				</td>				
+			</tr>			
+			<%if not h_school.faculty.blank?%>
 				<tr>
-					<td class="school">
+					<td  class="school">
 						<div class="title_education">
-							ВНЗ:
+							Факультет:
 						</div>
 					</td>
 					<td>
 						<div class="title_describe_education">							
-							<%=h_school.high_school%>
-							</br>							
-							<%if not h_school.town.blank?%>
-								<%=h_school.town%>,							
-							<%end%>
-							<%if not h_school.start_year.blank? and not h_school.end_year.blank?%>
-								<%=h_school.start_year.strftime("%Y")%> - <%=h_school.end_year.strftime("%Y")%>
-								</br>
-							<%end%>																
-							<%if not h_school.status.blank?%>
-								<%=h_school.status%>							
-							<%end%>						
+							<%=h_school.faculty%>														
 						</div>							
-					</td>				
-				</tr>			
-				<%if not h_school.faculty.blank?%>
-					<tr>
-						<td  class="school">
-							<div class="title_education">
-								Факультет:
-							</div>
-						</td>
-						<td>
-							<div class="title_describe_education">							
-								<%=h_school.faculty%>														
-							</div>							
-						</td>
-					</tr>
-				<%end%>
-				<%if not h_school.department.blank?%>
-					<tr>
-						<td  class="school">
-							<div class="title_education">
-								Кафедра:
-							</div>
-						</td>
-						<td>
-							<div class="title_describe_education">					
-								<%=h_school.department%>							
-							</div>							
-						</td>
-					</tr>		
-				<%end%>
+					</td>
+				</tr>
 			<%end%>
+			<%if not h_school.department.blank?%>
+				<tr>
+					<td  class="school">
+						<div class="title_education">
+							Кафедра:
+						</div>
+					</td>
+					<td>
+						<div class="title_describe_education">					
+							<%=h_school.department%>							
+						</div>							
+					</td>
+				</tr>		
+			<%end%>			
 		<%end%>
 	<%end%>
 	<%unless @secondary_educations.nil?%>
-		<% @secondary_educations.each do |school|%>
-			<%if not school.school.blank?%>
-				<tr>
-					<td class="school">
-						<div class="title_education">
-							Школа:
-						</div>
-					</td>
-					<td>
-						<div class="title_describe_education">							
+		<% @secondary_educations.each do |school|%>			
+			<tr>				
+				<td class="school">
+					<div class="title_education">
+						Школа:
+					</div>
+				</td>
+				<td>
+					<div class="title_describe_education">
+						<%if not school.school.blank?%>
 							<%=school.school%>
-							</br>									
-							<%if not school.town.blank?%>
-								<%=school.town%>,							
-							<%end%>
-							<%if not school.start_year.blank? and not school.end_year.blank?%>
-									<%=school.start_year.strftime("%Y")%> - <%=school.end_year.strftime("%Y")%>
-									</br>	
-							<%end%>							
-							<%if not school.specialization.blank?%>
-								<%=school.specialization%>
-							<%end%>
-						</div>
-					</td>				
-				</tr>
-			<%end%>				
+						<%else%>
+							<span class="empty_result">Не вказано</span>
+						<%end%>	
+						</br>									
+						<%if not school.town.blank?%>
+							<%=school.town%>,							
+						<%end%>
+						<%if not school.start_year.blank? and not school.end_year.blank?%>
+								<%=school.start_year.strftime("%Y")%> - <%=school.end_year.strftime("%Y")%>
+								</br>	
+						<%end%>							
+						<%if not school.specialization.blank?%>
+							<%=school.specialization%>
+						<%end%>
+					</div>
+				</td>							
+			</tr>						
 		<%end%>
 	<%end%>
 	<%unless @courses.nil?%>
-		<% @courses.each do |course|%>
-			<%if not course.name_course.blank?%>
-				<tr>
-					<td class="school">
-						<div class="title_education">
-							Курс:
-						</div>
-					</td>
-					<td>
-						<div class="title_describe_education">
+		<% @courses.each do |course|%>			
+			<tr>
+				<td class="school">
+					<div class="title_education">
+						Курс:
+					</div>
+				</td>
+				<td>
+					<div class="title_describe_education">
+						<%if not course.name_course.blank?%>
 							<%=course.name_course%>
-							</br>								
-							<%if not course.town.blank?%>
-								<%=course.town%>,							
-							<%end%>
-							<%if not course.year.blank? and not course.year_end.blank?%>
-									<%=course.year.strftime("%Y")%> - <%=course.year_end.strftime("%Y")%>
-									</br>	
-							<%end%>																		
-						</div>
-					</td>
-				</tr>			
-				<%if not course.name_institution.blank?%>						
-					<tr>
-						<td class="school">
-							<div class="title_education">
-								Організація:
-							</div>
-						</td>
-						<td>
-							<div class="title_describe_education">							
-								<%=course.name_institution%>
-								</br>																								
-							</div>
-						</td>
-					</tr>
-				<%end%>						
-			<%end%>	
+						<%else%>
+							<span class="empty_result">Не вказано</span>
+						<%end%>
+						</br>								
+						<%if not course.town.blank?%>
+							<%=course.town%>,							
+						<%end%>
+						<%if not course.year.blank? and not course.year_end.blank?%>
+								<%=course.year.strftime("%Y")%> - <%=course.year_end.strftime("%Y")%>
+								</br>	
+						<%end%>																		
+					</div>
+				</td>
+			</tr>							
+			<tr>
+				<td class="school">
+					<div class="title_education">
+						Організація:
+					</div>
+				</td>
+				<td>
+					<div class="title_describe_education">							
+						<%if not course.name_institution.blank?%>						
+							<%=course.name_institution%>
+						<%else%>
+							<span class="empty_result">Не вказано</span>
+						<%end%>						
+						</br>
+					</div>
+				</td>
+			</tr>			
 		<%end%>
 	<%end%>
 	<%unless @trainings.nil?%>
-		<% @trainings.each do |training|%>
-			<%if not training.name_training.blank?%>
-				<tr>
-					<td class="school">
-						<div class="title_education">
-							Тренінг:
-						</div>
-					</td>				
-					<td>
-						<div class="title_describe_education">
+		<% @trainings.each do |training|%>			
+			<tr>
+				<td class="school">
+					<div class="title_education">
+						Тренінг:
+					</div>
+				</td>				
+				<td>
+					<div class="title_describe_education">
+						<%if not training.name_training.blank?%>
 							<%=training.name_training%>
-							</br>							
-							<%if not training.name_institution.blank?%>
-								<%=training.name_institution%>
-								</br>	
-							<%end%>
-							<%if not training.town.blank?%>
-								<%=training.town%>,							
-							<%end%>
-							<%if not training.year.blank?%>
-								<%=training.year.strftime("%Y")%>
-								</br>
-							<%end%>			
-						</div>
-					</td>
-				</tr>
-			<%end%>
+						<%else%>
+							<span class="empty_result">Не вказано</span>
+						<%end%>
+						</br>							
+						<%if not training.name_institution.blank?%>
+							<%=training.name_institution%>
+							</br>	
+						<%end%>
+						<%if not training.town.blank?%>
+							<%=training.town%>,							
+						<%end%>
+						<%if not training.year.blank?%>
+							<%=training.year.strftime("%Y")%>
+							</br>
+						<%end%>			
+					</div>
+				</td>
+			</tr>			
 		<%end%>
 	<%end%>
 </table>

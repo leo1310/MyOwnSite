@@ -1,0 +1,21 @@
+#table_user > thead td{
+	text-align: center;
+	font-size: 16px;
+	padding: 8px;
+	font-style: italic;
+	cursor: auto;
+}
+
+#table_user{
+	border: 2px solid black;
+}
+
+#table_user tbody td{
+	text-align: center;
+	padding: 10px;
+	font-size: 14px;
+	border-bottom: 1px solid #CDCECB;
+}
+#users{
+	background: #D2E7FC;
+}

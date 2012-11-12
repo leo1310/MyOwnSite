@@ -50,5 +50,39 @@ class Admin::AddPlacesController < ApplicationController
 			flash[:error] = "There was a problem delete National Hymn one of the country"
 			redirect_to :controller => 'admin/add_places', :action => "add_hymn"
 		end
+	end	
+
+	def add_word_spam
+		@tab_index_menu = 4
+		@tab_content_index = 2
+
+		@spam_words = SpamWord.all
+	end
+
+	def add_word
+		if not params[:spam_word][:word].nil? and not params[:spam_word][:word].eql?('')
+			@spam_word = SpamWord.create(params[:spam_word])
+			if @spam_word.save
+				flash[:success] = "The word was added"
+				redirect_to :controller => 'admin/add_places', :action => "add_word_spam"
+			else
+				flash[:error] = "There was a problem add word to Data Base"
+				redirect_to :controller => 'admin/add_places', :action => "add_word_spam"
+			end
+		else
+			flash[:error] = "There was a problem add word to Data Base"
+			redirect_to :controller => 'admin/add_places', :action => "add_word_spam"
+		end
+	end
+
+	def delete_word
+		@word = SpamWord.find(params[:id])
+		if @word.destroy
+			flash[:success] = "The word was deleted"
+			redirect_to :controller => 'admin/add_places', :action => "add_word_spam"
+		else
+			flash[:error] = "There was a problem delete word from Data Base"
+			redirect_to :controller => 'admin/add_places', :action => "add_word_spam"
+		end
 	end
 end

@@ -8,8 +8,12 @@
 							<% unless @admins.empty?%>
 								<% @counter = 0 %>
 								<% @admins.each do |admin|%>
-									<%if admin.nik_name.eql?(message.who_send_mail)%>										
-										<%= image_tag admin.avatar.url, :size => "64x64", :title=>admin.nik_name%>										
+									<%if admin.nik_name.eql?(message.who_send_mail)%>
+										<%if admin.avatar_file_name.nil?%>									
+											<%= image_tag "face_big.png", :size => "64x64", :title=>admin.nik_name%>
+										<%else%>
+											<%= image_tag admin.avatar.url, :size => "64x64", :title=>admin.nik_name%>
+										<%end%>
 										<% @counter = 0 %>
 										<%break%>
 									<%else%>
@@ -25,7 +29,11 @@
 						<%else%>													
 							<%@user_avatar = User.find(message.user_id)%>
 							<a href="profiles/<%=message.user_id.to_s%>">
-								<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_send_mail%>
+								<%if @user_avatar.avatar_file_name.nil?%>
+									<%= image_tag "face_big.png", :size => "64x64", :title=>message.who_send_mail%>
+								<%else%>
+									<%= image_tag @user_avatar.avatar.url, :size => "64x64", :title=>message.who_send_mail%>
+								<%end%>
 							</a>							
 					        <%unless @user_avatar.status_active.nil?%>
 								<%if (Time.now-@user_avatar.status_active) < 60%>
@@ -79,7 +87,7 @@
 							<%= @user_title.name+" "+@user_title.last_name %>
 						</div>
 						<%end%>					
-						<%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
+						<%= message.created_at.utc.getlocal.strftime('%d %B, %Y @ %H:%M') %>
 					</div>
 				</td>
 				<td style="width: 300px">

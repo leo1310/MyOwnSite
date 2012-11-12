@@ -33,4 +33,37 @@ module ProfilesHelper
 
 		return array_randome_friends
 	end
+	
+	#----------	Checking On Spam -----------------------	
+	def check_message_on_spam(user)
+
+		@spams = SpamWord.all
+
+		@checking_messages = Message.find_all_by_who_get_mail_and_spam(user.nik_name, nil)
+		@checking_messages.each do |message|
+			unless message.subject.nil?				
+				@spams.each do |spam|				
+					if message.subject.downcase.include? spam.word
+						message.spam = 1
+						message.save
+						break
+					end					
+				end				
+			end
+
+			if not message.description.nil? and not message.spam == 1
+				@spams.each do |spam|				
+					if message.description.downcase.include? spam.word
+						message.spam = 1
+						message.save
+						break
+					end
+				end
+				if message.spam.nil?			
+					message.spam = 0
+					message.save
+				end
+			end
+		end
+	end
 end

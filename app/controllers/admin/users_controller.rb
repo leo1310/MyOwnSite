@@ -3,5 +3,7 @@ class Admin::UsersController < ApplicationController
 	
 	def index
 		@tab_index_menu = 2
+
+		@users = User.all
 	end
 end

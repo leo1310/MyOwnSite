@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag 'admin/add_places/content', :media => "all" %>
+<!--<%= javascript_include_tag 'admin/add_places/add_content' %>-->
+<%= render 'layouts/admin'%>
+<%= render 'content'%>
+
+<h1>Спам Фільтр</h1>
+<div id="add_word">
+	<h6>Введіть слово, яке ви бажаєте додати:</h6>
+	<%= form_for SpamWord.new, :url => {:controller=>"admin/add_places", :action => "add_word"} do |f|  %> 	    
+	    <div >     
+	       <%= f.text_field :word%>
+	    </div> 
+	    <%= f.submit "Додати слово"%> 
+	<%end%>
+</div>
+<div id="edit_word">
+	<h6>Управління спам фільтром:</h6>
+	<div id="edit_word_table">
+		<table id='database_spam'>
+			<thead>
+				<td style="width: 176px">
+					Слово
+				</td>
+				<td style="width: 70px">
+					Додано
+				</td>
+				<td>
+					Видалити			
+				</td>
+			</thead>
+			<% @spam_words.each do |word|%>
+			<tr>
+				<td>
+					<%= word.word %>
+				</td>
+				<td>
+					<% unless word.created_at.nil?%>
+						<%= word.created_at.utc.getlocal.strftime('%e/%m/%Y о %H:%M')%>
+					<%end%>
+				</td>
+				<td>				
+					<%= link_to 'Видалити', url_for(:controller => "admin/add_places", :action => "delete_word", :id => word.id)%>
+				</td>
+			</tr>
+			<%end%>
+		</table>
+	<div>
+</div>

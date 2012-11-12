@@ -30,17 +30,17 @@
             <li><%= link_to "Друзі", friends_query_in_path, "data-toggle"=>"tab" %></li>
         <%end%>
     <%end%>
-    
+
     <% if @tab_index_profile_menu == 5%>            
-        <% if @new_message > 0%>
+        <% if @new_message > 0%>        
             <li class="active"><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
-        <%else%>            
+        <%else%>        
             <li class="active"><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
         <%end%>
     <%else%>
-        <% if @new_message > 0%>
+        <% if @new_message > 0%>        
             <li><%= link_to "Повідомлення  +" + @new_message.to_s, messages_inbox_path, "data-toggle"=>"tab" %></li>
-        <%else%>            
+        <%else%>        
             <li><%= link_to "Повідомлення", messages_inbox_path, "data-toggle"=>"tab" %></li>
         <%end%>
     <%end%>

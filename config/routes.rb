@@ -151,7 +151,10 @@ MyOwnSite::Application.routes.draw do
       member do
         get 'add_hymn'
         post 'attachment_data'
-        get 'delete_hymn'        
+        get 'delete_hymn'
+        get 'add_word_spam'
+        post 'add_word'
+        get 'delete_word'
       end
     end    
     match 'download_hymn/:id' => 'add_places#download_hymn'        

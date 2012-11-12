@@ -16,7 +16,7 @@
                         <%= f.fields_for :courses do |с_education| %>
                             <%= render 'course_fields', :f=>с_education %>                                 
                         <%end%> 
-                        <div class="links" style="width: 85px; margin-left: 245px">                 
+                        <div class="links" style="width: 86px; margin-left: 245px">                 
                             <%= link_to_add_association "Додати Курс", f, :courses, :partial =>"course_fields"  %>       
                         </div>    
                         <%= f.submit "Зберегти"%>

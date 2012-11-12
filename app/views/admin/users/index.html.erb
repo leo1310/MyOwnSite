@@ -1,2 +1,99 @@
+<%= stylesheet_link_tag 'admin/users/users' %>
 <%= render 'layouts/admin'%>
-<h1>Users</h1>
+<h1>Усі зареєстровані користувачі</h1>
+<div id="users">
+	<table id='table_user'>
+		<thead>
+			<td>
+				Аватар				
+			</td>
+			<td>
+				Ім'я
+			</td>
+			<td>
+				Прізвище
+			</td>
+			<td>
+				по-Батькові
+			</td>
+			<td>
+				Nik_name
+			</td>
+			<td>
+				E-mail
+			</td>
+			<td>
+				Останній логін
+			</td>
+			<td>
+				Останнє ІР
+			</td>
+			<td>
+				Телефон
+			</td>
+			<td>
+				Дата Народження
+			</td>
+			<td>
+				Стать
+			</td>
+			<td>
+				Рідне місто
+			</td>
+			<td>
+				Сімейне положення
+			</td>
+			<td>
+				В останнє на сайті
+			</td>
+		</thead>
+		<tbody>
+		<% @users.each do |user|%>
+			<tr>
+				<td>
+					<%= image_tag user.avatar.url, :size=>'64x64'%>
+				</td>
+				<td>
+					<%= user.name%>
+				</td>
+				<td>
+					<%= user.last_name%>
+				</td>
+				<td>
+					<%= user.surname%>
+				</td>
+				<td>
+					<%= user.nik_name%>
+				</td>
+				<td>
+					<%= user.email%>
+				</td>
+				<td>
+					<%= user.current_sign_in_at.utc.getlocal.strftime('%d/%m/%Y o %H:%M')%>
+				</td>
+				<td>
+					<%= user.current_sign_in_ip%>
+				</td>
+				<td>
+					<%= user.phone%>
+				</td>
+				<td>
+					<%= user.birthday%>
+				</td>
+				<td>
+					<%= user.stat%>
+				</td>
+				<td>
+					<%= user.native_town%>					
+				</td>
+				<td>
+					<%= user.marital_status%>
+				</td>
+				<td>
+					<%= user.status_active.utc.getlocal.strftime('%d/%B/%Y o %H:%M')%>
+				</td>
+			</tr>
+		<%end%>
+	</tbody>
+	</table>
+</div>

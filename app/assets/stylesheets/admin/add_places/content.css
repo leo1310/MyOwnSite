@@ -45,3 +45,62 @@
 	padding: 1px 10px 1px 15px;
 	border: 2px solid red;
 }
+
+#add_word{
+	background: #5CB9F2;
+	border: 2px solid blue;
+	border-radius: 5px;
+	padding: 3px;
+	padding-left: 10px;
+	width: 250px;	
+}
+
+#edit_word{
+	background: #789F13;
+	border-radius: 5px;
+	border: 2px solid green;
+	width: 400px;
+	margin-left: 275px;
+	margin-top: -141px;
+	padding: 10px;
+}
+
+#database_spam{
+	width: 390px;
+	border: 2px solid #076BCF;
+	margin: auto;
+}
+
+#database_spam > thead td{
+	padding: 10px;
+	text-align: center;
+	font-style: italic;
+	font-family: "Times New Roman";
+	font-size: 18px;
+	cursor: auto;
+}
+
+#database_spam > tbody td{
+	padding: 10px;
+	text-align: center;
+	font-family: "Times New Roman";
+	font-size: 16px;
+	border-bottom: 1px solid #CDCECB;
+}
+
+#database_spam > tbody td a{
+	color: red;
+	font-style: italic;
+	font-size: 16px;	
+}
+
+#database_spam > tbody td a:hover{
+	text-decoration: underline;
+	color: #12ECF7;
+}
+
+#edit_word_table{
+	overflow-y: auto;
+	height: 350px;
+	width: 406px;
+}

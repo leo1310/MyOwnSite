@@ -279,7 +279,7 @@ class ProfilesController < ApplicationController
 		@careers = @user.careers
 		@friend = Friend.find_by_user_id_and_friend(current_user.id, @user.id)
 		@friend_two = Friend.find_by_user_id_and_friend(@user.id, current_user.id)
-		@friends = Friend.find_all_by_user_id(@user.id)	
+		@friends = Friend.find_all_by_user_id(@user.id, :order=>'created_at DESC')	
 
 		unless @friends.blank?
 			@friends_count = @friends.count			
@@ -300,6 +300,7 @@ class ProfilesController < ApplicationController
 		unless @album.nil?
 			@fotos_on_my_page = Foto.find_all_by_album_foto_id(@album.id, :order=>'created_at DESC')
 		end
+
 	end
 
 	# ----------------------Friends actions-------------------------------------
@@ -406,38 +407,7 @@ class ProfilesController < ApplicationController
 	def messages_inbox
 		@tab_index_profile_message_menu = 1
 		@tab_index_profile_menu = 5
-		@user = User.find(current_user.id)
-
-		#----------	Checking On Spam -----------------------
-		@spams = SpamWord.all
-
-		@checking_messages = Message.find_all_by_who_get_mail_and_spam(@user.nik_name, nil)
-		@checking_messages.each do |message|
-			unless message.subject.nil?				
-				@spams.each do |spam|				
-					if message.subject.downcase.include? spam.word
-						message.spam = 1
-						message.save
-						break
-					end					
-				end				
-			end
-
-			if not message.description.nil? and not message.spam == 1
-				@spams.each do |spam|				
-					if message.description.downcase.include? spam.word
-						message.spam = 1
-						message.save
-						break
-					end
-				end
-				if message.spam.nil?			
-					message.spam = 0
-					message.save
-				end
-			end
-		end
-
+		@user = User.find(current_user.id)		
 
 		@admins = Admin.all		
 		
@@ -648,12 +618,14 @@ class ProfilesController < ApplicationController
 		@tab_index_main_menu = 2		
 
 		@user = User.find(current_user.id)
-		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 0)		
+		check_message_on_spam(@user)
+		
+		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 0)
 		@new_message = @messages_count.count
-		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 1)		
-		@new_message_spam = @messages_count.count
+		@messages_count_spam = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 1)		
+		@new_message_spam = @messages_count_spam.count
 		
 		@friends = Friend.find_all_by_friend_and_query_to_friends(@user.id, 0)
-		@new_query_to_friends = @friends.count		
+		@new_query_to_friends = @friends.count
 	end
 end

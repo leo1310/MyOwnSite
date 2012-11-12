@@ -16,7 +16,7 @@
                         <%= f.fields_for :higher_educations do |h_education| %>
                             <%= render 'higher_education_fields', :f=>h_education %>                                 
                         <%end%> 
-                        <div class="links" style="width: 230px; margin-left: 180px">                 
+                        <div class="links" style="width: 233px; margin-left: 180px">                 
                             <%= link_to_add_association "Додати Вищий Навчальний Заклад", f, :higher_educations, :partial =>"higher_education_fields"  %>       
                         </div>    
                         <%= f.submit "Зберегти"%>
