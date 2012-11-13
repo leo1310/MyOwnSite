@@ -8,6 +8,7 @@
 
 #table_user{
 	border: 2px solid black;
+	width: 1500px;
 }
 
 #table_user tbody td{
@@ -18,4 +19,68 @@
 }
 #users{
 	background: #D2E7FC;
+	width: 1500px;
+}
+
+#form_search{
+	background: #D2FCE9;
+	border: 2px solid #0B8D2B;
+	border-radius: 3px;
+	width: 440px;
+	padding: 5px;
+	margin-top: -8px;	
+	height: 25px;
+	margin-bottom: 5px;
+}
+
+#form_search #search_user{
+	margin-left: 370px;
+	margin-top: -64px;
+	height: 25
+}
+
+#form_search #search_field{
+	width: 330px;
+	height: 15px;
+}
+
+.message_search{
+	width: 400px;
+	margin-left: 30px;
+	color: #AB2B17;
+}
+
+#form_search_last_status{
+	background: #D2FCE9;
+	border: 2px solid #0B8D2B;
+	border-radius: 3px;
+	width: 440px;
+	padding: 5px;
+	margin-top: -44px;
+	height: 25px;
+	margin-bottom: 5px;
+	margin-left: 460px;
+}
+
+#form_search_last_status #search_user_timerange{
+	margin-left: 370px;
+	margin-top: -64px;
+	height: 25
+}
+
+#form_search_last_status #timerange_from, #timerange_to{
+	height: 15px;
+	width: 156px
+}
+#search_details_head{
+	background: #D2FCE9;
+	border: 2px solid #0B8D2B;
+	border-radius: 3px;
+	width: 440px;
+	padding-left: 5px;
+	cursor: pointer;	
+}
+
+#search_details_body{
+	cursor: auto;
 }

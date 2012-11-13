@@ -1,0 +1,40 @@
+<% if @message.nil?%>
+	<div class='message_search'>
+		<h5>Знайдено записів: <%= @users.count%></h5>
+	</div>
+<%elsif @message.eql?(1)%>
+	<div class='message_search'>
+		<%if @asociation > 0%>
+			<%if @asociation.eql?(11)%>
+				<% @str = "Ім'я"%>
+			<%elsif @asociation.eql?(1)%>
+				<% @str = "Прізвище"%>
+			<%elsif @asociation.eql?(2)%>
+				<% @str = "по-Батькові"%>
+			<%elsif @asociation.eql?(3)%>
+				<% @str = "Нік-нейм"%>
+			<%elsif @asociation.eql?(4)%>
+				<% @str = "Стать"%>
+			<%elsif @asociation.eql?(5)%>
+				<% @str = "Рідне місто"%>
+			<%elsif @asociation.eql?(6)%>
+				<% @str = "E-mail"%>
+			<%elsif @asociation.eql?(7)%>
+				<% @str = "Сімейний стан"%>
+			<%elsif @asociation.eql?(8)%>
+				<% @str = "IP-Адреса"%>
+			<%elsif @asociation.eql?(9)%>
+				<% @str = "Телефон"%>
+			<%elsif @asociation.eql?(10)%>
+				<% @str = "Дата народження"%>				
+			<%end%>
+			<h5>Знайдено співпадінь: <%= @users.count %> ( поле: <%= @str %> )</h5>
+		<%else%>
+			<h5>Не знайдено жодного співпадіння. Спробуйте ввести інші дані</h5>
+		<%end%>
+	</div>
+<%elsif @message.eql?(2)%>
+	<div class='message_search'>
+		<h5>Знайдено записів: <%= @users.count %></h5>
+	</div>
+<%end%>

@@ -124,8 +124,10 @@ MyOwnSite::Application.routes.draw do
   namespace :admin do
     match '/' => 'dashboard#index', :as => 'root'
 
-    resources :users do
-      member do        
+    resource :users do
+      member do
+      post 'show_user_info'
+      get 'show_user_info'        
       end
     end    
 

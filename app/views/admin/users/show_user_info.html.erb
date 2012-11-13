@@ -1,0 +1,127 @@
+<%= stylesheet_link_tag 'admin/users/users' %>
+<%= stylesheet_link_tag 'jquery-ui-1.9.1.custom.min' %>
+<%= javascript_include_tag 'admin/users/users' %>
+<%= javascript_include_tag 'jquery-ui-1.9.1.custom' %>
+
+<%= render 'layouts/admin'%>
+<h1>Усі зареєстровані користувачі</h1>
+<div id='form_search'>
+	<%= form_for :find, :url => {:controller=>"admin/users", :action => "show_user_info"} do |f|  %> 	    
+	    <div >     
+	       <%= f.text_field :word_search, :id=>'search_field', :placeholder=>"Введіть для пошуку (наприклад: Ім'я чи телефон)"%>
+	    </div> 
+	    <%= f.submit "Шукати", :id=>'search_user'%> 
+	<%end%>
+</div>
+<div id='form_search_last_status'>
+	<%= form_for :timerange, :url => {:controller=>"admin/users", :action => "show_user_info"} do |f|  %> 	    
+	    <div >     
+	       <%= f.text_field :from, :id=>'timerange_from', :value => @from%>
+	       <%= f.text_field :to, :id=>'timerange_to', :value => @to%>
+	    </div> 
+	    <%= f.submit "Шукати", :id=>'search_user_timerange'%> 
+	<%end%>
+</div>
+<div id='search_details_head'>
+	<h5>Для детального пошуку натисніть:</h5>
+	<div id='search_details_body'>
+		go search
+	</div>
+</div>
+<%= render 'message_search'%>
+<div id="users">
+	<table id='table_user'>
+		<thead>
+			<td>
+				Аватар				
+			</td>
+			<td>
+				Ім'я
+			</td>
+			<td>
+				Прізвище
+			</td>
+			<td>
+				по-Батькові
+			</td>
+			<td>
+				Nik_name
+			</td>
+			<td>
+				E-mail
+			</td>
+			<td>
+				Останній логін
+			</td>
+			<td>
+				Останнє ІР
+			</td>
+			<td>
+				Телефон
+			</td>
+			<td>
+				Дата Народження
+			</td>
+			<td>
+				Стать
+			</td>
+			<td>
+				Рідне місто
+			</td>
+			<td>
+				Сімейне положення
+			</td>
+			<td>
+				В останнє на сайті
+			</td>
+		</thead>
+		<tbody>
+		<% @users.each do |user|%>
+			<tr>
+				<td>
+					<%= image_tag user.avatar.url, :size=>'64x64'%>
+				</td>
+				<td>
+					<%= user.name%>
+				</td>
+				<td>
+					<%= user.last_name%>
+				</td>
+				<td>
+					<%= user.surname%>
+				</td>
+				<td>
+					<%= user.nik_name%>
+				</td>
+				<td>
+					<%= user.email%>
+				</td>
+				<td>
+					<%= user.current_sign_in_at.utc.getlocal.strftime('%d/%m/%Y o %H:%M')%>
+				</td>
+				<td>
+					<%= user.current_sign_in_ip%>
+				</td>
+				<td>
+					<%= user.phone%>
+				</td>
+				<td>
+					<%= user.birthday%>
+				</td>
+				<td>
+					<%= user.stat%>
+				</td>
+				<td>
+					<%= user.native_town%>					
+				</td>
+				<td>
+					<%= user.marital_status%>
+				</td>
+				<td>
+					<%= user.status_active.utc.getlocal.strftime('%d/%m/%Y o %H:%M')%>
+				</td>
+			</tr>
+		<%end%>
+	</tbody>
+	</table>
+</div>

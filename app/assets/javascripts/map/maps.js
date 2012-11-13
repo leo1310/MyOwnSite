@@ -21,13 +21,13 @@ $(document).ready( function (){
   add_description_about_country();  
   add_description_about_capital();
   add_description_about_city();
-  /*var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
+  var zoom = parseInt($("#part_of_the_world_data").attr("data-zoom")),
       X_coordinat = $("#part_of_the_world_data").attr("data-coordinateX"),
       Y_coordinat = $("#part_of_the_world_data").attr("data-coordinateY"),
       name = $("#part_of_the_world_data").attr("data-name");                  
-  initialize(Y_coordinat, X_coordinat, zoom, name);*/
+  initialize(Y_coordinat, X_coordinat, zoom, name);
   
-  initialize(33.925, 353.090, 8, 'title');
+  //initialize(33.925, 353.090, 8, 'title');
   $("#country").find("option[value='empty']").attr("selected", "selected");
   $("#capital").find("option[value='empty']").attr("selected", "selected");
   $("#city").find("option[value='empty']").attr("selected", "selected");
@@ -39,7 +39,6 @@ $(document).ready( function (){
   $("#country").select2({ formatResult: format, formatSelection: format });
   $("#capital").select2();
   $("#city").select2();
-
 });
 
 function add_description_about_country(){
