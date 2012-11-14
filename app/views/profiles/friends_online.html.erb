@@ -25,10 +25,8 @@
                     <%end%>
             		<%if @user_f.count_time_logout < @user_f.sign_in_count and @active%>
 	            		<thead>
-	            			<td class="friend" style="width:140px">
-	            				<a href="profiles/<%=friend.friend.to_s%>">          				
-	            					<%= image_tag @user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name%>
-	            				</a>
+	            			<td class="friend" style="width:140px">	            				
+	            				<%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>
 	            			</td>
 	            			<td class="friends_all">
 	            				<div class="friend_title">

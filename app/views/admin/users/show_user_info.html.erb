@@ -22,10 +22,39 @@
 	    <%= f.submit "Шукати", :id=>'search_user_timerange'%> 
 	<%end%>
 </div>
-<div id='search_details_head'>
-	<h5>Для детального пошуку натисніть:</h5>
+<div id='note'>
+	*Для пошуку ' В останнє на сайті ' 
+</div>
+<div id='search_details'>
+	<div id='search_details_head'>
+		<h5>Для детального пошуку натисніть:</h5>
+	</div>
 	<div id='search_details_body'>
-		go search
+		<%= form_for :detail_search, :url => {:controller=>"admin/users", :action => "show_user_info"} do |f|  %> 	    
+		    <table>
+		    	<tr>
+		    		<td>Ім'я</td>
+		    		<td><%= f.text_field :name, :id=>'name', :placeholder=>"Введіть Ім'я для пошуку"%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>Прізвище</td>
+		    		<td><%= f.text_field :last_name, :id=>'last_name', :placeholder=>"Введіть Прізвище для пошуку"%></td>
+		    	</tr>		    	
+		    	<tr>
+		    		<td>Нік</td>
+		    		<td><%= f.text_field :nik_name, :id=>'nik_name', :placeholder=>"Введіть Нік для пошуку"%></td>		    		
+		    	</tr>
+		    	<tr>
+		    		<td>E-mail</td>
+		    		<td><%= f.text_field :email, :id=>'email', :placeholder=>"Введіть E-mail для пошуку"%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>Телефон</td>
+		    		<td><%= f.text_field :phone, :id=>'phone', :placeholder=>"Введіть Телефон для пошуку"%></td>
+		    	</tr>
+		    </table>		    
+		    <%= f.submit "Шукати", :id=>'search_user_detail'%> 
+		<%end%>
 	</div>
 </div>
 <%= render 'message_search'%>

@@ -18,9 +18,7 @@
             		<%@user_f = User.find(friend.friend)%>
             		<thead>
             			<td class="friend" style="width:140px">
-            				<a href="profiles/<%=friend.friend.to_s%>">          				
-            					<%= image_tag @user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name%>
-            				</a>
+            				<%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>            				
             			</td>
             			<td class="friends_all">
             				<div class="friend_title">
@@ -40,7 +38,7 @@
 							<%end%>
 							<% unless @user_f.higher_educations.blank? %>		
 								<div class="title_high_school">
-									<%= @user_f.higher_educations.first.high_school%>								
+									<%= @user_f.higher_educations.first.high_school%>						
 								</div>
 							<%end%>
             			</td>

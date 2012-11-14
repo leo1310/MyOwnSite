@@ -17,10 +17,8 @@
             	<% @friends.each do |friend|%>
             		<%@user_f = User.find(friend.user_id)%>
             		<thead>
-            			<td class="friend" style="width:140px">
-            				<a href="profiles/<%=friend.user_id.to_s%>">          				
-            					<%= image_tag @user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name%>
-            				</a>
+            			<td class="friend" style="width:140px">            				
+                            <%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>
             			</td>
             			<td class="friend">
             				<div class="friend_title">

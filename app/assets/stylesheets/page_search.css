@@ -1,0 +1,97 @@
+html {
+  height:1000px;
+  background:url(img/uzor.jpeg) #EEE;
+}
+
+body{
+	width:1200px;	
+	margin: auto;
+}
+
+#title_description{
+	background: #DDF5ED;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 7px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-top: 1px solid #00FFA6;
+	text-align: center;
+	font-size: 13px;
+	height: 35px;
+	opacity: 0.99;
+}
+
+#panel_left{
+	float: left;
+	background: #E6D9F5;
+	width: 240px;
+	height: 100px;
+	margin-top: -50px;
+	border-right: 2px solid #45048F;
+}
+
+#panel_right{
+	float: right;
+	background: #E6D9F5;
+	width: 240px;
+	height: 100px;
+	margin-top: -50px;
+	border-left: 2px solid #45048F;
+}
+
+#result{
+	float: left;
+	background: yellow;
+	height: 100px;
+	width: 716px;
+}
+
+#wrap_panel_right{
+	margin-top: 54px;
+	margin-left: 5px;
+}
+
+#wrap_panel_left{
+	margin-top: 54px;
+	margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer{
+	position: static;
+	height: 50px;	
+	background: #6A092E;
+	color: white;
+	text-align:center;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	font-family: "Times New Roman";
+	font-size: 14px;
+
+	margin-top: 910px;	
+}

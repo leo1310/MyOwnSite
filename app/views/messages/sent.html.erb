@@ -47,7 +47,7 @@
 				    </td>
 				    <td>
 					   <div>
-						  <%= message.created_at.to_time.strftime('%d %B, %Y @ %H:%M') %>
+						  <%= message.created_at.utc.getlocal.strftime('%d %B, %Y @ %H:%M') %>
 					   </div>
 				    </td>
 	    		</tr>    		
