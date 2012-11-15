@@ -11,4 +11,16 @@ $(document).ready( function (){
 		$('#count_friends_online').before('У Вас '+count+' друзів онлайн');
 	}
 	
+	search_friends_online();
+	
 });
+
+function search_friends_online(){
+	$('#search').on('keyup', function(){
+		var search = $(this).attr('value');
+		var id = $('#user_id').attr('value');
+		
+		//console.log('*'+search+'*');
+		$.ajax({ url: "/friends_search_online",   type: "GET", data: {search: search, id: id}});		
+	});
+}

@@ -393,6 +393,22 @@ class ProfilesController < ApplicationController
 		end
 	end
 
+	def friends_search
+		@search = params[:search]
+		@user = User.find(params[:id])
+
+		@friends = search_friends(@search, @user)
+		@count = @friends.count	
+	end
+
+	def friends_search_online
+		@search = params[:search]
+		@user = User.find(params[:id])
+
+		@friends = search_friends(@search, @user)
+		@online_users = 0		
+	end
+
 	# ----------------------Settings actions-------------------------------------
 	
 	def my_settings
@@ -619,7 +635,7 @@ class ProfilesController < ApplicationController
 
 		@user = User.find(current_user.id)
 		check_message_on_spam(@user)
-		
+
 		@messages_count = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 0)
 		@new_message = @messages_count.count
 		@messages_count_spam = Message.find_all_by_who_get_mail_and_deleted_geter_and_read_message_and_spam(@user.nik_name, 'true', 'not_read', 1)		

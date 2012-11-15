@@ -24,6 +24,7 @@ MyOwnSite::Application.routes.draw do
   match 'authors' => 'pages#authors'
   match 'contacts' => 'pages#contacts'
   match 'search' => 'pages#search'
+  match 'search_user' => 'pages#search_user'
   match 'additionalInf' => 'pages#additionalInf'  
 
   match 'status_active' => 'pages#status_active'    
@@ -116,6 +117,8 @@ MyOwnSite::Application.routes.draw do
     match 'friends_all/:id', :to=> 'profiles#friends_all', :as=> 'friends_all'           
     match 'friends_query_to', :to=> 'profiles#friends_query_to' 
     match 'friends_query_in', :to=> 'profiles#friends_query_in' 
+    match 'friends_search', :to=> 'profiles#friends_search'
+    match 'friends_search_online', :to=> 'profiles#friends_search_online'
 
     
     

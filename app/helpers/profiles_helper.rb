@@ -11,28 +11,6 @@ module ProfilesHelper
 			return @countries_name = @arr_countries_name.split(",")
 		end
 	end
-
-	def random_friend(count)
-		array_randome_friends = []
-		@index = 0
-		10.times{
-			@tmp = Random.rand(1...count)
-			array_randome_friends[@index] = @tmp
-			@index += 1
-		}
-		array_randome_friends.sort!
-		@index = 0
-		9.times{
-			if array_randome_friends[@index].eql?(array_randome_friends[@index+1])
-				array_randome_friends[@index+1] = array_randome_friends[@index+1]+1
-			elsif (array_randome_friends[@index] > array_randome_friends[@index+1])
-				array_randome_friends[@index+1] = array_randome_friends[@index+1] + (array_randome_friends[@index] - array_randome_friends[@index+1])+1
-			end
-			@index += 1
-		}
-
-		return array_randome_friends
-	end
 	
 	#----------	Checking On Spam -----------------------	
 	def check_message_on_spam(user)
@@ -66,4 +44,37 @@ module ProfilesHelper
 			end
 		end
 	end
+
+	def search_friends(_search, user)
+		if not _search.include? " "
+			@friends = user.friends.find_all_by_query_to_friends(1)
+			unless _search.eql?(" ")
+				@friends_tmp =[]
+				@friends_tmp += @friends.select {|item| (User.find(item.friend)).name.downcase.include? _search}
+
+				if @friends_tmp.count.eql?(0)
+					@friends_tmp += @friends.select {|item| (User.find(item.friend)).last_name.downcase.include? _search}
+				end
+
+				return @friends = @friends_tmp							
+			end
+		else			
+			@friends = user.friends.find_all_by_query_to_friends(1)
+			unless _search.eql?("")			
+				@array = _search.split(" ")
+				@name = @array[0]
+				@last_name = @array[@array.count-1]				
+				
+				@friends_tmp =[]
+				@friends_tmp += @friends.select {|item| (User.find(item.friend)).name.downcase.include? @name and (User.find(item.friend)).last_name.downcase.include? @last_name}
+
+				if @friends_tmp.count.eql?(0)
+					@friends_tmp += @friends.select {|item| (User.find(item.friend)).name.downcase.include? @last_name and (User.find(item.friend)).last_name.downcase.include? @name}				
+				end
+
+				return @friends = @friends_tmp				
+			end
+		end
+	end
+
 end

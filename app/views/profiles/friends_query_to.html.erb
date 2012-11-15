@@ -17,8 +17,12 @@
             	<% @friends.each do |friend|%>
             		<%@user_f = User.find(friend.friend)%>
             		<thead>
-            			<td class="friend" style="width:140px">            				
-                            <%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>
+            			<td class="friend" style="width:140px">
+                            <%if @user_f.avatar_file_name.nil?%>
+                                <%= link_to image_tag('face_big.png', :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>                    
+                            <%else%>            				
+                                <%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>
+                            <%end%>
             			</td>
             			<td class="friend">
             				<div class="friend_title">

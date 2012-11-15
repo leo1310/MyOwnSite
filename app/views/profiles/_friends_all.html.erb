@@ -1,0 +1,51 @@
+<table class="friend_all">
+	<input type='hidden' value=<%=@user.id%> id='user_id'>
+	<% @friends.each do |friend|%>
+		<%@user_f = User.find(friend.friend)%>
+		<thead>
+			<td class="friend" style="width:140px">
+                        <%if @user_f.avatar_file_name.nil?%>
+                              <%= link_to image_tag('face_big.png', :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>                    
+                        <%else%>
+                              <%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>            				
+                        <%end%>
+			</td>
+			<td class="friends_all">
+				<div class="friend_title">
+					<%= @user_f.last_name%> <%= @user_f.name%>            				
+				</div>
+                        <%unless @user_f.status_active.nil?%>
+                              <%if (Time.now-@user_f.status_active) < 60%>
+                                    <%@active = true%>
+                              <%else%>
+                                    <%@active = false%>
+                              <%end%>
+                        <%else%>
+                              <%@active = false%>
+                        <%end%>
+				<%if @user_f.count_time_logout < @user_f.sign_in_count and @active%>
+						<div id="online">Online</div>	
+					<%end%>
+					<% unless @user_f.higher_educations.blank? %>		
+						<div class="title_high_school">
+							<%= @user_f.higher_educations.first.high_school%>						
+						</div>
+					<%end%>
+			</td>
+			<td class="friend_options">                                    
+				<%= link_to "Написати повідомлення", "#"%></br>
+                        <%= link_to "Переглянути друзів", friends_all_path(@user_f.id)%></br>
+                        <%if current_user.id.eql?(@user.id)%>
+				  <%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>                           
+				  <%= link_to "Додати до списку", "#"%>
+                        <%end%>            				
+			</td>            			
+		</thead>
+		<tr >
+			<td colspan="3">
+				<div class="line">
+                	</div>	
+            	</td>
+		</tr>
+	<%end%>
+</table>

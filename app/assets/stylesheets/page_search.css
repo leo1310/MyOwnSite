@@ -6,6 +6,7 @@ html {
 body{
 	width:1200px;	
 	margin: auto;
+	background: #E6D9F5;
 }
 
 #title_description{
@@ -27,7 +28,7 @@ body{
 	float: left;
 	background: #E6D9F5;
 	width: 240px;
-	height: 100px;
+	height: 960px;
 	margin-top: -50px;
 	border-right: 2px solid #45048F;
 }
@@ -36,16 +37,17 @@ body{
 	float: right;
 	background: #E6D9F5;
 	width: 240px;
-	height: 100px;
+	height: 960px;
 	margin-top: -50px;
 	border-left: 2px solid #45048F;
 }
 
 #result{
 	float: left;
-	background: yellow;
-	height: 100px;
+	background: #F5F5F5;
+	height: 910px;
 	width: 716px;
+	overflow: auto;
 }
 
 #wrap_panel_right{
@@ -56,6 +58,86 @@ body{
 #wrap_panel_left{
 	margin-top: 54px;
 	margin-left: 5px;
+}
+
+.find_result{
+	border: 2px solid #D2D2D1;
+	border-style: ridge;
+	margin: 2px 2px 0px 2px;
+	padding: 5px;
+}
+
+.find_result img{
+	width: 128px;
+	height: 128px;
+}
+
+.avatar{
+	width: 128px;
+}
+
+.name{
+	vertical-align: top;
+	width: 385px;
+}
+
+.title_name{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-family: "Times New Roman";
+	font-size: 16px;
+	color: blue;
+	font-style: italic;
+}
+
+#online{
+  font-size: 14px;
+  color:#A5A5A6;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.title_high_school{
+	font-family: "Times New Roman";
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+td.options{
+	font-family: "Times New Roman";
+	font-size: 14px;
+	vertical-align: top;	
+	padding-top: 15px;
+}
+
+#wrap_search{
+	padding: 2px;
+	border: 2px solid #9A9999;
+	border-style: ridge;
+	margin-left: 0px;
+	width: 692px;
+	height: 35px;
+	margin-bottom: 2px;
+	background: #C9C7C6;
+}
+
+#search_user button{
+	border-radius: 13px;
+	margin-top: -65px;
+	margin-left: 225px;
+}
+
+#search_user input{
+	height: 15px;
+}
+
+#search_user{
+	background: #2E6AB1;	
+	padding: 5px;
+	margin-bottom: 5px;
+	width: 290px;
+	height: 25px;
+	border-radius: 6px;
 }
 
 

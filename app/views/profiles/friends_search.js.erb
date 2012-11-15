@@ -1,0 +1,5 @@
+$('.digg_pagination').remove();
+$('.friend_all').remove();
+$('#search_message').remove();
+$("#wrap_search").after("<div id='search_message'>Знайдено співпадінь "+<%=@count%>+"</div>")
+$("#search_message").after("<%=escape_javascript(render(:partial=>"friends_all")) %>");

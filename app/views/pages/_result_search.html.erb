@@ -1,0 +1,44 @@
+<% @users_find.each do |user|%>
+	<div class='find_result'>
+		<table>
+			<tr>
+				<td class='avatar'>
+					<%if user.avatar_file_name.nil?%>
+						<%= link_to image_tag('face_big.png', :size=>'128x128', :title=>user.name+" "+user.last_name, :class=>"image_hover"), profile_path(user)%>
+					<%else%>
+						<%= link_to image_tag(user.avatar.url(:big_thumb), :title=>user.nik_name), profile_path(user)%>
+					<%end%>
+				</td>
+				<td class='name'>
+					<div class='title_name'>
+						<%= user.last_name%> <%= user.name%>						
+					</div>
+					<%unless user.status_active.nil?%>
+		            	<%if (Time.now-user.status_active) < 60%>
+		                	<%@active = true%>
+		            	<%else%>
+		                    <%@active = false%>
+		            	<%end%>
+		        	<%else%>
+		            	<%@active = false%>
+		        	<%end%>
+		        	<%if user.count_time_logout < user.sign_in_count and @active%>
+						<div id="online">Online</div>
+					<%end%>
+					<% unless user.higher_educations.blank? %>		
+						<div class="title_high_school">
+							<%= user.higher_educations.first.high_school%>						
+						</div>
+					<%end%>
+				</td>
+				<td class='options'>
+					<div>
+						<%= link_to "Написати повідомлення", "#"%></br>
+						<%= link_to "Переглянути друзів", friends_all_path(user)%></br>
+						<%= link_to "Додати у друзі", '#' %></br>
+					</div>
+				</td>
+			</tr>
+		</table>		
+	</div>
+<%end%>

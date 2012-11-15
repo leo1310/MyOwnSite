@@ -60,13 +60,13 @@ td.friend_options a:hover{
 }
 
 .friend_online{
-	margin-left: 45px;
+	margin-left: 25px;
 	padding: 5px;
 	font-family: "Times New Roman";
 	font-size: 16px;
 	background: #2296E3;
 	width: 200px;
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 	text-align: center;
 	border: 1px solid #9FF430;
 }
@@ -85,3 +85,39 @@ td.friend_options a:hover{
       background: #6aa6ed;
       padding: 0.1em 0.25em; 
 }
+
+#search_friend{
+	background: #2E6AB1;	
+	padding: 5px;
+	margin-bottom: 5px;
+	width: 290px;
+	height: 25px;
+	border-radius: 6px;
+}
+#search_friend input{
+	height: 15px;
+}
+
+#search_friend button{
+	border-radius: 13px;
+	margin-top: -65px;
+	margin-left: 225px;
+}
+
+#search_message{
+	margin: 10px 0px 5px 30px;
+	font-style: italic;
+	color: #972113;
+}
+
+#wrap_search{
+	padding: 2px;
+	border: 2px solid #9A9999;
+	border-style: ridge;
+	margin-left: 25px;
+	width: 692px;
+	height: 35px;
+	margin-bottom: 2px;
+	background: #C9C7C6;
+}
+

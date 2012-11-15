@@ -1,5 +1,7 @@
 <%= stylesheet_link_tag 'log', :media=> 'all' %>
 <%= stylesheet_link_tag 'profile_friends', :media=> 'all' %>
+<%= javascript_include_tag 'friends/all' %>
+
 
 <div class="tabbable tabs-left" style="margin-top: 25px"> <!-- Only required for left/right tabs -->
 	<%= render 'layouts/profile'%>
@@ -8,57 +10,18 @@
         	<%= render 'friends'%>
             <h1>Мої Друзі</h1>
             <div class="digg_pagination">
-				<div class="page_info">
-					<%= page_entries_info @friends%>    		
-				</div>		
-					<%= will_paginate @friends%>
-			</div>
-            <table class="friend_all">
-            	<% @friends.each do |friend|%>
-            		<%@user_f = User.find(friend.friend)%>
-            		<thead>
-            			<td class="friend" style="width:140px">
-            				<%= link_to image_tag(@user_f.avatar.url, :size => "128x128", :title=>@user_f.nik_name), profile_path(friend.friend)%>            				
-            			</td>
-            			<td class="friends_all">
-            				<div class="friend_title">
-            					<%= @user_f.last_name%> <%= @user_f.name%>            				
-            				</div>
-                                    <%unless @user_f.status_active.nil?%>
-                                          <%if (Time.now-@user_f.status_active) < 60%>
-                                                <%@active = true%>
-                                          <%else%>
-                                                <%@active = false%>
-                                          <%end%>
-                                    <%else%>
-                                          <%@active = false%>
-                                    <%end%>
-            				<%if @user_f.count_time_logout < @user_f.sign_in_count and @active%>
-								<div id="online">Online</div>	
-							<%end%>
-							<% unless @user_f.higher_educations.blank? %>		
-								<div class="title_high_school">
-									<%= @user_f.higher_educations.first.high_school%>						
-								</div>
-							<%end%>
-            			</td>
-            			<td class="friend_options">                                    
-            				<%= link_to "Написати повідомлення", "#"%></br>
-                                    <%= link_to "Переглянути друзів", friends_all_path(@user_f.id)%></br>
-                                    <%if current_user.id.eql?(@user.id)%>
-            				  <%= link_to "Видалити з друзів", delete_friend_path(:id=>@user_f.id) %></br>                           
-            				  <%= link_to "Додати до списку", "#"%>
-                                    <%end%>            				
-            			</td>            			
-            		</thead>
-            		<tr >
-            			<td colspan="3">
-            				<div class="line">
-		                	</div>	
-		            	</td>
-            		</tr>
-            	<%end%>
-            </table>
+			<div class="page_info">
+				<%= page_entries_info @friends%>    		
+			</div>		
+			<%= will_paginate @friends%>
+		</div>
+            <div id='wrap_search'>
+                  <div id='search_friend'>
+                        <input type='text' id='search' placeholder="Введіть ім'я друга">
+                        <button>Знайти</button>
+                  </div>
+            </div>
+            <%= render 'friends_all'%>            
         </div>        
 	</div>
 </div>
