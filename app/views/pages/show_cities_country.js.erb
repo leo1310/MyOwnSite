@@ -1,0 +1,5 @@
+$('.find_result').remove();
+$("#wrap_search").after("<%=escape_javascript(render(:partial=>"result_search")) %>");
+$('#city_name').remove();
+$('.delete_title').remove();
+$("#country_name").after("<%=escape_javascript(render(:partial=>"select_city")) %>");

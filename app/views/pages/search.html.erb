@@ -21,6 +21,19 @@
 </div>
 <div id='panel_right'>
 	<div id='wrap_panel_right'>
-		Panel2
+		<h5>Країна</h5>
+		<select id="country_name">			
+			<option value="empty" id="0">Виберіть Країну</option>
+			<% @countries.each do |country|%>
+				<option value="<%=country.country%>" id=<%=country.id%> > <%=country.country%> </option>
+			<%end%>
+		</select>
+		<%= render 'select_city'%>
+		<h5>Стать</h5>
+		<div class='group_radiobuttons'>
+			<input type='radio' name='stat' value='Не важливо' checked/> <i>Не важливо</i></br>
+			<input type='radio' name='stat' value='Чоловіча'/> <i>Чоловіча</i></br>
+			<input type='radio' name='stat' value='Жіноча'/> <i>Жіноча</i></br>
+		</div>
 	</div>
 </div>

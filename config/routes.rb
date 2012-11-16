@@ -25,6 +25,9 @@ MyOwnSite::Application.routes.draw do
   match 'contacts' => 'pages#contacts'
   match 'search' => 'pages#search'
   match 'search_user' => 'pages#search_user'
+  match 'show_cities_country' => 'pages#show_cities_country'
+  match 'show_users_city' => 'pages#show_users_city'
+  match 'show_users_capital' => 'pages#show_users_capital'
   match 'additionalInf' => 'pages#additionalInf'  
 
   match 'status_active' => 'pages#status_active'    

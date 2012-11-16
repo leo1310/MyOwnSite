@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	before_filter :authenticate_user!	
-	layout 'page'
+	layout 'page'	
 	
 	def index
 		@user = User.find(current_user.id)
@@ -18,7 +18,8 @@ class PagesController < ApplicationController
 	def search
 		@tab_index_main_menu = 7
 
-		@users_find = User.all(:limit=>20)		
+		@users_find = User.all(:limit=>20)
+		@countries = Country.all(:order=>'country ASC')		
 	end
 
 	def status_active	
@@ -62,5 +63,57 @@ class PagesController < ApplicationController
 				@users_find = @users_tmp			
 			end
 		end
+	end
+
+	def show_cities_country
+		if params[:country_id].eql?('0')
+			@users_find = User.all(:limit=>20)
+		else
+			@country = Country.find(params[:country_id])
+			@capital = Capital.find_by_country_id(@country.id)			
+			@cities = []
+			@cities[0] = @capital
+			@cities += @country.cities.all(:order=>'city ASC')
+			
+			
+			@users = User.all
+			@users_tmp = []
+			@users_find = []
+			@users_tmp += @users.select{|item| item.contact != nil }
+			@users_find += @users_tmp.select{|item| item.contact.country.include? @country.country}
+		end
+	end
+
+	def show_users_city		
+		if params[:country_id].nil?
+			@city = City.find(params[:city_id])
+			@country = Country.find(@city.country_id)
+
+			@users = User.all
+			@users_tmp = []
+			@users_find = []
+			@users_tmp += @users.select{|item| item.contact != nil }
+			@users_find += @users_tmp.select{|item| item.contact.country.include? @country.country and item.contact.town.include? @city.city}
+
+		else
+			@country = Country.find(params[:country_id])
+
+			@users = User.all
+			@users_tmp = []
+			@users_find = []
+			@users_tmp += @users.select{|item| item.contact != nil }
+			@users_find += @users_tmp.select{|item| item.contact.country.include? @country.country}
+		end
+	end
+
+	def show_users_capital
+		@capital = Capital.find(params[:capital_id])
+		@country = Country.find(@capital.country_id)				
+		
+		@users = User.all
+		@users_tmp = []
+		@users_find = []
+		@users_tmp += @users.select{|item| item.contact != nil }
+		@users_find += @users_tmp.select{|item| item.contact.country.include? @country.country and item.contact.town.include? @capital.name}
 	end
 end

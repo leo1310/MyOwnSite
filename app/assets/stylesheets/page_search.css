@@ -53,6 +53,26 @@ body{
 #wrap_panel_right{
 	margin-top: 54px;
 	margin-left: 5px;
+	border-style: ridge;
+	border: 2px solid #D2D2D1;
+	width: 210px;
+	background: gold;
+}
+
+#wrap_panel_right #country_name, #wrap_panel_right #city_name{
+	width: 200px;
+	margin-left: 5px;
+	margin-top: -10px;
+}
+
+#wrap_panel_right #city_name{
+
+}
+
+#wrap_panel_right h5{
+	margin-left: 10px;
+	margin-top: 3px;
+	font-style: italic;	
 }
 
 #wrap_panel_left{
@@ -115,7 +135,8 @@ td.options{
 	border: 2px solid #9A9999;
 	border-style: ridge;
 	margin-left: 0px;
-	width: 692px;
+	min-width: 692px;
+	max-width: 706px;
 	height: 35px;
 	margin-bottom: 2px;
 	background: #C9C7C6;
@@ -139,6 +160,12 @@ td.options{
 	height: 25px;
 	border-radius: 6px;
 }
+
+.group_radiobuttons{
+	margin-left: 5px;
+	margin-top: -10px;
+}
+
 
 
 

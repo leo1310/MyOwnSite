@@ -1,0 +1,13 @@
+<% unless @cities.nil?%>
+	<h5 class='delete_title'>Місто</h5>
+	<select id="city_name">			
+		<option value="empty" id="0">Виберіть Місто</option>
+		<% @cities.each do |city|%>
+			<%if city.class.name.eql?('Capital')%>
+				<option value="<%=city.name%>" cid=<%=city.id%> ><%=city.name%></option>
+			<%else%>
+				<option value="<%=city.city%>" id=<%=city.id%> > <%=city.city%> </option>
+			<%end%>
+		<%end%>
+	</select>
+<%end%>
